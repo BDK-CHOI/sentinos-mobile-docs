@@ -132,48 +132,79 @@
     .toc li { margin: 6px 0; font-size: 10.5pt; }
     .toc a { color: var(--action); text-decoration: none; }
 
-    /* Mockup gallery */
+    /* Mockup gallery — fixed frame size for visual consistency */
     .shot-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin: 8px 0 6px;
-      align-items: end;
+      gap: 10px;
+      margin: 6px 0 8px;
+      align-items: stretch;
     }
     .shot-row.two { grid-template-columns: 1fr 1fr; }
-    .shot-row.four { grid-template-columns: repeat(4, 1fr); }
     .shot-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 6px 6px 8px;
+      border-radius: 12px;
+      padding: 8px 8px 10px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
     }
-    .shot-card img {
+    /* Phone mockups: same viewport box */
+    .shot-card.phone .shot-frame {
+      height: 132mm;
       width: 100%;
-      height: auto;
-      max-height: 168mm;
-      object-fit: contain;
-      border-radius: 6px;
-      display: block;
-      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 auto;
     }
-    .shot-card.phone img { max-height: 105mm; }
-    .shot-card.wide img { max-height: 72mm; }
+    .shot-card.phone img {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+    }
+    /* Tablet / wide: full-bleed consistent height */
+    .shot-card.wide .shot-frame {
+      height: 88mm;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .shot-card.wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
     .shot-card figcaption {
-      margin-top: 5px;
-      font-size: 7.5pt;
+      margin-top: 7px;
+      font-size: 8pt;
       font-weight: 700;
       color: var(--muted);
       font-family: ui-monospace, Consolas, monospace;
+      line-height: 1.35;
+      flex: 1;
     }
     .shot-card .cap-title {
       color: #fff;
-      font-size: 8pt;
+      font-size: 9pt;
       display: block;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
       font-family: Pretendard, system-ui, sans-serif;
+      font-weight: 750;
     }
     .note-bar {
       background: var(--surface);
@@ -190,10 +221,15 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 10px 8px 8px;
+      padding: 12px 10px 10px;
       margin: 8px 0 10px;
     }
-    .arch-svg { width: 100%; height: auto; display: block; }
+    .arch-svg {
+      width: 100%;
+      height: auto;
+      min-height: 105mm;
+      display: block;
+    }
     .zone-notes {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -265,7 +301,7 @@
 
   <!-- PAGE 1 Cover -->
   <section class="page">
-    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.1 · 2026-07-13</p>
+    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.2 · 2026-07-13</p>
     <div class="cover-center">
       <h1>장애 인지에서 초동까지,<br /><span class="accent">손 안에서 3분</span></h1>
       <p class="slogan">식별 → 즉시 손 → 필요할 때 깊이</p>
@@ -282,14 +318,15 @@
     </div>
     <h3 style="margin-top:22px">목차</h3>
     <ol class="toc">
-      <li>디자인 시안 — 인박스 · 상세 · 조치 (실 시안 캡처)</li>
-      <li>디자인 시안 — 로그 · Ack · 관계자 · 태블릿</li>
+      <li>디자인 시안 — 인박스 · 상세 · 조치</li>
+      <li>디자인 시안 — 로그 · Ack · 관계자</li>
+      <li>디자인 시안 — AI 탭 · 태블릿</li>
       <li>망 아키텍처 구성도 — 외부 / DMZ / 내부망</li>
       <li>핵심 기능 및 효과 — 결론</li>
     </ol>
     <div class="footer-note">
-      <span>Sentinos Mobile Brief v1.1</span>
-      <span>1 / 5</span>
+      <span>Sentinos Mobile Brief v1.2</span>
+      <span>1 / 6</span>
     </div>
   </section>
 
@@ -297,26 +334,26 @@
   <section class="page">
     <p class="eyebrow">01 · DESIGN MOCKUPS</p>
     <h2>디자인 시안 — 인박스 · 상세 · 조치</h2>
-    <p class="muted" style="font-size:8.5pt;margin-bottom:6px">
-      출처: mockups.html 실 렌더 캡처 · 토큰 고정 · 변형 C
+    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">
+      mockups.html 실 캡처 · 폰 프레임 동일 높이(132mm) · 변형 C
     </p>
     <div class="shot-row">
       <figure class="shot-card phone">
-        <img src="assets/shots/01-inbox.png" alt="화면1 이슈 인박스" />
+        <div class="shot-frame"><img src="assets/shots/01-inbox.png" alt="화면1 이슈 인박스" /></div>
         <figcaption>
           <span class="cap-title">화면 1 · 이슈 인박스</span>
           활성만 · 경과 타이머 · 필터 4칩
         </figcaption>
       </figure>
       <figure class="shot-card phone">
-        <img src="assets/shots/02-detail.png" alt="화면2 이슈 상세" />
+        <div class="shot-frame"><img src="assets/shots/02-detail.png" alt="화면2 이슈 상세" /></div>
         <figcaption>
           <span class="cap-title">화면 2 · 이슈 상세 (Main)</span>
           식별 · AI CTA · 로그 미리보기
         </figcaption>
       </figure>
       <figure class="shot-card phone">
-        <img src="assets/shots/03-action.png" alt="화면3 조치" />
+        <div class="shot-frame"><img src="assets/shots/03-action.png" alt="화면3 조치" /></div>
         <figcaption>
           <span class="cap-title">화면 3 · 조치 Sub1~4</span>
           기본 매뉴얼 · 칩 전환
@@ -324,69 +361,82 @@
       </figure>
     </div>
     <div class="note-bar">
-      <strong style="color:#fff">정보 구조</strong> —
-      Main(사실)과 조치(Sub)를 <strong>화면 분리</strong>해 이중 스크롤을 없앤다.
-      AI 추정 CTA → 조치 화면 진입, 기본 칩 = <strong>Sub1 긴급조치 매뉴얼</strong>.
+      <strong style="color:#fff">식별 → 즉시 손 → 필요할 때 깊이</strong> —
+      Main과 조치를 화면 분리. CTA → 조치, 기본 칩 = Sub1 매뉴얼.
     </div>
-    <h3>Sub 칩 중요도</h3>
-    <table>
-      <thead>
-        <tr><th>칩</th><th>블록</th><th>역할</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>1 매뉴얼</strong></td><td>긴급조치 Runbook</td><td>즉시 손 · 기본 랜딩</td></tr>
-        <tr><td><strong>2 AI</strong></td><td>분석 &amp; 조치제안</td><td>깊이 1 · 근거 필수</td></tr>
-        <tr><td><strong>3 유사</strong></td><td>유사 이슈 조치내역</td><td>깊이 2 · 재사용</td></tr>
-        <tr><td><strong>4 이력</strong></td><td>AI 발생이력 분석</td><td>깊이 3 · 패턴</td></tr>
-      </tbody>
-    </table>
     <div class="footer-note">
       <span>https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html</span>
-      <span>2 / 5</span>
+      <span>2 / 6</span>
     </div>
   </section>
 
-  <!-- PAGE 3 more shots -->
+  <!-- PAGE 3 phones 2 -->
   <section class="page">
     <p class="eyebrow">01 · DESIGN MOCKUPS (계속)</p>
-    <h2>디자인 시안 — 로그 · Ack · 관계자 · 태블릿</h2>
-    <div class="shot-row four">
+    <h2>디자인 시안 — 로그 · Ack · 관계자</h2>
+    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">동일 프레임 크기 · 3열 정렬</p>
+    <div class="shot-row">
       <figure class="shot-card phone">
-        <img src="assets/shots/04-log.png" alt="로그 상세" />
-        <figcaption><span class="cap-title">화면 4 · 로그</span>원문 · 마스킹</figcaption>
-      </figure>
-      <figure class="shot-card phone">
-        <img src="assets/shots/05-ack.png" alt="Ack 시트" />
-        <figcaption><span class="cap-title">화면 5 · Ack</span>Silence 3필수</figcaption>
-      </figure>
-      <figure class="shot-card phone">
-        <img src="assets/shots/06-contact.png" alt="관계자" />
-        <figcaption><span class="cap-title">화면 6 · 관계자</span>tel / sms</figcaption>
-      </figure>
-      <figure class="shot-card phone">
-        <img src="assets/shots/03-action-ai.png" alt="조치 AI 탭" />
-        <figcaption><span class="cap-title">화면 3 · Sub2 AI</span>조치제안 탭</figcaption>
-      </figure>
-    </div>
-    <h3>태블릿 마스터–디테일 (768px+)</h3>
-    <div class="shot-row two">
-      <figure class="shot-card wide" style="grid-column: 1 / -1;">
-        <img src="assets/shots/07-tablet.png" alt="태블릿 스플릿" />
+        <div class="shot-frame"><img src="assets/shots/04-log.png" alt="로그 상세" /></div>
         <figcaption>
-          <span class="cap-title">태블릿 스플릿 · 좌 인박스 320px + 우 Main/Sub 구조</span>
-          선택 카드 = 액션 블루 외곽선 · 심각도 색과 경쟁 금지
+          <span class="cap-title">화면 4 · 로그 상세</span>
+          원문 mono · 마스킹 ▮▮▮
+        </figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <div class="shot-frame"><img src="assets/shots/05-ack.png" alt="Ack 시트" /></div>
+        <figcaption>
+          <span class="cap-title">화면 5 · Ack</span>
+          Silence · 3필수 입력
+        </figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <div class="shot-frame"><img src="assets/shots/06-contact.png" alt="관계자" /></div>
+        <figcaption>
+          <span class="cap-title">화면 6 · 관계자</span>
+          tel: / sms: · 요약 첨부
         </figcaption>
       </figure>
     </div>
     <div class="note-bar">
-      시각 토큰: 다크 slate · Critical <span style="color:#BF1B00">#BF1B00</span> ·
+      시각 토큰: Critical <span style="color:#BF1B00">#BF1B00</span> ·
       Major <span style="color:#C47A3A">#99440A</span> ·
       Minor <span style="color:#D1CF2B">#D1CF2B</span> ·
-      시그니처 = <strong style="color:#fff">경과 타이머</strong> (mono)
+      시그니처 = <strong style="color:#fff">경과 타이머</strong>
     </div>
     <div class="footer-note">
       <span>시안 캡처 · assets/shots/*</span>
-      <span>3 / 5</span>
+      <span>3 / 6</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 AI + tablet -->
+  <section class="page">
+    <p class="eyebrow">01 · DESIGN MOCKUPS (계속)</p>
+    <h2>디자인 시안 — AI 탭 · 태블릿</h2>
+    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">폰 프레임 동일 높이 · 태블릿 전폭</p>
+    <div class="shot-row">
+      <div></div>
+      <figure class="shot-card phone">
+        <div class="shot-frame"><img src="assets/shots/03-action-ai.png" alt="조치 AI 탭" /></div>
+        <figcaption>
+          <span class="cap-title">화면 3 · Sub2 AI 분석 &amp; 조치제안</span>
+          EVENT · qwen2.5 · 근거 필수 · surface-2
+        </figcaption>
+      </figure>
+      <div></div>
+    </div>
+    <h3>태블릿 마스터–디테일 (768px+)</h3>
+    <figure class="shot-card wide">
+      <div class="shot-frame"><img src="assets/shots/07-tablet.png" alt="태블릿 스플릿" /></div>
+      <figcaption>
+        <span class="cap-title">태블릿 스플릿 · 좌 인박스 320px + 우 상세/조치</span>
+        선택 카드 = 액션 블루 외곽선 · 심각도 색과 경쟁 금지
+      </figcaption>
+    </figure>
+    <div class="footer-note">
+      <span>폰 132mm · 태블릿 88mm 고정 프레임</span>
+      <span>4 / 6</span>
     </div>
   </section>
 
@@ -515,11 +565,11 @@
 
     <div class="footer-note">
       <span>출처: 기획 v2.2 · wiki 기술스택·아키텍처</span>
-      <span>4 / 5</span>
+      <span>5 / 6</span>
     </div>
   </section>
 
-  <!-- PAGE 5 Conclusion -->
+  <!-- PAGE 6 Conclusion -->
   <section class="page">
     <p class="eyebrow">03 · OUTCOMES</p>
     <h2>핵심 기능 및 효과 — 결론</h2>
@@ -608,8 +658,8 @@
     </p>
 
     <div class="footer-note">
-      <span>Sentinos Mobile · 2026-07-13 · Brief v1.1</span>
-      <span>5 / 5</span>
+      <span>Sentinos Mobile · 2026-07-13 · Brief v1.2</span>
+      <span>6 / 6</span>
     </div>
   </section>
 
