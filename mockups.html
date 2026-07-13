@@ -30,17 +30,19 @@
   </header>
   <header class="mock-page-header">
     <div>
-      <p class="eyebrow">Design mockups · v2.2 규칙 반영</p>
+      <p class="eyebrow">Design mockups · v2.2 · 변형 C</p>
       <h1>Sentinos Mobile 시안</h1>
-      <p class="sub">토큰·위계·상태 규칙의 시각 고정본. 인박스는 활성 이슈만(v2.1), 담당 1인·부서 병기(v2.2).</p>
+      <p class="sub">
+        슬로건 <strong>식별 → 즉시 손 → 필요할 때 깊이</strong>.
+        인박스 활성만 · 상세 Main+Sub1~4 · 담당/부서 v2.2.
+      </p>
     </div>
     <a class="back-link" href="design.html">← 디자인 컨셉</a>
   </header>
 
   <nav class="mock-jump" aria-label="시안 바로가기">
     <a href="#m-inbox">인박스</a>
-    <a href="#m-detail">상세</a>
-    <a href="#m-guide">가이드</a>
+    <a href="#m-detail">상세 · 변형C</a>
     <a href="#m-log">로그</a>
     <a href="#m-ack">Ack 시트</a>
     <a href="#m-contact">관계자</a>
@@ -116,212 +118,246 @@
     </div>
   </section>
 
-  <!-- ========== 2. 상세 ========== -->
-  <section class="mock-section" id="m-detail">
-    <div class="mock-meta">
-      <h2>화면 2 · 이슈 상세</h2>
-      <p>워룸형 단일 스크롤. 히어로 34px 경과. sourceType=loki 로그 목록. 하단 Ack | ☎.</p>
-    </div>
-    <div class="phone-frame" data-label="상세 · LOKI">
-      <div class="phone-notch"></div>
-      <div class="phone-screen has-action">
-        <div class="stack-appbar">
-          <span class="back">‹</span>
-          <span class="host-badge mono">PRCORAP1</span>
-          <span class="mini-badge">+1</span>
-        </div>
-        <div class="hero sev-major">
-          <div class="stripe thick"></div>
-          <div class="hero-top">
-            <span class="sev-label mono">MAJOR · LOKI</span>
-            <span class="count mono">44건 · 증가 중</span>
-          </div>
-          <div class="hero-timer mono">04:32 경과</div>
-          <p class="hero-title">ORA-00001 중복키 44건 발생</p>
-          <p class="meta mono">발생 2026-07-06 09:31:04 · 계정계 COR(여신관리부)</p>
-          <p class="meta mono">호스트 PRCORAP1 · 오류코드 ORA-00001</p>
-          <p class="owners">담당 김철파(SRE) · 이영희(업무) · 박정수(DBA)</p>
-        </div>
-        <div class="ai-strip">
-          <span class="ai-badge mono">AI 높음</span>
-          <span class="ai-text">추정: 야간배치 중복 실행 → PK 충돌</span>
-          <span class="ai-link">가이드 ›</span>
-        </div>
-        <p class="section-cap mono">로그 3건 · LOKI</p>
-        <div class="log-rows">
-          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">unique constraint COR.PK_CUST_ACC violated</span><span>›</span></div>
-          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">ORA-00001: unique constraint …</span><span>›</span></div>
-          <div class="log-row"><span class="lvl wrn">WRN</span><span class="mono trunc">batch job COR_NIGHT restarted</span><span>›</span></div>
-        </div>
-        <div class="action-bar">
-          <button class="ack-half" type="button">
-            <span class="handle"></span>
-            Ack 상황인지 완료처리
-          </button>
-          <span class="vdiv"></span>
-          <button class="contact-half" type="button">☎ 관계자</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 2b. AI/Runbook 가이드 (콘솔 events 행 확장 정합) ========== -->
-  <section class="mock-section" id="m-guide">
-    <div class="mock-meta">
-      <h2>화면 2b · AI / Runbook 가이드</h2>
+  <!-- ========== 2. 상세 · 변형 C ========== -->
+  <section class="mock-section wide" id="m-detail">
+    <div class="mock-meta full">
+      <h2>화면 2 · 이슈 상세 — 변형 C</h2>
+      <p class="slogan-line">
+        <strong>식별 → 즉시 손 → 필요할 때 깊이</strong>
+        <span class="mono muted"> · Main + Sub1~4 · 기본 랜딩 = 매뉴얼</span>
+      </p>
       <p>
-        상세 AI 스트립 → <code>/issues/[id]/guide</code>.
-        데이터 정본 = 콘솔 <code>/events</code> 행 확장의
-        <strong>진급조치 매뉴얼</strong>(runbook + steps) ·
-        <strong>유사이슈 조치이력</strong>(incident_knowledge) ·
-        <strong>AI 분석</strong>(event_ai_analysis).
+        <strong>Main</strong> 이벤트 발생 내용(사실) ·
+        <strong>Sub1</strong> 긴급조치 매뉴얼 ·
+        <strong>Sub2</strong> AI 분석&amp;조치제안 ·
+        <strong>Sub3</strong> 유사 조치내역 ·
+        <strong>Sub4</strong> AI 발생이력 분석.
+        칩을 누르면 패널만 바뀝니다 (페이지 전환 없음).
       </p>
       <p class="meta-note mono">
-        샘플 원천 DB: event #71 · rule afqs5s6xaaghsc · runbook #18 · knowledge #47·#49 · AI model qwen2.5
+        샘플: [AUT] 승인 5xx · runbook #18 · knowledge #49/#47 · AI EVENT/HISTORY · qwen2.5
       </p>
     </div>
-    <div class="phone-frame tall" data-label="가이드 · AUT 5xx">
-      <div class="phone-notch"></div>
-      <div class="phone-screen has-action guide-scroll">
-        <div class="stack-appbar">
-          <span class="back">‹</span>
-          <span class="app-title sm">조치 가이드</span>
-          <span class="elapsed mono guide-timer">04:32</span>
-        </div>
 
-        <div class="caution-card">
-          <div class="caution-head">⚠ 주의</div>
-          <p>롤백·재기동은 영향도가 크므로 담당 개발팀 확인 후 수행할 것.</p>
-          <button class="ghost-btn sm-btn" type="button">확인했습니다</button>
-        </div>
-
-        <!-- 진급조치 매뉴얼 = Runbook -->
-        <p class="section-cap mono">진급조치 매뉴얼 · RUNBOOK #18 · 0/5 · 발행본</p>
-        <div class="rb-title-block">
-          <strong>서비스 5xx 오류율 급증 대응</strong>
-          <p class="meta mono">HTTP 5xx 급증 — 앱/DB 오류 초동 · rule afqs5s6xaaghsc</p>
-        </div>
-
-        <div class="step-list">
-          <article class="step-card">
-            <div class="step-head">
-              <span class="chk"></span>
-              <span class="step-type check">CHECK</span>
-              <span class="step-no mono">1</span>
-            </div>
-            <p class="step-title">에러 로그에서 5xx 원인 확인</p>
-            <p class="step-body">최근 5분 앱 로그에서 5xx/Exception 스택을 확인해 원인 유형(코드 오류 / DB / 외부연동)을 판별한다.</p>
-            <pre class="cmd mono">kubectl -n &lt;ns&gt; logs deploy/&lt;app&gt; --since=5m | grep -iE '5[0-9]{2}|exception'</pre>
-            <div class="step-actions">
-              <button class="ghost-btn sm-btn" type="button">복사</button>
-              <button class="ghost-btn sm-btn" type="button">로그에서 확인 ›</button>
-            </div>
-          </article>
-          <article class="step-card">
-            <div class="step-head">
-              <span class="chk"></span>
-              <span class="step-type check">CHECK</span>
-              <span class="step-no mono">2</span>
-            </div>
-            <p class="step-title">DB 커넥션풀·응답 확인</p>
-            <p class="step-body">5xx가 DB 계열이면 커넥션풀 고갈/슬로우쿼리 여부를 본다.</p>
-            <pre class="cmd mono">curl -s localhost:8080/actuator/metrics/hikaricp.connections</pre>
-            <div class="step-actions">
-              <button class="ghost-btn sm-btn" type="button">복사</button>
-            </div>
-          </article>
-          <article class="step-card">
-            <div class="step-head">
-              <span class="chk"></span>
-              <span class="step-type contact">CONTACT</span>
-              <span class="step-no mono">3</span>
-            </div>
-            <p class="step-title">원인이 DB면 DB운영파트 연락</p>
-            <p class="step-body">커넥션 고갈·슬로우쿼리 등 DB 원인이면 업무·호스트·오류코드를 전달한다.</p>
-            <button class="ghost-btn sm-btn contact-cta" type="button">☎ 관계자 호출</button>
-          </article>
-          <article class="step-card">
-            <div class="step-head">
-              <span class="chk"></span>
-              <span class="step-type action">ACTION</span>
-              <span class="step-no mono">4</span>
-            </div>
-            <p class="step-title">일시 부하면 스케일아웃, 코드 결함이면 롤백</p>
-            <p class="step-body">배포 직후 발생이면 직전 버전 롤백(담당 개발팀 확인 후).</p>
-            <pre class="cmd mono">kubectl -n &lt;ns&gt; rollout undo deploy/&lt;app&gt;</pre>
-            <div class="step-actions">
-              <button class="ghost-btn sm-btn" type="button">복사</button>
-              <button class="ghost-btn sm-btn" type="button">콘솔 링크</button>
-              <span class="meta mono">체크 = 콘솔에서 수행함</span>
-            </div>
-          </article>
-          <article class="step-card done-hint">
-            <div class="step-head">
-              <span class="chk"></span>
-              <span class="step-type action">ACTION</span>
-              <span class="step-no mono">5</span>
-            </div>
-            <p class="step-title">해소 확인 후 Ack/조치내역 기록</p>
-            <p class="step-body">5xx율이 임계 이하로 내려온 것을 확인하고 콘솔에 실제 조치를 기록한다.</p>
-          </article>
-        </div>
-
-        <!-- AI 분석 = event_ai_analysis -->
-        <div class="ai-block">
-          <div class="ai-block-head">
-            <span class="section-cap mono tight">AI 분석 · EVENT</span>
-            <span class="ai-badge mono">AI 생성 · qwen2.5</span>
+    <div class="variant-c-stage">
+      <div class="phone-frame tall" data-label="상세 · 변형 C · 인터랙티브">
+        <div class="phone-notch"></div>
+        <div class="phone-screen has-action vc-screen">
+          <div class="stack-appbar">
+            <span class="back">‹</span>
+            <span class="host-badge mono">aut-app</span>
+            <span class="mini-badge">+1</span>
           </div>
-          <p class="ai-label">추정 원인</p>
-          <p class="ai-strong">승인 앱 신규 버전 배포 가능성 (유사 92%·RAW)</p>
-          <p class="ai-body">배포 검증 중 오류 페이지 반복 호출로 5xx 급증 가능 (유사 86%·CURATED)</p>
-          <p class="ai-label">권고 조치</p>
-          <ol class="ai-list">
-            <li>[DEVR] 신규 배포 여부 확인</li>
-            <li>승인 앱(aut/sample-app) 재기동 후 5xx 모니터링</li>
-            <li>필요 시 직전 버전 롤백</li>
-            <li>배포 검증 절차에 부하 상한 명시</li>
-          </ol>
-          <p class="ai-label">근거</p>
-          <p class="meta mono evidence">PromQL 5xx rate · JVM CPU 0.03% · Heap 2.2% · thr 35 · req 0.2/s</p>
-          <button class="ghost-btn sm-btn" type="button">근거 보기 › (지식 연동)</button>
-        </div>
 
-        <!-- 유사이슈 조치이력 = incident_knowledge -->
-        <p class="section-cap mono">유사이슈 조치이력 · incident_knowledge</p>
-        <div class="sim-list">
-          <article class="sim-card">
-            <div class="card-row1">
-              <span class="sim-badge curated mono">CURATED · 86%</span>
-              <span class="elapsed mono">MTTR 7분</span>
+          <!-- ===== Main: 식별 ===== -->
+          <div class="vc-main" data-layer="identify">
+            <p class="layer-tag mono">① MAIN · 식별</p>
+            <div class="hero sev-critical">
+              <div class="stripe thick critical"></div>
+              <div class="hero-top">
+                <span class="sev-label mono">CRITICAL · PROM</span>
+                <span class="count mono">rate&gt;0.2</span>
+              </div>
+              <div class="hero-timer mono">04:32 경과</div>
+              <p class="hero-title">[AUT] 승인 5xx 오류율 급증</p>
+              <p class="meta mono">발생 2026-07-09 15:14 · 승인계 AUT</p>
+              <p class="meta mono">rule afqs5s6xaaghsc · env PR</p>
+              <p class="owners">담당 김철파(SRE) · 이영희(업무)</p>
             </div>
-            <p class="summary tight">[AUT] 승인 5xx · 배포 검증 부하</p>
-            <p class="meta">원인: [DEVR] 오전 배포 검증 중 오류 페이지 반복 호출</p>
-            <p class="meta">조치: 호출 스크립트 중단 + 승인앱 재기동 · 부하 상한 명시</p>
-            <button class="ghost-btn sm-btn" type="button">이 조치 재사용</button>
-          </article>
-          <article class="sim-card">
-            <div class="card-row1">
-              <span class="sim-badge raw mono">RAW · 92%</span>
-              <span class="elapsed mono">미해소 기록</span>
+            <p class="section-cap mono">재료 미리보기 · 로그 2건</p>
+            <div class="log-rows compact">
+              <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">http 5xx job=aut/aut-app …</span><span>›</span></div>
+              <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">/error path spike after deploy</span><span>›</span></div>
             </div>
-            <p class="summary tight">[AUT] 승인 5xx · 신규 버전 /error</p>
-            <p class="meta">원인: 신규 버전 /error 경로 5xx 다량</p>
-            <p class="meta">예정: 재기동 후 정상화 확인 · 필요 시 롤백</p>
-            <p class="meta mono muted-text">RAW — 재사용 가중 하향 · 검수 전</p>
-          </article>
-        </div>
+            <button class="ghost-btn sm-btn full-link" type="button">로그 전체 ›</button>
+            <button class="ai-teaser" type="button" data-goto="sub2">
+              <span class="ai-badge mono">AI</span>
+              <span class="ai-text">추정: 신규 버전 배포 가능 (유사 92%) · 탭 → Sub2</span>
+            </button>
+          </div>
 
-        <div class="action-bar">
-          <button class="ack-half" type="button">
-            <span class="handle"></span>
-            Ack 상황인지 완료처리
-            <span class="ack-cap mono">수행 기록 자동 첨부</span>
-          </button>
-          <span class="vdiv"></span>
-          <button class="contact-half" type="button">☎ 관계자<span class="dot">1</span></button>
+          <!-- ===== Sub nav: 중요도 순 ===== -->
+          <div class="sub-nav" role="tablist" aria-label="조치 영역">
+            <button type="button" class="sub-chip is-on" role="tab" aria-selected="true" data-sub="sub1">
+              <span class="sub-ord">1</span>매뉴얼
+              <span class="sub-badge mono">0/5</span>
+            </button>
+            <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub2">
+              <span class="sub-ord">2</span>AI
+            </button>
+            <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub3">
+              <span class="sub-ord">3</span>유사
+              <span class="sub-badge mono">2</span>
+            </button>
+            <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub4">
+              <span class="sub-ord">4</span>이력
+            </button>
+          </div>
+          <p class="sub-hint mono" id="sub-hint">② 즉시 손 · Sub1 긴급조치 매뉴얼 (기본 랜딩)</p>
+
+          <!-- ===== Sub panels ===== -->
+          <div class="sub-panels">
+            <!-- Sub1 Runbook -->
+            <div class="sub-panel is-on" id="panel-sub1" role="tabpanel" data-layer="act">
+              <div class="caution-card">
+                <div class="caution-head">⚠ 주의</div>
+                <p>롤백·재기동은 영향도가 크므로 담당 개발팀 확인 후 수행할 것.</p>
+                <button class="ghost-btn sm-btn" type="button">확인했습니다</button>
+              </div>
+              <p class="section-cap mono">긴급조치 매뉴얼 · RUNBOOK #18 · 0/5</p>
+              <div class="rb-title-block">
+                <strong>서비스 5xx 오류율 급증 대응</strong>
+                <p class="meta mono">HTTP 5xx 초동 · by-rule afqs5s6xaaghsc</p>
+              </div>
+              <div class="step-list">
+                <article class="step-card">
+                  <div class="step-head">
+                    <span class="chk"></span>
+                    <span class="step-type check">CHECK</span>
+                    <span class="step-no mono">1</span>
+                  </div>
+                  <p class="step-title">에러 로그에서 5xx 원인 확인</p>
+                  <p class="step-body">최근 5분 로그에서 5xx/Exception 스택으로 원인 유형 판별.</p>
+                  <pre class="cmd mono">kubectl -n &lt;ns&gt; logs deploy/&lt;app&gt; --since=5m | grep -iE '5[0-9]{2}|exception'</pre>
+                  <div class="step-actions">
+                    <button class="ghost-btn sm-btn" type="button">복사</button>
+                    <button class="ghost-btn sm-btn" type="button">로그에서 확인 ›</button>
+                  </div>
+                </article>
+                <article class="step-card">
+                  <div class="step-head">
+                    <span class="chk"></span>
+                    <span class="step-type check">CHECK</span>
+                    <span class="step-no mono">2</span>
+                  </div>
+                  <p class="step-title">DB 커넥션풀·응답 확인</p>
+                  <pre class="cmd mono">curl -s localhost:8080/actuator/metrics/hikaricp.connections</pre>
+                </article>
+                <article class="step-card">
+                  <div class="step-head">
+                    <span class="chk"></span>
+                    <span class="step-type contact">CONTACT</span>
+                    <span class="step-no mono">3</span>
+                  </div>
+                  <p class="step-title">원인이 DB면 DB운영파트 연락</p>
+                  <button class="ghost-btn sm-btn contact-cta" type="button">☎ 관계자 호출</button>
+                </article>
+                <article class="step-card">
+                  <div class="step-head">
+                    <span class="chk"></span>
+                    <span class="step-type action">ACTION</span>
+                    <span class="step-no mono">4</span>
+                  </div>
+                  <p class="step-title">스케일아웃 또는 롤백</p>
+                  <pre class="cmd mono">kubectl -n &lt;ns&gt; rollout undo deploy/&lt;app&gt;</pre>
+                  <span class="meta mono">체크 = 콘솔에서 수행함</span>
+                </article>
+                <article class="step-card done-hint">
+                  <div class="step-head">
+                    <span class="chk"></span>
+                    <span class="step-type action">ACTION</span>
+                    <span class="step-no mono">5</span>
+                  </div>
+                  <p class="step-title">해소 확인 후 Ack/조치내역 기록</p>
+                </article>
+              </div>
+            </div>
+
+            <!-- Sub2 AI EVENT -->
+            <div class="sub-panel" id="panel-sub2" role="tabpanel" hidden data-layer="depth">
+              <div class="ai-block">
+                <div class="ai-block-head">
+                  <span class="section-cap mono tight">Sub2 · AI 분석 &amp; 조치제안</span>
+                  <span class="ai-badge mono">EVENT · qwen2.5</span>
+                </div>
+                <p class="ai-label">추정 원인</p>
+                <p class="ai-strong">승인 앱 신규 버전 배포 가능성 (유사 92%·RAW)</p>
+                <p class="ai-body">배포 검증 중 오류 페이지 반복 호출로 5xx 급증 가능 (유사 86%·CURATED)</p>
+                <p class="ai-label">권고 조치</p>
+                <ol class="ai-list">
+                  <li>[DEVR] 신규 배포 여부 확인</li>
+                  <li>aut/sample-app 재기동 후 5xx 모니터링</li>
+                  <li>필요 시 직전 버전 롤백</li>
+                  <li>배포 검증에 부하 상한 명시</li>
+                </ol>
+                <p class="ai-label">근거</p>
+                <p class="meta mono evidence">PromQL 5xx · JVM CPU 0.03% · Heap 2.2% · thr 35</p>
+                <button class="ghost-btn sm-btn" type="button">근거 보기 ›</button>
+              </div>
+            </div>
+
+            <!-- Sub3 similar -->
+            <div class="sub-panel" id="panel-sub3" role="tabpanel" hidden data-layer="depth">
+              <p class="section-cap mono">Sub3 · 유사 이슈 조치내역</p>
+              <div class="sim-list">
+                <article class="sim-card">
+                  <div class="card-row1">
+                    <span class="sim-badge curated mono">CURATED · 86%</span>
+                    <span class="elapsed mono">MTTR 7분</span>
+                  </div>
+                  <p class="summary tight">[AUT] 승인 5xx · 배포 검증 부하</p>
+                  <p class="meta">원인: 오전 배포 검증 중 오류 페이지 반복 호출</p>
+                  <p class="meta">조치: 호출 스크립트 중단 + 재기동 · 부하 상한 명시</p>
+                  <button class="ghost-btn sm-btn" type="button">이 조치 재사용</button>
+                </article>
+                <article class="sim-card">
+                  <div class="card-row1">
+                    <span class="sim-badge raw mono">RAW · 92%</span>
+                    <span class="elapsed mono">미해소 기록</span>
+                  </div>
+                  <p class="summary tight">[AUT] 승인 5xx · 신규 버전 /error</p>
+                  <p class="meta">원인: 신규 버전 /error 경로 5xx 다량</p>
+                  <p class="meta mono muted-text">RAW — 재사용 가중 하향</p>
+                </article>
+              </div>
+            </div>
+
+            <!-- Sub4 AI HISTORY -->
+            <div class="sub-panel" id="panel-sub4" role="tabpanel" hidden data-layer="depth">
+              <div class="ai-block history">
+                <div class="ai-block-head">
+                  <span class="section-cap mono tight">Sub4 · AI 발생이력 분석</span>
+                  <span class="ai-badge mono">HISTORY · qwen2.5</span>
+                </div>
+                <p class="ai-label">패턴</p>
+                <p class="ai-strong">13:00–15:00대 5xx 빈도 높음 · [DEVRC]/[DEVR] 활동과 동시 관찰</p>
+                <p class="ai-label">확인 필요</p>
+                <ol class="ai-list">
+                  <li>[DEVRC] 승인 5xx 급증 원인 확인</li>
+                  <li>[DEVR] 배포 앱 버전 검토</li>
+                </ol>
+                <p class="ai-label">과거 해소 근거</p>
+                <p class="meta mono evidence">
+                  07-07 19:30 6분 해소 — 재검수 부하 중단<br />
+                  07-07 18:35 41분 — 재기동·롤백 검토
+                </p>
+                <p class="meta muted-text">초동 필수 아님 · 판단 막힐 때 깊이</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-bar">
+            <button class="ack-half" type="button">
+              <span class="handle"></span>
+              Ack 상황인지 완료처리
+              <span class="ack-cap mono">수행 기록 자동 첨부</span>
+            </button>
+            <span class="vdiv"></span>
+            <button class="contact-half" type="button">☎ 관계자<span class="dot">1</span></button>
+          </div>
         </div>
       </div>
+
+      <aside class="vc-legend">
+        <h3>읽는 법</h3>
+        <ol>
+          <li><strong>① 식별</strong> — Main 히어로·메타·로그 미리보기 (접지 않음)</li>
+          <li><strong>② 즉시 손</strong> — 칩 <em>1 매뉴얼</em> 기본 선택 · Runbook 체크</li>
+          <li><strong>③ 깊이</strong> — 칩 2→3→4 · 패널 슬롯 하나만</li>
+        </ol>
+        <p class="meta">사실 ≥ 추정 · AI는 Main 위에 오지 않음 · 동시 펼침 금지</p>
+        <p class="meta mono">콘솔 /events 행 확장 재료 · 순서만 모바일 슬로건에 맞춤</p>
+      </aside>
     </div>
   </section>
 
@@ -571,10 +607,10 @@
   <!-- ========== 8. 태블릿 ========== -->
   <section class="mock-section wide" id="m-tablet">
     <div class="mock-meta">
-      <h2>태블릿 · 마스터–디테일 (768px+)</h2>
-      <p>좌 인박스 320px 고정 · 우 스택 상세. 탭 바는 좌측 하단. 선택 카드 = 액션 블루 외곽선.</p>
+      <h2>태블릿 · 마스터–디테일 (768px+) · 변형 C</h2>
+      <p>좌 인박스 320px · 우 = Main + Sub 2차 내비 동일 구조. 선택 카드 = 액션 블루 외곽선.</p>
     </div>
-    <div class="tablet-frame" data-label="1024 × 680 · split">
+    <div class="tablet-frame" data-label="1024 × 680 · split · variant C">
       <aside class="master">
         <div class="app-header compact">
           <div class="app-title-row">
@@ -585,18 +621,18 @@
         </div>
         <div class="chip-row">
           <button class="chip is-on sm" type="button">전체 3</button>
+          <button class="chip sm" type="button">Critical 1</button>
           <button class="chip sm" type="button">Major 2</button>
-          <button class="chip sm" type="button">Minor 1</button>
         </div>
-        <article class="issue-card sev-major is-selected">
+        <article class="issue-card sev-critical is-selected">
           <div class="stripe"></div>
           <div class="card-body">
             <div class="card-row1">
-              <span class="sev-label mono">MAJOR</span>
+              <span class="sev-label mono">CRITICAL</span>
               <span class="elapsed mono">04:32</span>
             </div>
-            <p class="summary">ORA-00001 중복키 44건</p>
-            <p class="meta mono">COR · 김철파</p>
+            <p class="summary">[AUT] 승인 5xx 오류율 급증</p>
+            <p class="meta mono">AUT · 김철파</p>
           </div>
         </article>
         <article class="issue-card sev-major">
@@ -617,23 +653,32 @@
       </aside>
       <section class="detail-pane">
         <div class="stack-appbar">
-          <span class="host-badge mono">PRCORAP1</span>
-          <span class="crumb mono">이슈 › 상세</span>
+          <span class="host-badge mono">aut-app</span>
+          <span class="crumb mono">식별 → 즉시 손 → 깊이</span>
         </div>
-        <div class="hero sev-major">
-          <div class="stripe thick"></div>
+        <div class="hero sev-critical compact-hero">
+          <div class="stripe thick critical"></div>
           <div class="hero-top">
-            <span class="sev-label mono">MAJOR · LOKI</span>
-            <span class="count mono">44건</span>
+            <span class="sev-label mono">CRITICAL · PROM</span>
+            <span class="count mono">04:32</span>
           </div>
-          <div class="hero-timer mono">04:32 경과</div>
-          <p class="hero-title">ORA-00001 중복키 44건 발생</p>
-          <p class="meta mono">계정계 COR(여신관리부) · PRCORAP1 · ORA-00001</p>
+          <p class="hero-title sm">[AUT] 승인 5xx 오류율 급증</p>
+          <p class="meta mono">승인계 AUT · afqs5s6xaaghsc</p>
         </div>
-        <p class="section-cap mono">로그 3건 · LOKI</p>
-        <div class="log-rows">
-          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">unique constraint COR.PK_CUST_ACC violated</span><span>›</span></div>
-          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">ORA-00001 …</span><span>›</span></div>
+        <div class="sub-nav static">
+          <span class="sub-chip is-on"><span class="sub-ord">1</span>매뉴얼</span>
+          <span class="sub-chip"><span class="sub-ord">2</span>AI</span>
+          <span class="sub-chip"><span class="sub-ord">3</span>유사</span>
+          <span class="sub-chip"><span class="sub-ord">4</span>이력</span>
+        </div>
+        <p class="section-cap mono">Sub1 · RUNBOOK #18 · 0/5</p>
+        <div class="step-card">
+          <div class="step-head">
+            <span class="chk"></span>
+            <span class="step-type check">CHECK</span>
+            <span class="step-no mono">1</span>
+          </div>
+          <p class="step-title">에러 로그에서 5xx 원인 확인</p>
         </div>
         <div class="action-bar pane-action">
           <button class="ack-half" type="button">Ack 상황인지 완료처리</button>
@@ -699,7 +744,43 @@
 
   <footer class="mock-footer">
     <p>토큰 고정 · Critical <i style="color:#BF1B00">#BF1B00</i> · Major <i style="color:#99440A">#99440A</i> · Minor <i style="color:#D1CF2B">#D1CF2B</i> · Action <i style="color:#58A6E8">#58A6E8</i></p>
-    <p>원본 규칙: 디자인 컨셉 문서 · 구현 프롬프트</p>
+    <p>변형 C · <strong>식별 → 즉시 손 → 필요할 때 깊이</strong> · 디자인 컨셉 §1.2</p>
   </footer>
+
+  <script>
+    (function () {
+      const hints = {
+        sub1: "② 즉시 손 · Sub1 긴급조치 매뉴얼 (기본 랜딩)",
+        sub2: "③ 깊이 1 · Sub2 AI 분석 & 조치제안 (EVENT)",
+        sub3: "③ 깊이 2 · Sub3 유사 이슈 조치내역",
+        sub4: "③ 깊이 3 · Sub4 AI 발생이력 분석 (HISTORY)",
+      };
+      const chips = document.querySelectorAll(".sub-chip");
+      const panels = document.querySelectorAll(".sub-panel");
+      const hint = document.getElementById("sub-hint");
+
+      function selectSub(id) {
+        chips.forEach((c) => {
+          const on = c.dataset.sub === id;
+          c.classList.toggle("is-on", on);
+          c.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panels.forEach((p) => {
+          const on = p.id === "panel-" + id;
+          p.classList.toggle("is-on", on);
+          if (on) p.removeAttribute("hidden");
+          else p.setAttribute("hidden", "");
+        });
+        if (hint) hint.textContent = hints[id] || "";
+      }
+
+      chips.forEach((c) => {
+        c.addEventListener("click", () => selectSub(c.dataset.sub));
+      });
+      document.querySelectorAll("[data-goto]").forEach((el) => {
+        el.addEventListener("click", () => selectSub(el.dataset.goto));
+      });
+    })();
+  </script>
 </body>
 </html>
