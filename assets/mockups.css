@@ -198,6 +198,27 @@ body {
   position: relative;
   padding-top: 28px;
 }
+.phone-screen > .vc-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.phone-screen > .sub-nav,
+.phone-screen > .sub-hint {
+  flex-shrink: 0;
+}
+.phone-screen > .sub-panels {
+  flex: 1;
+  min-height: 0;
+}
+.phone-screen > .action-bar {
+  flex-shrink: 0;
+}
+a.ai-teaser {
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
 
 .phone-screen.has-action { padding-bottom: 0; }
 .phone-screen.dimmed { background: #01030c; }

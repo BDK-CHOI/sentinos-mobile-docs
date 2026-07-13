@@ -55,10 +55,11 @@
 <li class="toc-l2"><a href="#5-상태-6종-모든-화면-필수">5. 상태 6종 — 모든 화면 필수</a></li>
 <li class="toc-l2"><a href="#6-정보-위계-화면별-컨셉">6. 정보 위계 — 화면별 컨셉</a></li>
 <li class="toc-l3"><a href="#화면-1-이슈-인박스-issues">화면 1 — 이슈 인박스 (/issues)</a></li>
-<li class="toc-l3"><a href="#화면-2-이슈-상세-issuesid-변형-c-본진">화면 2 — 이슈 상세 (/issues/[id]) · 변형 C 본진</a></li>
-<li class="toc-l3"><a href="#화면-3-로그-상세">화면 3 — 로그 상세</a></li>
-<li class="toc-l3"><a href="#화면-4-ack-바텀시트">화면 4 — Ack 바텀시트</a></li>
-<li class="toc-l3"><a href="#화면-5-관계자-연락-레이어">화면 5 — 관계자 연락 레이어</a></li>
+<li class="toc-l3"><a href="#화면-2-이슈-상세-issuesid-main-식별">화면 2 — 이슈 상세 (/issues/[id]) · Main · 식별</a></li>
+<li class="toc-l3"><a href="#화면-3-조치-issuesid-스택-또는-동등-라우트-sub14">화면 3 — 조치 (/issues/[id] 스택 또는 동등 라우트) · Sub1~4</a></li>
+<li class="toc-l3"><a href="#화면-4-로그-상세">화면 4 — 로그 상세</a></li>
+<li class="toc-l3"><a href="#화면-5-ack-바텀시트">화면 5 — Ack 바텀시트</a></li>
+<li class="toc-l3"><a href="#화면-6-관계자-연락-레이어">화면 6 — 관계자 연락 레이어</a></li>
 <li class="toc-l3"><a href="#화면-7-이력">화면 7 — 이력</a></li>
 <li class="toc-l3"><a href="#화면-8-설정">화면 8 — 설정</a></li>
 <li class="toc-l2"><a href="#7-인터랙션카피">7. 인터랙션·카피</a></li>
@@ -94,21 +95,26 @@
 </tr>
 <tr>
 <td>2</td>
-<td><strong>이슈 상세 (Main+Sub)</strong></td>
-<td><strong>식별 → 즉시 손 → 필요할 때 깊이</strong> · Main 히어로 + Sub 2차 내비 · 기본 Sub1 매뉴얼</td>
+<td><strong>이슈 상세 (Main)</strong></td>
+<td>식별 전용 · 히어로 직후 <strong>AI 추정 CTA</strong> · 그 아래 로그 미리보기</td>
 </tr>
 <tr>
 <td>3</td>
-<td><strong>로그 상세</strong></td>
-<td>mono 원문 · Critical 하이라이트 · <code>▮▮▮</code> 마스킹 · 전후 ±30초 · Main의 깊이 push</td>
+<td><strong>조치 (Sub1~4)</strong></td>
+<td>매뉴얼·AI·유사·이력 칩 · 기본 Sub1 · 화면 2에서 진입</td>
 </tr>
 <tr>
 <td>4</td>
+<td><strong>로그 상세</strong></td>
+<td>mono 원문 · Critical 하이라이트 · <code>▮▮▮</code> 마스킹 · 전후 ±30초</td>
+</tr>
+<tr>
+<td>5</td>
 <td><strong>Ack 바텀시트</strong></td>
 <td>필수 3필드 · 원인 퀵 칩 · Silence 구간 mono · 풀폭 액션 블루 CTA</td>
 </tr>
 <tr>
-<td>5</td>
+<td>6</td>
 <td><strong>관계자 연락</strong></td>
 <td>전화(초록)/SMS(파랑) · SMS 요약 자동 첨부 · Ack와 슬롯 공유</td>
 </tr>
@@ -699,28 +705,18 @@
 <li><strong>Ack된 카드는 목록에 없음</strong> (v2.1). Silence 뱃지 디자인은 인박스에 적용하지 않음.</li>
 <li>새 이슈 배너 · 스크롤 점프 금지.</li>
 </ul>
-<h3 id="화면-2-이슈-상세-issuesid-변형-c-본진">화면 2 — 이슈 상세 (<code>/issues/[id]</code>) · <strong>변형 C 본진</strong></h3>
-<p><strong>목표</strong>: 「<strong>식별 → 즉시 손 → 필요할 때 깊이</strong>」를 한 화면에서 완수.</p>
-<pre><code>┌ 앱바 ‹ · 호스트 · (+새이슈)
-├ [Main] 히어로 + 메타 + 재료 미리보기     ← ① 식별
-├ [2차 내비] ①매뉴얼 ②AI ③유사 ④이력분석  ← 중요도 순
-├ [Sub 패널] 기본 = Sub1 매뉴얼            ← ② 즉시 손 / ③ 깊이
-└ 액션 바  Ack | ☎</code></pre>
-<p><strong>① 식별 — Main</strong></p>
+<h3 id="화면-2-이슈-상세-issuesid-main-식별">화면 2 — 이슈 상세 (<code>/issues/[id]</code>) · Main · 식별</h3>
+<p><strong>목표</strong>: 사실만 고정. 시안 레이아웃은 다른 화면과 같이 <strong>좌 설명 · 우 폰 프레임</strong>.</p>
+<p>위계 위→아래:</p>
 <ol>
-<li>앱바  </li>
-<li>히어로 — 심각도·sourceType · 건수 · <strong>대형 경과</strong> · 제목 · mono 메타 · 담당 목록  </li>
-<li>sourceType <strong>미리보기</strong> — 로그 1~2행 또는 스냅샷 축소 + <code>전체 ›</code>  </li>
-<li>(선택) AI 한 줄 티저 → Sub2</li>
+<li>앱바 · <strong>히어로</strong>(경과·메타·담당)  </li>
+<li><strong>AI 추정 CTA</strong> (상세 본문 직하) → 화면 3 조치로 진입  </li>
+<li>로그 미리보기 1~2행 (로그 전체 버튼 없음)  </li>
+<li>하단 액션 바 Ack | ☎</li>
 </ol>
-<p>히어로는 surface, 스트라이프 4px. Main은 <strong>사실 전용</strong> — 추정 본문을 넣지 않는다.</p>
-<p><strong>② 즉시 손 — Sub1 (기본 랜딩)</strong></p>
-<ul>
-<li>caution → Runbook 단계 체크리스트  </li>
-<li>진행 mono <code>n/N</code> · 체크 1탭 / 해제 확인  </li>
-<li>저작 주체 = <strong>사람 발행 정본</strong></li>
-</ul>
-<p><strong>③ 필요할 때 깊이 — Sub2~4 (칩 전환, 동시 펼침 없음)</strong></p>
+<p>Main에 Sub 패널을 겹치지 않는다 (이중 스크롤 금지).</p>
+<h3 id="화면-3-조치-issuesid-스택-또는-동등-라우트-sub14">화면 3 — 조치 (<code>/issues/[id]</code> 스택 또는 동등 라우트) · Sub1~4</h3>
+<p><strong>목표</strong>: 「즉시 손 → 필요할 때 깊이」. 화면 2 CTA로 진입, ‹ 로 복귀.</p>
 <table>
 <thead>
 <tr>
@@ -730,56 +726,49 @@
 </tr>
 </thead>
 <tbody><tr>
+<td>①</td>
+<td>긴급조치 매뉴얼</td>
+<td><strong>기본 랜딩</strong> · Runbook 체크</td>
+</tr>
+<tr>
 <td>②</td>
 <td>AI 분석 &amp; 조치제안</td>
-<td>당건 추정·권고 (근거 필수)</td>
+<td>EVENT · 근거 필수</td>
 </tr>
 <tr>
 <td>③</td>
 <td>유사 이슈 조치내역</td>
-<td>재사용 코퍼스</td>
+<td>재사용</td>
 </tr>
 <tr>
 <td>④</td>
 <td>AI 발생이력 분석</td>
-<td>패턴·2차 맥락</td>
+<td>HISTORY · 2차 깊이</td>
 </tr>
 </tbody></table>
-<p><strong>하단 액션 바</strong>는 Sub와 무관하게 고정 — 손이 매뉴얼에 있든 AI에 있든 Ack/연락 가능.</p>
-<h3 id="화면-3-로그-상세">화면 3 — 로그 상세</h3>
-<p><strong>목표</strong>: Main에서 연 <strong>재료 깊이</strong> — 원문 가독 + 오류 하이라이트 + 시간 문맥.</p>
+<p>칩 전환만 · 한 스크롤 · 하단 액션 바 유지.</p>
+<h3 id="화면-4-로그-상세">화면 4 — 로그 상세</h3>
+<p><strong>목표</strong>: 원문 가독 + 오류 하이라이트 + 시간 문맥.</p>
 <ul>
-<li>mono 8~12px, 줄바꿈 유지, Critical 틴트 하이라이트.</li>
-<li>마스킹 <code>▮▮▮</code>, 스택 잘림 없음.</li>
-<li>전후 로그 · 복사 · 공유(콘솔 링크).</li>
+<li>mono 8~12px, Critical 틴트, <code>▮▮▮</code>, 전후 로그 · 복사 · 공유.</li>
 </ul>
-<h3 id="화면-4-ack-바텀시트">화면 4 — Ack 바텀시트</h3>
+<h3 id="화면-5-ack-바텀시트">화면 5 — Ack 바텀시트</h3>
 <p><strong>목표</strong>: 필수 3필드 빠르게 · Silence 의미 명확.</p>
 <ul>
-<li>dim + 고정 높이 시트. 키보드 올라와도 저장 버튼 가림 금지.</li>
-<li>조치예정 구간 mono 캡션. 2h 경고. 원인 퀵 칩. 재사용 출처 뱃지.</li>
-<li>풀폭 액션 블루 CTA: “저장 — Ack 처리 · 알림 해제”.</li>
-<li>토스트: “상황인지 완료 처리됨 · 알림 해제”.</li>
+<li>dim + 고정 높이 시트. 2h 경고. 원인 퀵 칩. 풀폭 액션 블루 CTA.</li>
 </ul>
-<h3 id="화면-5-관계자-연락-레이어">화면 5 — 관계자 연락 레이어</h3>
+<h3 id="화면-6-관계자-연락-레이어">화면 6 — 관계자 연락 레이어</h3>
 <p><strong>목표</strong>: 이탈 없이 전화/SMS.</p>
 <ul>
-<li>Ack와 슬롯 공유. 행: 이니셜 · 이름/역할 · 전화 mono · <a href="%EC%B4%88%EB%A1%9D">전화</a> / <a href="%ED%8C%8C%EB%9E%91">SMS</a>.</li>
-<li>캡션: SMS 요약 자동 첨부.</li>
+<li>Ack와 슬롯 공유. [전화]/[SMS]. SMS 요약 자동 첨부.</li>
 </ul>
 <h3 id="화면-7-이력">화면 7 — 이력</h3>
-<p><strong>목표</strong>: 재발 패턴 + 조치 재사용 코퍼스 (인박스 밖 탐색).</p>
+<p><strong>목표</strong>: 재발 패턴 + 조치 재사용 코퍼스.</p>
 <ul>
-<li>검색 · 필터 칩. 그룹 카드에 재발 횟수 mono/700.</li>
-<li>원인 미확정 = 뮤트 · 재사용 버튼 없음.</li>
-<li>상세 Sub3과 <strong>같은 지식 원천</strong>, 진입 맥락만 다름 (이슈 안 vs 탭 탐색).</li>
+<li>검색 · 필터 · 재발 횟수 mono. 화면 3 Sub3과 동일 지식 원천.</li>
 </ul>
 <h3 id="화면-8-설정">화면 8 — 설정</h3>
-<p><strong>목표</strong>: 신원·권한 확인 · 테마 · 버전. 잡동사니 금지.</p>
-<ul>
-<li>카드 3 + 점선 예약(알림 V1).</li>
-<li>테마 세그먼트: 다크(기본) | 라이트 | 시스템.</li>
-</ul>
+<p><strong>목표</strong>: 신원·권한 · 테마 · 버전. 테마 다크 기본.</p>
 <hr>
 <h2 id="7-인터랙션카피">7. 인터랙션·카피</h2>
 <h3 id="71-인터랙션">7.1 인터랙션</h3>
@@ -924,6 +913,10 @@
 <tr>
 <td><strong>2026-07-13</strong></td>
 <td><strong>변형 C 확정</strong> · 슬로건 <strong>「식별 → 즉시 손 → 필요할 때 깊이」</strong> · Main/Sub1~4 정의·비채택 안·원칙 0·11 추가</td>
+</tr>
+<tr>
+<td><strong>2026-07-13</strong></td>
+<td>시안: 화면2 Main 우측정렬 · AI CTA를 로그 위 · <strong>화면3 조치(Sub1~4) 신설</strong> · 이후 번호 재부여</td>
 </tr>
 </tbody></table>
 

@@ -42,7 +42,8 @@
 
   <nav class="mock-jump" aria-label="시안 바로가기">
     <a href="#m-inbox">인박스</a>
-    <a href="#m-detail">상세 · 변형C</a>
+    <a href="#m-detail">상세</a>
+    <a href="#m-action">조치 Sub</a>
     <a href="#m-log">로그</a>
     <a href="#m-ack">Ack 시트</a>
     <a href="#m-contact">관계자</a>
@@ -118,265 +119,257 @@
     </div>
   </section>
 
-  <!-- ========== 2. 상세 · 변형 C ========== -->
-  <section class="mock-section wide" id="m-detail">
-    <div class="mock-meta full">
-      <h2>화면 2 · 이슈 상세 — 변형 C</h2>
+  <!-- ========== 2. 이슈 상세 Main (식별) ========== -->
+  <section class="mock-section" id="m-detail">
+    <div class="mock-meta">
+      <h2>화면 2 · 이슈 상세 (Main · 식별)</h2>
       <p class="slogan-line">
         <strong>식별 → 즉시 손 → 필요할 때 깊이</strong>
-        <span class="mono muted"> · 화면 분리 (이중 스크롤 제거)</span>
       </p>
       <p>
-        <strong>Main 화면</strong> = 이벤트 식별만.
-        AI 추정 CTA를 누르면 <strong>조치 화면</strong>(매뉴얼 · AI · 유사 · 이력)으로 이동합니다.
-        한 화면에 Main+Sub를 겹치지 않아 스크롤이 하나뿐입니다.
+        <strong>Main만</strong> 표시 — 히어로·메타 직후 <strong>AI 추정 CTA</strong>,
+        그 아래 로그 미리보기. CTA → <a href="#m-action">화면 3 조치</a>.
       </p>
-      <p class="meta-note mono">
-        샘플: [AUT] 승인 5xx · runbook #18 · knowledge #49/#47 · AI EVENT/HISTORY · qwen2.5
-      </p>
+      <p class="meta-note mono">이중 스크롤 없음 · 로그 전체 버튼 없음</p>
     </div>
-
-    <div class="variant-c-stage">
-      <div class="phone-frame tall" data-label="상세 · 화면 전환 · 인터랙티브" id="vc-phone">
-        <div class="phone-notch"></div>
-        <div class="phone-screen has-action vc-screen" data-view="main">
-
-          <!-- ========== VIEW: Main 식별 ========== -->
-          <div class="vc-view is-on" id="view-main" data-view-panel="main">
-            <div class="stack-appbar">
-              <span class="back">‹</span>
-              <span class="host-badge mono">aut-app</span>
-              <span class="mini-badge">+1</span>
+    <div class="phone-frame tall" data-label="화면 2 · 이슈 상세">
+      <div class="phone-notch"></div>
+      <div class="phone-screen has-action">
+        <div class="stack-appbar">
+          <span class="back">‹</span>
+          <span class="host-badge mono">aut-app</span>
+          <span class="mini-badge">+1</span>
+        </div>
+        <div class="vc-scroll">
+          <p class="layer-tag mono">① MAIN · 식별</p>
+          <div class="hero sev-critical">
+            <div class="stripe thick critical"></div>
+            <div class="hero-top">
+              <span class="sev-label mono">CRITICAL · PROM</span>
+              <span class="count mono">rate&gt;0.2</span>
             </div>
-            <div class="vc-scroll">
-              <p class="layer-tag mono">① MAIN · 식별 (이 화면만)</p>
-              <div class="hero sev-critical">
-                <div class="stripe thick critical"></div>
-                <div class="hero-top">
-                  <span class="sev-label mono">CRITICAL · PROM</span>
-                  <span class="count mono">rate&gt;0.2</span>
-                </div>
-                <div class="hero-timer mono">04:32 경과</div>
-                <p class="hero-title">[AUT] 승인 5xx 오류율 급증</p>
-                <p class="meta mono">발생 2026-07-09 15:14 · 승인계 AUT</p>
-                <p class="meta mono">rule afqs5s6xaaghsc · env PR</p>
-                <p class="owners">담당 김철파(SRE) · 이영희(업무)</p>
-              </div>
-              <p class="section-cap mono">재료 미리보기 · 로그 2건</p>
-              <div class="log-rows compact">
-                <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">http 5xx job=aut/aut-app …</span><span>›</span></div>
-                <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">/error path spike after deploy</span><span>›</span></div>
-              </div>
-              <button class="ai-teaser enter-action" type="button" data-enter-sub="sub1">
-                <span class="ai-badge mono">AI</span>
-                <span class="ai-text">추정: 신규 버전 배포 가능 (유사 92%)</span>
-                <span class="ai-go mono">조치 ›</span>
-              </button>
-              <p class="enter-cap mono">탭 → 매뉴얼 · AI · 유사 · 이력 화면 (기본 랜딩 = 매뉴얼)</p>
-            </div>
-            <div class="action-bar">
-              <button class="ack-half" type="button">
-                <span class="handle"></span>
-                Ack 상황인지 완료처리
-              </button>
-              <span class="vdiv"></span>
-              <button class="contact-half" type="button">☎ 관계자</button>
-            </div>
+            <div class="hero-timer mono">04:32 경과</div>
+            <p class="hero-title">[AUT] 승인 5xx 오류율 급증</p>
+            <p class="meta mono">발생 2026-07-09 15:14 · 승인계 AUT</p>
+            <p class="meta mono">rule afqs5s6xaaghsc · env PR</p>
+            <p class="owners">담당 김철파(SRE) · 이영희(업무)</p>
           </div>
-
-          <!-- ========== VIEW: 조치 Sub1~4 ========== -->
-          <div class="vc-view" id="view-action" data-view-panel="action" hidden>
-            <div class="stack-appbar">
-              <button type="button" class="back back-btn" id="btn-back-main" aria-label="식별 화면으로">‹</button>
-              <span class="app-title sm">조치</span>
-              <span class="elapsed mono guide-timer">04:32</span>
-            </div>
-
-            <div class="sub-nav" role="tablist" aria-label="조치 영역">
-              <button type="button" class="sub-chip is-on" role="tab" aria-selected="true" data-sub="sub1">
-                <span class="sub-ord">1</span>매뉴얼
-                <span class="sub-badge mono">0/5</span>
-              </button>
-              <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub2">
-                <span class="sub-ord">2</span>AI
-              </button>
-              <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub3">
-                <span class="sub-ord">3</span>유사
-                <span class="sub-badge mono">2</span>
-              </button>
-              <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub4">
-                <span class="sub-ord">4</span>이력
-              </button>
-            </div>
-            <p class="sub-hint mono" id="sub-hint">② 즉시 손 · Sub1 긴급조치 매뉴얼 (기본 랜딩)</p>
-
-            <div class="sub-panels">
-              <div class="sub-panel is-on" id="panel-sub1" role="tabpanel">
-                <div class="caution-card">
-                  <div class="caution-head">⚠ 주의</div>
-                  <p>롤백·재기동은 영향도가 크므로 담당 개발팀 확인 후 수행할 것.</p>
-                  <button class="ghost-btn sm-btn" type="button">확인했습니다</button>
-                </div>
-                <p class="section-cap mono">긴급조치 매뉴얼 · RUNBOOK #18 · 0/5</p>
-                <div class="rb-title-block">
-                  <strong>서비스 5xx 오류율 급증 대응</strong>
-                  <p class="meta mono">HTTP 5xx 초동 · by-rule afqs5s6xaaghsc</p>
-                </div>
-                <div class="step-list">
-                  <article class="step-card">
-                    <div class="step-head">
-                      <span class="chk"></span>
-                      <span class="step-type check">CHECK</span>
-                      <span class="step-no mono">1</span>
-                    </div>
-                    <p class="step-title">에러 로그에서 5xx 원인 확인</p>
-                    <p class="step-body">최근 5분 로그에서 5xx/Exception 스택으로 원인 유형 판별.</p>
-                    <pre class="cmd mono">kubectl -n &lt;ns&gt; logs deploy/&lt;app&gt; --since=5m | grep -iE '5[0-9]{2}|exception'</pre>
-                    <div class="step-actions">
-                      <button class="ghost-btn sm-btn" type="button">복사</button>
-                    </div>
-                  </article>
-                  <article class="step-card">
-                    <div class="step-head">
-                      <span class="chk"></span>
-                      <span class="step-type check">CHECK</span>
-                      <span class="step-no mono">2</span>
-                    </div>
-                    <p class="step-title">DB 커넥션풀·응답 확인</p>
-                    <pre class="cmd mono">curl -s localhost:8080/actuator/metrics/hikaricp.connections</pre>
-                  </article>
-                  <article class="step-card">
-                    <div class="step-head">
-                      <span class="chk"></span>
-                      <span class="step-type contact">CONTACT</span>
-                      <span class="step-no mono">3</span>
-                    </div>
-                    <p class="step-title">원인이 DB면 DB운영파트 연락</p>
-                    <button class="ghost-btn sm-btn contact-cta" type="button">☎ 관계자 호출</button>
-                  </article>
-                  <article class="step-card">
-                    <div class="step-head">
-                      <span class="chk"></span>
-                      <span class="step-type action">ACTION</span>
-                      <span class="step-no mono">4</span>
-                    </div>
-                    <p class="step-title">스케일아웃 또는 롤백</p>
-                    <pre class="cmd mono">kubectl -n &lt;ns&gt; rollout undo deploy/&lt;app&gt;</pre>
-                    <span class="meta mono">체크 = 콘솔에서 수행함</span>
-                  </article>
-                  <article class="step-card done-hint">
-                    <div class="step-head">
-                      <span class="chk"></span>
-                      <span class="step-type action">ACTION</span>
-                      <span class="step-no mono">5</span>
-                    </div>
-                    <p class="step-title">해소 확인 후 Ack/조치내역 기록</p>
-                  </article>
-                </div>
-              </div>
-
-              <div class="sub-panel" id="panel-sub2" role="tabpanel" hidden>
-                <div class="ai-block">
-                  <div class="ai-block-head">
-                    <span class="section-cap mono tight">Sub2 · AI 분석 &amp; 조치제안</span>
-                    <span class="ai-badge mono">EVENT · qwen2.5</span>
-                  </div>
-                  <p class="ai-label">추정 원인</p>
-                  <p class="ai-strong">승인 앱 신규 버전 배포 가능성 (유사 92%·RAW)</p>
-                  <p class="ai-body">배포 검증 중 오류 페이지 반복 호출로 5xx 급증 가능 (유사 86%·CURATED)</p>
-                  <p class="ai-label">권고 조치</p>
-                  <ol class="ai-list">
-                    <li>[DEVR] 신규 배포 여부 확인</li>
-                    <li>aut/sample-app 재기동 후 5xx 모니터링</li>
-                    <li>필요 시 직전 버전 롤백</li>
-                    <li>배포 검증에 부하 상한 명시</li>
-                  </ol>
-                  <p class="ai-label">근거</p>
-                  <p class="meta mono evidence">PromQL 5xx · JVM CPU 0.03% · Heap 2.2% · thr 35</p>
-                  <button class="ghost-btn sm-btn" type="button">근거 보기 ›</button>
-                </div>
-              </div>
-
-              <div class="sub-panel" id="panel-sub3" role="tabpanel" hidden>
-                <p class="section-cap mono">Sub3 · 유사 이슈 조치내역</p>
-                <div class="sim-list">
-                  <article class="sim-card">
-                    <div class="card-row1">
-                      <span class="sim-badge curated mono">CURATED · 86%</span>
-                      <span class="elapsed mono">MTTR 7분</span>
-                    </div>
-                    <p class="summary tight">[AUT] 승인 5xx · 배포 검증 부하</p>
-                    <p class="meta">원인: 오전 배포 검증 중 오류 페이지 반복 호출</p>
-                    <p class="meta">조치: 호출 스크립트 중단 + 재기동 · 부하 상한 명시</p>
-                    <button class="ghost-btn sm-btn" type="button">이 조치 재사용</button>
-                  </article>
-                  <article class="sim-card">
-                    <div class="card-row1">
-                      <span class="sim-badge raw mono">RAW · 92%</span>
-                      <span class="elapsed mono">미해소 기록</span>
-                    </div>
-                    <p class="summary tight">[AUT] 승인 5xx · 신규 버전 /error</p>
-                    <p class="meta">원인: 신규 버전 /error 경로 5xx 다량</p>
-                    <p class="meta mono muted-text">RAW — 재사용 가중 하향</p>
-                  </article>
-                </div>
-              </div>
-
-              <div class="sub-panel" id="panel-sub4" role="tabpanel" hidden>
-                <div class="ai-block history">
-                  <div class="ai-block-head">
-                    <span class="section-cap mono tight">Sub4 · AI 발생이력 분석</span>
-                    <span class="ai-badge mono">HISTORY · qwen2.5</span>
-                  </div>
-                  <p class="ai-label">패턴</p>
-                  <p class="ai-strong">13:00–15:00대 5xx 빈도 높음 · [DEVRC]/[DEVR] 활동과 동시 관찰</p>
-                  <p class="ai-label">확인 필요</p>
-                  <ol class="ai-list">
-                    <li>[DEVRC] 승인 5xx 급증 원인 확인</li>
-                    <li>[DEVR] 배포 앱 버전 검토</li>
-                  </ol>
-                  <p class="ai-label">과거 해소 근거</p>
-                  <p class="meta mono evidence">
-                    07-07 19:30 6분 해소 — 재검수 부하 중단<br />
-                    07-07 18:35 41분 — 재기동·롤백 검토
-                  </p>
-                  <p class="meta muted-text">초동 필수 아님 · 판단 막힐 때 깊이</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="action-bar">
-              <button class="ack-half" type="button">
-                <span class="handle"></span>
-                Ack 상황인지 완료처리
-                <span class="ack-cap mono">수행 기록 자동 첨부</span>
-              </button>
-              <span class="vdiv"></span>
-              <button class="contact-half" type="button">☎ 관계자<span class="dot">1</span></button>
-            </div>
+          <a class="ai-teaser" href="#m-action">
+            <span class="ai-badge mono">AI</span>
+            <span class="ai-text">추정: 신규 버전 배포 가능 (유사 92%)</span>
+            <span class="ai-go mono">조치 ›</span>
+          </a>
+          <p class="enter-cap mono">탭 → 화면 3 (매뉴얼 · AI · 유사 · 이력)</p>
+          <p class="section-cap mono">재료 미리보기 · 로그 2건</p>
+          <div class="log-rows compact">
+            <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">http 5xx job=aut/aut-app …</span><span>›</span></div>
+            <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">/error path spike after deploy</span><span>›</span></div>
           </div>
-
+        </div>
+        <div class="action-bar">
+          <button class="ack-half" type="button">
+            <span class="handle"></span>
+            Ack 상황인지 완료처리
+          </button>
+          <span class="vdiv"></span>
+          <button class="contact-half" type="button">☎ 관계자</button>
         </div>
       </div>
-
-      <aside class="vc-legend">
-        <h3>화면 전환 (이중 스크롤 제거)</h3>
-        <ol>
-          <li><strong>① 식별 화면</strong> — Main만 (히어로·메타·로그 미리보기)</li>
-          <li><strong>AI 추정 CTA</strong> — 탭 시 <em>조치 화면</em>으로 이동</li>
-          <li><strong>②③ 조치 화면</strong> — 매뉴얼·AI·유사·이력 칩 (한 스크롤)</li>
-          <li><strong>‹ 뒤로</strong> — 식별 화면 복귀</li>
-        </ol>
-        <p class="meta">로그 전체 버튼 없음 · Main+Sub 동시 노출 없음</p>
-        <p class="meta mono">진입 기본 칩 = Sub1 매뉴얼 (즉시 손)</p>
-      </aside>
     </div>
   </section>
 
-  <!-- ========== 3. 로그 ========== -->
+  <!-- ========== 3. 조치 Sub1~4 ========== -->
+  <section class="mock-section" id="m-action">
+    <div class="mock-meta">
+      <h2>화면 3 · 조치 (Sub1~4)</h2>
+      <p>
+        식별 화면에서 진입. 칩 순서 = 중요도.
+        <strong>Sub1</strong> 매뉴얼(기본) · <strong>Sub2</strong> AI 조치제안 ·
+        <strong>Sub3</strong> 유사 조치내역 · <strong>Sub4</strong> AI 발생이력.
+      </p>
+      <p class="meta-note mono">
+        샘플: runbook #18 · knowledge #49/#47 · EVENT/HISTORY · qwen2.5 · 칩 탭 전환
+      </p>
+    </div>
+    <div class="phone-frame tall" data-label="화면 3 · 조치 Sub">
+      <div class="phone-notch"></div>
+      <div class="phone-screen has-action vc-screen">
+        <div class="stack-appbar">
+          <a class="back back-btn" href="#m-detail" aria-label="이슈 상세로">‹</a>
+          <span class="app-title sm">조치</span>
+          <span class="elapsed mono guide-timer">04:32</span>
+        </div>
+
+        <div class="sub-nav" role="tablist" aria-label="조치 영역">
+          <button type="button" class="sub-chip is-on" role="tab" aria-selected="true" data-sub="sub1">
+            <span class="sub-ord">1</span>매뉴얼
+            <span class="sub-badge mono">0/5</span>
+          </button>
+          <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub2">
+            <span class="sub-ord">2</span>AI
+          </button>
+          <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub3">
+            <span class="sub-ord">3</span>유사
+            <span class="sub-badge mono">2</span>
+          </button>
+          <button type="button" class="sub-chip" role="tab" aria-selected="false" data-sub="sub4">
+            <span class="sub-ord">4</span>이력
+          </button>
+        </div>
+        <p class="sub-hint mono" id="sub-hint">② 즉시 손 · Sub1 긴급조치 매뉴얼 (기본 랜딩)</p>
+
+        <div class="sub-panels">
+          <div class="sub-panel is-on" id="panel-sub1" role="tabpanel">
+            <div class="caution-card">
+              <div class="caution-head">⚠ 주의</div>
+              <p>롤백·재기동은 영향도가 크므로 담당 개발팀 확인 후 수행할 것.</p>
+              <button class="ghost-btn sm-btn" type="button">확인했습니다</button>
+            </div>
+            <p class="section-cap mono">긴급조치 매뉴얼 · RUNBOOK #18 · 0/5</p>
+            <div class="rb-title-block">
+              <strong>서비스 5xx 오류율 급증 대응</strong>
+              <p class="meta mono">HTTP 5xx 초동 · by-rule afqs5s6xaaghsc</p>
+            </div>
+            <div class="step-list">
+              <article class="step-card">
+                <div class="step-head">
+                  <span class="chk"></span>
+                  <span class="step-type check">CHECK</span>
+                  <span class="step-no mono">1</span>
+                </div>
+                <p class="step-title">에러 로그에서 5xx 원인 확인</p>
+                <p class="step-body">최근 5분 로그에서 5xx/Exception 스택으로 원인 유형 판별.</p>
+                <pre class="cmd mono">kubectl -n &lt;ns&gt; logs deploy/&lt;app&gt; --since=5m | grep -iE '5[0-9]{2}|exception'</pre>
+                <div class="step-actions">
+                  <button class="ghost-btn sm-btn" type="button">복사</button>
+                </div>
+              </article>
+              <article class="step-card">
+                <div class="step-head">
+                  <span class="chk"></span>
+                  <span class="step-type check">CHECK</span>
+                  <span class="step-no mono">2</span>
+                </div>
+                <p class="step-title">DB 커넥션풀·응답 확인</p>
+                <pre class="cmd mono">curl -s localhost:8080/actuator/metrics/hikaricp.connections</pre>
+              </article>
+              <article class="step-card">
+                <div class="step-head">
+                  <span class="chk"></span>
+                  <span class="step-type contact">CONTACT</span>
+                  <span class="step-no mono">3</span>
+                </div>
+                <p class="step-title">원인이 DB면 DB운영파트 연락</p>
+                <button class="ghost-btn sm-btn contact-cta" type="button">☎ 관계자 호출</button>
+              </article>
+              <article class="step-card">
+                <div class="step-head">
+                  <span class="chk"></span>
+                  <span class="step-type action">ACTION</span>
+                  <span class="step-no mono">4</span>
+                </div>
+                <p class="step-title">스케일아웃 또는 롤백</p>
+                <pre class="cmd mono">kubectl -n &lt;ns&gt; rollout undo deploy/&lt;app&gt;</pre>
+                <span class="meta mono">체크 = 콘솔에서 수행함</span>
+              </article>
+              <article class="step-card done-hint">
+                <div class="step-head">
+                  <span class="chk"></span>
+                  <span class="step-type action">ACTION</span>
+                  <span class="step-no mono">5</span>
+                </div>
+                <p class="step-title">해소 확인 후 Ack/조치내역 기록</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="sub-panel" id="panel-sub2" role="tabpanel" hidden>
+            <div class="ai-block">
+              <div class="ai-block-head">
+                <span class="section-cap mono tight">Sub2 · AI 분석 &amp; 조치제안</span>
+                <span class="ai-badge mono">EVENT · qwen2.5</span>
+              </div>
+              <p class="ai-label">추정 원인</p>
+              <p class="ai-strong">승인 앱 신규 버전 배포 가능성 (유사 92%·RAW)</p>
+              <p class="ai-body">배포 검증 중 오류 페이지 반복 호출로 5xx 급증 가능 (유사 86%·CURATED)</p>
+              <p class="ai-label">권고 조치</p>
+              <ol class="ai-list">
+                <li>[DEVR] 신규 배포 여부 확인</li>
+                <li>aut/sample-app 재기동 후 5xx 모니터링</li>
+                <li>필요 시 직전 버전 롤백</li>
+                <li>배포 검증에 부하 상한 명시</li>
+              </ol>
+              <p class="ai-label">근거</p>
+              <p class="meta mono evidence">PromQL 5xx · JVM CPU 0.03% · Heap 2.2% · thr 35</p>
+              <button class="ghost-btn sm-btn" type="button">근거 보기 ›</button>
+            </div>
+          </div>
+
+          <div class="sub-panel" id="panel-sub3" role="tabpanel" hidden>
+            <p class="section-cap mono">Sub3 · 유사 이슈 조치내역</p>
+            <div class="sim-list">
+              <article class="sim-card">
+                <div class="card-row1">
+                  <span class="sim-badge curated mono">CURATED · 86%</span>
+                  <span class="elapsed mono">MTTR 7분</span>
+                </div>
+                <p class="summary tight">[AUT] 승인 5xx · 배포 검증 부하</p>
+                <p class="meta">원인: 오전 배포 검증 중 오류 페이지 반복 호출</p>
+                <p class="meta">조치: 호출 스크립트 중단 + 재기동 · 부하 상한 명시</p>
+                <button class="ghost-btn sm-btn" type="button">이 조치 재사용</button>
+              </article>
+              <article class="sim-card">
+                <div class="card-row1">
+                  <span class="sim-badge raw mono">RAW · 92%</span>
+                  <span class="elapsed mono">미해소 기록</span>
+                </div>
+                <p class="summary tight">[AUT] 승인 5xx · 신규 버전 /error</p>
+                <p class="meta">원인: 신규 버전 /error 경로 5xx 다량</p>
+                <p class="meta mono muted-text">RAW — 재사용 가중 하향</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="sub-panel" id="panel-sub4" role="tabpanel" hidden>
+            <div class="ai-block history">
+              <div class="ai-block-head">
+                <span class="section-cap mono tight">Sub4 · AI 발생이력 분석</span>
+                <span class="ai-badge mono">HISTORY · qwen2.5</span>
+              </div>
+              <p class="ai-label">패턴</p>
+              <p class="ai-strong">13:00–15:00대 5xx 빈도 높음 · [DEVRC]/[DEVR] 활동과 동시 관찰</p>
+              <p class="ai-label">확인 필요</p>
+              <ol class="ai-list">
+                <li>[DEVRC] 승인 5xx 급증 원인 확인</li>
+                <li>[DEVR] 배포 앱 버전 검토</li>
+              </ol>
+              <p class="ai-label">과거 해소 근거</p>
+              <p class="meta mono evidence">
+                07-07 19:30 6분 해소 — 재검수 부하 중단<br />
+                07-07 18:35 41분 — 재기동·롤백 검토
+              </p>
+              <p class="meta muted-text">초동 필수 아님 · 판단 막힐 때 깊이</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="ack-half" type="button">
+            <span class="handle"></span>
+            Ack 상황인지 완료처리
+            <span class="ack-cap mono">수행 기록 자동 첨부</span>
+          </button>
+          <span class="vdiv"></span>
+          <button class="contact-half" type="button">☎ 관계자<span class="dot">1</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. 로그 ========== -->
   <section class="mock-section" id="m-log">
     <div class="mock-meta">
-      <h2>화면 3 · 로그 상세</h2>
+      <h2>화면 4 · 로그 상세</h2>
       <p>원문 mono · 오류 하이라이트 · 마스킹 ▮▮▮ · 전후 ±30초.</p>
     </div>
     <div class="phone-frame" data-label="로그 상세">
@@ -409,7 +402,7 @@
   <!-- ========== 4. Ack ========== -->
   <section class="mock-section" id="m-ack">
     <div class="mock-meta">
-      <h2>화면 4 · Ack 바텀시트</h2>
+      <h2>화면 5 · Ack 바텀시트</h2>
       <p>필수 3필드. Silence = 조치예정 구간. 원인 퀵 칩. 풀폭 액션 블루 CTA.</p>
     </div>
     <div class="phone-frame" data-label="Ack 시트">
@@ -451,7 +444,7 @@
   <!-- ========== 5. 관계자 ========== -->
   <section class="mock-section" id="m-contact">
     <div class="mock-meta">
-      <h2>화면 5 · 관계자 연락</h2>
+      <h2>화면 6 · 관계자 연락</h2>
       <p>이탈 없이 tel/sms. SMS 요약 자동 첨부. Ack와 슬롯 공유.</p>
     </div>
     <div class="phone-frame" data-label="관계자 레이어">
@@ -767,11 +760,10 @@
         sub3: "③ 깊이 2 · Sub3 유사 이슈 조치내역",
         sub4: "③ 깊이 3 · Sub4 AI 발생이력 분석 (HISTORY)",
       };
-      const viewMain = document.getElementById("view-main");
-      const viewAction = document.getElementById("view-action");
-      const screen = document.querySelector(".vc-screen");
-      const chips = document.querySelectorAll("#view-action .sub-chip");
-      const panels = document.querySelectorAll("#view-action .sub-panel");
+      const root = document.getElementById("m-action");
+      if (!root) return;
+      const chips = root.querySelectorAll(".sub-chip");
+      const panels = root.querySelectorAll(".sub-panel");
       const hint = document.getElementById("sub-hint");
 
       function selectSub(id) {
@@ -789,33 +781,9 @@
         if (hint) hint.textContent = hints[id] || "";
       }
 
-      function showMain() {
-        if (!viewMain || !viewAction) return;
-        viewMain.classList.add("is-on");
-        viewMain.removeAttribute("hidden");
-        viewAction.classList.remove("is-on");
-        viewAction.setAttribute("hidden", "");
-        if (screen) screen.dataset.view = "main";
-      }
-
-      function showAction(subId) {
-        if (!viewMain || !viewAction) return;
-        viewMain.classList.remove("is-on");
-        viewMain.setAttribute("hidden", "");
-        viewAction.classList.add("is-on");
-        viewAction.removeAttribute("hidden");
-        if (screen) screen.dataset.view = "action";
-        selectSub(subId || "sub1");
-      }
-
       chips.forEach((c) => {
         c.addEventListener("click", () => selectSub(c.dataset.sub));
       });
-      document.querySelectorAll(".enter-action").forEach((el) => {
-        el.addEventListener("click", () => showAction(el.dataset.enterSub || "sub1"));
-      });
-      const back = document.getElementById("btn-back-main");
-      if (back) back.addEventListener("click", showMain);
     })();
   </script>
 </body>
