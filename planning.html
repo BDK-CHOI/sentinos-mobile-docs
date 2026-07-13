@@ -50,7 +50,10 @@
 <li class="toc-l3"><a href="#탭-구성">탭 구성</a></li>
 <li class="toc-l3"><a href="#이력-탭">이력 탭</a></li>
 <li class="toc-l3"><a href="#설정-탭-mvp">설정 탭 (MVP)</a></li>
-<li class="toc-l2"><a href="#8-가이드-화면-v1-gd-요약">8. 가이드 화면 (V1) — GD 요약</a></li>
+<li class="toc-l2"><a href="#8-가이드-화면-v1-gd-요약-콘솔-데이터-정합">8. 가이드 화면 (V1) — GD 요약 + 콘솔 데이터 정합</a></li>
+<li class="toc-l3"><a href="#81-콘솔-모바일-섹션-매핑">8.1 콘솔 ↔ 모바일 섹션 매핑</a></li>
+<li class="toc-l3"><a href="#82-gd수용-조건">8.2 GD·수용 조건</a></li>
+<li class="toc-l3"><a href="#83-시안-샘플-실-개발-db-2026-07">8.3 시안 샘플 (실 개발 DB, 2026-07)</a></li>
 <li class="toc-l2"><a href="#9-아키텍처기술">9. 아키텍처·기술</a></li>
 <li class="toc-l3"><a href="#91-스택">9.1 스택</a></li>
 <li class="toc-l3"><a href="#92-망-구성">9.2 망 구성</a></li>
@@ -440,8 +443,40 @@
 <li>예약: <strong>알림 설정</strong> — V1 푸시 도입 시</li>
 </ol>
 <hr>
-<h2 id="8-가이드-화면-v1-gd-요약">8. 가이드 화면 (V1) — GD 요약</h2>
-<p>MVP 범위 밖. <strong>G-3 확정</strong>: 상세 AI 요약 스트립 + 전용 가이드 화면 (<code>/issues/[id]/guide</code>).</p>
+<h2 id="8-가이드-화면-v1-gd-요약-콘솔-데이터-정합">8. 가이드 화면 (V1) — GD 요약 + 콘솔 데이터 정합</h2>
+<p>MVP 범위 밖(구현 로드맵 V1). <strong>G-3 확정</strong>: 상세 AI 요약 스트립 + 전용 가이드 화면 (<code>/issues/[id]/guide</code>).<br><strong>의미론 정본 = sentinos-console</strong> <code>/events</code> 행 확장 패널과 동일 재료를 모바일에 재배치한다.</p>
+<h3 id="81-콘솔-모바일-섹션-매핑">8.1 콘솔 ↔ 모바일 섹션 매핑</h3>
+<table>
+<thead>
+<tr>
+<th>콘솔 <code>/events</code> UI</th>
+<th>모바일 가이드 섹션</th>
+<th>데이터 원천</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>진급조치 매뉴얼</strong></td>
+<td>Runbook 체크리스트</td>
+<td><code>runbook</code> · <code>runbook_step</code> · <code>runbook_rule_mapping</code> · API <code>GET /v1/api/runbooks/by-rule/{ruleId}</code></td>
+</tr>
+<tr>
+<td><strong>AI 분석</strong></td>
+<td>AI 분석 블록</td>
+<td><code>event_ai_analysis</code> (EVENT/HISTORY, status DONE)</td>
+</tr>
+<tr>
+<td><strong>유사이슈 조치이력</strong></td>
+<td>유사 이력 카드 + [이 조치 재사용]</td>
+<td><code>incident_knowledge</code> · API <code>GET /v1/api/knowledge/similar</code> (rule 정확 + pgvector, 임계 0.45)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>매뉴얼·유사 이력·AI <strong>어느 것도 없으면</strong> 상세의 AI 스트립·가이드 진입을 <strong>숨긴다</strong> (빈 가이드 금지).</li>
+<li>step_type: <code>CHECK</code> · <code>ACTION</code> · <code>CONTACT</code> · <code>NOTE</code> (콘솔 Runbook 정본). ACTION 체크 = “콘솔에서 수행함”(원격 실행 UI 없음).</li>
+<li>유사 이력 status: <code>RAW</code> 재사용 가중 하향 · <code>미상(초동)</code>/원인 미확정은 재사용 버튼 없음 · <code>CURATED</code>/<code>VERIFIED</code> 우선 노출.</li>
+<li>AI 필드: <code>suspected</code> / <code>checks</code> / <code>actions</code> / <code>evidence</code> — <strong>근거(evidence·유사 지식 링크) 없는 추정 항목은 렌더 금지</strong>.</li>
+</ul>
+<h3 id="82-gd수용-조건">8.2 GD·수용 조건</h3>
 <table>
 <thead>
 <tr>
@@ -462,7 +497,32 @@
 <td>근거 없는 AI 추정 렌더 금지 · 빈 가이드 시 스트립 숨김 · Ack 첨부는 사람 체크 기록(AI 문장 라벨 분리) · Silence 재개 시 0/n 리셋+이전 수행 스탬프 · 명령어 체크 = “콘솔에서 수행함”</td>
 </tr>
 </tbody></table>
-<p>상세 스펙은 확정 기획안 아티팩트 및 #19. 본 문서에서는 MVP 범위와 경계를 고정한다.</p>
+<h3 id="83-시안-샘플-실-개발-db-2026-07">8.3 시안 샘플 (실 개발 DB, 2026-07)</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>이벤트</td>
+<td><code>[AUT] 승인 5xx 오류율 급증</code> · rule <code>afqs5s6xaaghsc</code> · severity critical</td>
+</tr>
+<tr>
+<td>진급조치 매뉴얼</td>
+<td>Runbook <strong>#18</strong> <code>서비스 5xx 오류율 급증 대응</code> (CHECK×2 · CONTACT · ACTION×2)</td>
+</tr>
+<tr>
+<td>유사이슈</td>
+<td>knowledge #49 CURATED (배포 검증 부하, MTTR 7분) · #47 RAW (신규 버전 /error)</td>
+</tr>
+<tr>
+<td>AI</td>
+<td><code>event_ai_analysis</code> kind=EVENT · model <code>qwen2.5:7b-instruct</code> · 유사 92%/86% 근거 문구</td>
+</tr>
+</tbody></table>
+<p>시안: <a href="https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html#m-guide">mockups.html#m-guide</a></p>
 <hr>
 <h2 id="9-아키텍처기술">9. 아키텍처·기술</h2>
 <h3 id="91-스택">9.1 스택</h3>
