@@ -28,14 +28,14 @@
       background: #0b1220;
       color: var(--text);
       font-family: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      line-height: 1.55;
-      font-size: 11pt;
+      line-height: 1.5;
+      font-size: 10.5pt;
     }
     .page {
       width: var(--page-w);
       min-height: var(--page-h);
       margin: 0 auto 12px;
-      padding: 18mm 16mm 16mm;
+      padding: 14mm 14mm 16mm;
       background: var(--bg);
       position: relative;
       overflow: hidden;
@@ -48,208 +48,70 @@
       height: 4px;
       background: linear-gradient(90deg, var(--critical), var(--major), var(--minor), var(--action));
     }
-    h1 { font-size: 22pt; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.02em; }
+    h1 { font-size: 20pt; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.02em; }
     h2 {
-      font-size: 14pt;
-      margin: 0 0 12px;
-      padding-bottom: 6px;
+      font-size: 13pt;
+      margin: 0 0 10px;
+      padding-bottom: 5px;
       border-bottom: 1px solid var(--border);
       color: #fff;
     }
-    h3 { font-size: 11.5pt; margin: 14px 0 6px; color: #e2e8f0; }
-    p { margin: 0 0 8px; color: #e2e8f0; }
+    h3 { font-size: 10.5pt; margin: 10px 0 6px; color: #e2e8f0; }
+    p { margin: 0 0 6px; color: #e2e8f0; }
     .muted { color: var(--muted); }
     .mono { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-variant-numeric: tabular-nums; }
     .eyebrow {
       color: var(--ok);
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 700;
       letter-spacing: 0.04em;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-family: ui-monospace, Consolas, monospace;
     }
-    .lede { font-size: 12pt; color: var(--muted); max-width: 42em; }
+    .lede { font-size: 11pt; color: var(--muted); max-width: 42em; }
     .accent { color: var(--action); }
-    ul, ol { margin: 6px 0 10px; padding-left: 1.2em; color: #e2e8f0; }
-    li { margin: 3px 0; }
+    .slogan {
+      display: inline-block;
+      margin: 8px 0 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--action) 16%, transparent);
+      border: 1px solid color-mix(in srgb, var(--action) 40%, transparent);
+      font-weight: 750;
+      font-size: 11pt;
+      color: #fff;
+    }
+    ul, ol { margin: 4px 0 8px; padding-left: 1.15em; color: #e2e8f0; }
+    li { margin: 2px 0; }
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 9.5pt;
-      margin: 8px 0 12px;
+      font-size: 8.5pt;
+      margin: 6px 0 10px;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 7px 8px;
+      padding: 5px 6px;
       text-align: left;
       vertical-align: top;
     }
     th { background: var(--surface-2); color: #fff; font-weight: 700; }
     tr:nth-child(even) td { background: rgba(30,41,59,.35); }
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 10px 0 14px;
-    }
-    .card-grid.three { grid-template-columns: 1fr 1fr 1fr; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .card h4 { margin: 0 0 6px; font-size: 10.5pt; color: #fff; }
-    .card p, .card li { font-size: 9.2pt; margin: 0; color: #cbd5e1; }
-    .card ul { margin: 4px 0 0; padding-left: 1.1em; }
-    .kicker {
-      font-size: 8pt;
-      font-weight: 700;
-      color: var(--action);
-      font-family: ui-monospace, Consolas, monospace;
-      margin-bottom: 4px;
-    }
-    .stripe-card {
-      display: flex;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-    .stripe { width: 4px; flex-shrink: 0; background: var(--major); }
-    .stripe.critical { background: var(--critical); }
-    .stripe.minor { background: var(--minor); }
-    .stripe-body { padding: 8px 10px; flex: 1; min-width: 0; }
-    .stripe-body .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 8.5pt;
-    }
-    .stripe-body .title { font-weight: 750; font-size: 10pt; margin: 3px 0; color: #fff; }
-    .badge {
-      display: inline-block;
-      font-size: 8pt;
-      font-weight: 750;
-      padding: 2px 6px;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--ok) 50%, transparent);
-      color: var(--ok);
-    }
-    /* Architecture zones */
-    .zones {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr;
-      gap: 8px;
-      margin: 12px 0;
-    }
-    .zone {
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      padding: 10px;
-      min-height: 210px;
-    }
-    .zone.ext {
-      background: linear-gradient(180deg, rgba(191,27,0,.12), var(--surface));
-      border-color: color-mix(in srgb, var(--critical) 40%, var(--border));
-    }
-    .zone.dmz {
-      background: linear-gradient(180deg, rgba(153,68,10,.14), var(--surface));
-      border-color: color-mix(in srgb, var(--major) 45%, var(--border));
-    }
-    .zone.int {
-      background: linear-gradient(180deg, rgba(88,166,232,.12), var(--surface));
-      border-color: color-mix(in srgb, var(--action) 45%, var(--border));
-    }
-    .zone h4 {
-      margin: 0 0 8px;
-      font-size: 10.5pt;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .zone .tag {
-      font-size: 7.5pt;
-      font-weight: 800;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: rgba(0,0,0,.25);
-      font-family: ui-monospace, Consolas, monospace;
-    }
-    .zone ul { margin: 0; padding-left: 1.05em; font-size: 8.8pt; }
-    .zone li { margin: 4px 0; }
-    .flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin: 10px 0 4px;
-      font-size: 8.5pt;
-      color: var(--muted);
-    }
-    .flow span.box {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 5px 8px;
-      color: #e2e8f0;
-      font-weight: 650;
-    }
-    .flow .arrow { color: var(--action); font-weight: 800; }
-    .principle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .principle .item {
-      background: var(--surface);
-      border-left: 3px solid var(--action);
-      border-radius: 0 8px 8px 0;
-      padding: 8px 10px;
-      font-size: 9pt;
-    }
-    .principle .item strong { color: #fff; display: block; margin-bottom: 2px; }
-    .kpi {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin: 12px 0;
-    }
-    .kpi .box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 10px;
-      text-align: center;
-    }
-    .kpi .num {
-      font-size: 18pt;
-      font-weight: 800;
-      color: var(--action);
-      font-family: ui-monospace, Consolas, monospace;
-      line-height: 1.1;
-    }
-    .kpi .label { font-size: 8.5pt; color: var(--muted); margin-top: 4px; }
     .footer-note {
       position: absolute;
-      left: 16mm;
-      right: 16mm;
-      bottom: 10mm;
+      left: 14mm;
+      right: 14mm;
+      bottom: 8mm;
       display: flex;
       justify-content: space-between;
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--muted);
       border-top: 1px solid var(--border);
-      padding-top: 6px;
+      padding-top: 5px;
     }
-    .cover-center {
-      margin-top: 28mm;
-    }
+    .cover-center { margin-top: 22mm; }
     .cover-meta {
-      margin-top: 28px;
+      margin-top: 22px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
@@ -258,32 +120,134 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 9.5pt;
+      padding: 9px 11px;
+      font-size: 9pt;
     }
     .cover-meta .item span {
       display: block;
       color: var(--muted);
-      font-size: 8pt;
-      margin-bottom: 3px;
+      font-size: 7.5pt;
+      margin-bottom: 2px;
     }
-    .toc li { margin: 8px 0; font-size: 11pt; }
+    .toc li { margin: 6px 0; font-size: 10.5pt; }
     .toc a { color: var(--action); text-decoration: none; }
-    .screen-map {
+
+    /* Mockup gallery */
+    .shot-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 8px 0 6px;
+      align-items: end;
+    }
+    .shot-row.two { grid-template-columns: 1fr 1fr; }
+    .shot-row.four { grid-template-columns: repeat(4, 1fr); }
+    .shot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 6px 8px;
+      text-align: center;
+    }
+    .shot-card img {
+      width: 100%;
+      height: auto;
+      max-height: 168mm;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto;
+      background: #000;
+    }
+    .shot-card.phone img { max-height: 105mm; }
+    .shot-card.wide img { max-height: 72mm; }
+    .shot-card figcaption {
+      margin-top: 5px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--muted);
+      font-family: ui-monospace, Consolas, monospace;
+    }
+    .shot-card .cap-title {
+      color: #fff;
+      font-size: 8pt;
+      display: block;
+      margin-bottom: 1px;
+      font-family: Pretendard, system-ui, sans-serif;
+    }
+    .note-bar {
+      background: var(--surface);
+      border-left: 3px solid var(--action);
+      border-radius: 0 8px 8px 0;
+      padding: 7px 10px;
+      font-size: 8.5pt;
+      margin: 6px 0 0;
+      color: #cbd5e1;
+    }
+
+    /* Architecture diagram */
+    .arch-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 8px 8px;
+      margin: 8px 0 10px;
+    }
+    .arch-svg { width: 100%; height: auto; display: block; }
+    .zone-notes {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
+      gap: 7px;
+      margin-top: 8px;
     }
-    .screen-map .card { min-height: 92px; }
+    .zone-notes .zn {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 8px 9px;
+      font-size: 8pt;
+      background: #01040f;
+    }
+    .zone-notes .zn.ext { border-color: color-mix(in srgb, var(--critical) 45%, var(--border)); }
+    .zone-notes .zn.dmz { border-color: color-mix(in srgb, var(--major) 50%, var(--border)); }
+    .zone-notes .zn.int { border-color: color-mix(in srgb, var(--action) 50%, var(--border)); }
+    .zone-notes h4 {
+      margin: 0 0 4px;
+      font-size: 9pt;
+      color: #fff;
+    }
+    .zone-notes ul { margin: 0; padding-left: 1em; color: #cbd5e1; }
+    .zone-notes li { margin: 2px 0; }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin: 10px 0;
+    }
+    .kpi .box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .kpi .num {
+      font-size: 16pt;
+      font-weight: 800;
+      color: var(--action);
+      font-family: ui-monospace, Consolas, monospace;
+    }
+    .kpi .label { font-size: 7.5pt; color: var(--muted); margin-top: 3px; }
     .conclusion-box {
       background: linear-gradient(135deg, rgba(88,166,232,.14), rgba(61,214,140,.08));
       border: 1px solid color-mix(in srgb, var(--action) 40%, var(--border));
       border-radius: 12px;
-      padding: 14px 16px;
-      margin: 12px 0;
+      padding: 12px 14px;
+      margin: 8px 0;
     }
-    .conclusion-box p { margin: 0; font-size: 11pt; color: #fff; font-weight: 650; }
+    .conclusion-box p { margin: 0; font-size: 10pt; color: #fff; font-weight: 650; }
     a { color: var(--action); }
+
     @media print {
       body { background: #fff; }
       .page {
@@ -299,345 +263,353 @@
 </head>
 <body>
 
-  <!-- PAGE 1: Cover -->
+  <!-- PAGE 1 Cover -->
   <section class="page">
-    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.0 · 2026-07-13</p>
+    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.1 · 2026-07-13</p>
     <div class="cover-center">
       <h1>장애 인지에서 초동까지,<br /><span class="accent">손 안에서 3분</span></h1>
+      <p class="slogan">식별 → 즉시 손 → 필요할 때 깊이</p>
       <p class="lede">
         Sentinos · Chronos · Biznos 관제의 <strong style="color:#fff">장애 대응 모바일</strong> 요약 브리프.
-        디자인 시안을 중심으로, 외부망·DMZ·내부망(폐쇄망) 구성 요소와 핵심 기능·효과를 정리한다.
+        디자인 시안 실화면, 외부망·DMZ·내부망 아키텍처, 핵심 기능·효과를 정리한다.
       </p>
     </div>
     <div class="cover-meta">
-      <div class="item"><span>문서 성격</span>디자인 시안 · 망 아키텍처 · 효과 결론</div>
-      <div class="item"><span>정본·시안</span>bdk-choi.github.io/sentinos-mobile-docs</div>
-      <div class="item"><span>컨셉</span>A+C 하이브리드 — 인박스 홈 + 워룸형 상세</div>
-      <div class="item"><span>스택</span>RN 셸 + WebView · Next.js SSR/BFF · Spring API</div>
+      <div class="item"><span>문서</span>디자인 시안 · 망 아키텍처 · 효과 결론</div>
+      <div class="item"><span>시안 정본</span>bdk-choi.github.io/…/mockups.html</div>
+      <div class="item"><span>구조</span>변형 C — Main 식별 / 조치 Sub1~4</div>
+      <div class="item"><span>스택</span>RN 셸 + WebView · Next BFF · Spring</div>
     </div>
-    <h3 style="margin-top:28px">목차</h3>
+    <h3 style="margin-top:22px">목차</h3>
     <ol class="toc">
-      <li><a href="#p2">1. 디자인 시안 중점</a> — 화면 체계 · 토큰 · 가이드 정합</li>
-      <li><a href="#p3">2. 망 구간별 아키텍처</a> — 외부망 / DMZ / 내부망 구성 요소</li>
-      <li><a href="#p4">3. 핵심 기능 및 효과</a> — 결론 · KPI · 기대 성과</li>
+      <li>디자인 시안 — 인박스 · 상세 · 조치 (실 시안 캡처)</li>
+      <li>디자인 시안 — 로그 · Ack · 관계자 · 태블릿</li>
+      <li>망 아키텍처 구성도 — 외부 / DMZ / 내부망</li>
+      <li>핵심 기능 및 효과 — 결론</li>
     </ol>
     <div class="footer-note">
-      <span>Sentinos Mobile Brief</span>
-      <span>1 / 4 · Confidential (사내 공유용 요약)</span>
+      <span>Sentinos Mobile Brief v1.1</span>
+      <span>1 / 5</span>
     </div>
   </section>
 
-  <!-- PAGE 2: Design mockups -->
-  <section class="page" id="p2">
+  <!-- PAGE 2 Design shots 1 -->
+  <section class="page">
     <p class="eyebrow">01 · DESIGN MOCKUPS</p>
-    <h2>디자인 시안 중점</h2>
-    <p>
-      시안 정본: <span class="mono">mockups.html</span> —
-      <strong style="color:#fff">시간이 주인공</strong>인 장애 대응 도구. 대시보드 축소판이 아니라
-      경과·신선도·Silence·매뉴얼 수행을 최우선 위계로 둔다.
+    <h2>디자인 시안 — 인박스 · 상세 · 조치</h2>
+    <p class="muted" style="font-size:8.5pt;margin-bottom:6px">
+      출처: mockups.html 실 렌더 캡처 · 토큰 고정 · 변형 C
     </p>
-
-    <h3>1.1 시각 언어 (고정 토큰)</h3>
-    <div class="card-grid three">
-      <div class="card">
-        <div class="kicker">THEME</div>
-        <h4>다크 기본 · slate</h4>
-        <p class="mono" style="margin-top:4px;font-size:8.5pt">bg #020617 · surface #0F172A<br/>text #F8FAFC · action #58A6E8</p>
-      </div>
-      <div class="card">
-        <div class="kicker">SEVERITY</div>
-        <h4>테마 무관 고정</h4>
-        <p style="margin-top:4px">
-          <span style="color:#BF1B00;font-weight:800">Critical</span> ·
-          <span style="color:#C47A3A;font-weight:800">Major</span> ·
-          <span style="color:#D1CF2B;font-weight:800">Minor</span><br/>
-          색 + 텍스트 라벨 이중 부호화
-        </p>
-      </div>
-      <div class="card">
-        <div class="kicker">SIGNATURE</div>
-        <h4>경과 타이머</h4>
-        <p style="margin-top:4px">인박스 14px/700 mono<br/>상세 히어로 34px/800 mono · 실시간 틱</p>
-      </div>
+    <div class="shot-row">
+      <figure class="shot-card phone">
+        <img src="assets/shots/01-inbox.png" alt="화면1 이슈 인박스" />
+        <figcaption>
+          <span class="cap-title">화면 1 · 이슈 인박스</span>
+          활성만 · 경과 타이머 · 필터 4칩
+        </figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <img src="assets/shots/02-detail.png" alt="화면2 이슈 상세" />
+        <figcaption>
+          <span class="cap-title">화면 2 · 이슈 상세 (Main)</span>
+          식별 · AI CTA · 로그 미리보기
+        </figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <img src="assets/shots/03-action.png" alt="화면3 조치" />
+        <figcaption>
+          <span class="cap-title">화면 3 · 조치 Sub1~4</span>
+          기본 매뉴얼 · 칩 전환
+        </figcaption>
+      </figure>
     </div>
-
-    <h3>1.2 핵심 화면 맵 (시안)</h3>
-    <div class="screen-map">
-      <div class="card">
-        <div class="kicker">SCREEN 1</div>
-        <h4>이슈 인박스</h4>
-        <ul>
-          <li>활성 이슈만 (Ack 제외)</li>
-          <li>필터 4칩 · Health 뱃지</li>
-          <li>부서 병기 · 담당 1인</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="kicker">SCREEN 2</div>
-        <h4>이슈 상세</h4>
-        <ul>
-          <li>워룸형 단일 스크롤</li>
-          <li>로그 / 스냅샷 그래프</li>
-          <li>하단 Ack | ☎ 액션 바</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="kicker">SCREEN 2b</div>
-        <h4>AI / Runbook 가이드</h4>
-        <ul>
-          <li>진급조치 매뉴얼</li>
-          <li>AI 분석 · 근거 필수</li>
-          <li>유사이슈 조치이력</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="kicker">SCREEN 3–5</div>
-        <h4>로그 · Ack · 관계자</h4>
-        <ul>
-          <li>원문 mono · ▮▮▮ 마스킹</li>
-          <li>Silence = 조치예정 구간</li>
-          <li>tel/sms · 화면 유지</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="kicker">SCREEN 7–8</div>
-        <h4>이력 · 설정</h4>
-        <ul>
-          <li>재발 Top · 조치 재사용</li>
-          <li>권한 뱃지 · 테마 다크</li>
-          <li>V1 알림 자리 예약</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="kicker">LAYOUT</div>
-        <h4>반응형 · 상태 6종</h4>
-        <ul>
-          <li>~767 스택 / 768+ 스플릿</li>
-          <li>좌 인박스 320px</li>
-          <li>빈·로딩·오류·권한·오프라인·스테일</li>
-        </ul>
-      </div>
+    <div class="note-bar">
+      <strong style="color:#fff">정보 구조</strong> —
+      Main(사실)과 조치(Sub)를 <strong>화면 분리</strong>해 이중 스크롤을 없앤다.
+      AI 추정 CTA → 조치 화면 진입, 기본 칩 = <strong>Sub1 긴급조치 매뉴얼</strong>.
     </div>
-
-    <h3>1.3 인박스 카드 위계 (시안 규칙)</h3>
-    <div class="stripe-card">
-      <div class="stripe critical"></div>
-      <div class="stripe-body">
-        <div class="row"><span class="mono muted">CRITICAL</span><span class="mono" style="font-weight:700">04:32 경과</span></div>
-        <div class="title">[AUT] 승인 5xx 오류율 급증</div>
-        <div class="row mono muted"><span>승인계 · AUT · 대표담당 · 09:31:04</span><span class="badge">SYSTEM GOOD</span></div>
-      </div>
-    </div>
-    <p class="muted" style="font-size:9pt;margin:0">
-      가이드 데이터는 콘솔 <span class="mono">/events</span> 행 확장과 동일 원천 —
-      Runbook · incident_knowledge · event_ai_analysis. 근거 없는 AI 추정은 렌더하지 않는다.
-    </p>
-
-    <div class="footer-note">
-      <span>https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html</span>
-      <span>2 / 4</span>
-    </div>
-  </section>
-
-  <!-- PAGE 3: Architecture -->
-  <section class="page" id="p3">
-    <p class="eyebrow">02 · NETWORK ARCHITECTURE</p>
-    <h2>외부망 · DMZ · 내부망(폐쇄망) 구성</h2>
-    <p>
-      원칙: <strong style="color:#fff">DMZ 데이터 미보관</strong> · 내부 API 직접 노출 금지(BFF) ·
-      로그 마스킹 서버사이드 · 푸시 페이로드 최소화 · MDM 단말 전제.
-    </p>
-
-    <div class="flow">
-      <span class="box">MDM 단말 · RN+WebView</span>
-      <span class="arrow">→ HTTPS 443 →</span>
-      <span class="box">외부 FW</span>
-      <span class="arrow">→</span>
-      <span class="box">DMZ WAF/Proxy</span>
-      <span class="arrow">→</span>
-      <span class="box">내부 Next BFF</span>
-      <span class="arrow">→</span>
-      <span class="box">관제·로그·SSO</span>
-    </div>
-
-    <div class="zones">
-      <div class="zone ext">
-        <h4><span class="tag">ZONE A</span> 외부망</h4>
-        <ul>
-          <li><strong>MDM 관리 단말</strong> (Android / iOS)</li>
-          <li><strong>RN 셸</strong> — WebView, 생체인증, 딥링크, (V1) 푸시 수신</li>
-          <li><strong>모바일 웹 UI</strong> — 브라우저 렌더 (실제 데이터는 BFF 경유)</li>
-          <li><strong>네이티브 스킴</strong> — <span class="mono">tel:</span> / <span class="mono">sms:</span></li>
-          <li>스크린샷 방지 등 <strong>MDM 프로파일</strong></li>
-          <li>선택: per-app VPN / mTLS</li>
-          <li class="muted">※ 내부 API 주소·토큰 원문 비노출</li>
-        </ul>
-      </div>
-      <div class="zone dmz">
-        <h4><span class="tag">ZONE B</span> DMZ</h4>
-        <ul>
-          <li><strong>WAF</strong> — 위협 필터</li>
-          <li><strong>경량 리버스 프록시</strong> (Nginx급)
-            <ul>
-              <li>TLS 종료</li>
-              <li>Rate Limit</li>
-              <li>경로 화이트리스트</li>
-              <li><span class="mono">_next/static</span> 캐시</li>
-            </ul>
-          </li>
-          <li>인증 경로 프록시 (방안 A 시 Keycloak OIDC 일부 노출)</li>
-          <li><strong>데이터 저장 금지</strong> — 정적·중계만</li>
-          <li>풀 API GW 제품은 소비자 증가 시 재검토</li>
-        </ul>
-      </div>
-      <div class="zone int">
-        <h4><span class="tag">ZONE C</span> 내부망 (폐쇄망)</h4>
-        <ul>
-          <li><strong>Next.js SSR + BFF</strong> — 세션·집계·권한·마스킹</li>
-          <li><strong>mobile-api (Spring)</strong> — InboxResponse 등 계약</li>
-          <li><strong>Keycloak</strong> SSO/OTP (내부 정본)</li>
-          <li><strong>sentinos-console API</strong> — 이벤트·Ack·owners·Runbook·knowledge 의미론 정본</li>
-          <li><strong>관제</strong> Sentinos / Chronos / Biznos</li>
-          <li><strong>저장</strong> PostgreSQL event_history · Loki/ES · VM/Prometheus</li>
-          <li>(V1) 푸시 발송 — 아웃바운드 FCM/APNs, 이슈 ID만</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>2.1 구간별 책임 한 줄</h3>
+    <h3>Sub 칩 중요도</h3>
     <table>
       <thead>
-        <tr><th>구간</th><th>넣는 것</th><th>넣지 않는 것</th></tr>
+        <tr><th>칩</th><th>블록</th><th>역할</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>외부망</strong></td>
-          <td>MDM 단말, RN 셸, WebView UI, 생체·딥링크·전화/SMS</td>
-          <td>DB 접속, 내부 API 주소 하드코딩, 원문 로그 저장</td>
-        </tr>
-        <tr>
-          <td><strong>DMZ</strong></td>
-          <td>WAF, TLS, Rate Limit, 경로 필터, 정적 캐시, (선택) OIDC 프록시</td>
-          <td>업무 데이터·로그 원문·세션 저장소·BFF 비즈니스 로직</td>
-        </tr>
-        <tr>
-          <td><strong>내부망</strong></td>
-          <td>SSR/BFF, mobile-api, Keycloak, 콘솔/관제/로그/메트릭/PG</td>
-          <td>외부 직접 노출 포트, 마스킹 전 데이터 클라이언트 전송</td>
-        </tr>
+        <tr><td><strong>1 매뉴얼</strong></td><td>긴급조치 Runbook</td><td>즉시 손 · 기본 랜딩</td></tr>
+        <tr><td><strong>2 AI</strong></td><td>분석 &amp; 조치제안</td><td>깊이 1 · 근거 필수</td></tr>
+        <tr><td><strong>3 유사</strong></td><td>유사 이슈 조치내역</td><td>깊이 2 · 재사용</td></tr>
+        <tr><td><strong>4 이력</strong></td><td>AI 발생이력 분석</td><td>깊이 3 · 패턴</td></tr>
       </tbody>
     </table>
-
-    <div class="principle">
-      <div class="item"><strong>① DMZ 무데이터</strong>프록시·캐시만. 장애 원장·개인정보는 내부망.</div>
-      <div class="item"><strong>② BFF 단일 입구</strong>브라우저/앱 → 내부 시스템 직접 호출 금지.</div>
-      <div class="item"><strong>③ 서버사이드 마스킹</strong>권한·정책 적용 후 페이로드 전달. ▮▮▮ 표기.</div>
-      <div class="item"><strong>④ 인증 이원화 검토</strong>A: OIDC 화이트리스트 / B: 대리 로그인 — 보안팀 협의.</div>
-    </div>
-
     <div class="footer-note">
-      <span>출처: 기획 v2.2 · wiki sentinos-mobile-기술스택-아키텍처</span>
-      <span>3 / 4</span>
+      <span>https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html</span>
+      <span>2 / 5</span>
     </div>
   </section>
 
-  <!-- PAGE 4: Conclusion -->
-  <section class="page" id="p4">
+  <!-- PAGE 3 more shots -->
+  <section class="page">
+    <p class="eyebrow">01 · DESIGN MOCKUPS (계속)</p>
+    <h2>디자인 시안 — 로그 · Ack · 관계자 · 태블릿</h2>
+    <div class="shot-row four">
+      <figure class="shot-card phone">
+        <img src="assets/shots/04-log.png" alt="로그 상세" />
+        <figcaption><span class="cap-title">화면 4 · 로그</span>원문 · 마스킹</figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <img src="assets/shots/05-ack.png" alt="Ack 시트" />
+        <figcaption><span class="cap-title">화면 5 · Ack</span>Silence 3필수</figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <img src="assets/shots/06-contact.png" alt="관계자" />
+        <figcaption><span class="cap-title">화면 6 · 관계자</span>tel / sms</figcaption>
+      </figure>
+      <figure class="shot-card phone">
+        <img src="assets/shots/03-action-ai.png" alt="조치 AI 탭" />
+        <figcaption><span class="cap-title">화면 3 · Sub2 AI</span>조치제안 탭</figcaption>
+      </figure>
+    </div>
+    <h3>태블릿 마스터–디테일 (768px+)</h3>
+    <div class="shot-row two">
+      <figure class="shot-card wide" style="grid-column: 1 / -1;">
+        <img src="assets/shots/07-tablet.png" alt="태블릿 스플릿" />
+        <figcaption>
+          <span class="cap-title">태블릿 스플릿 · 좌 인박스 320px + 우 Main/Sub 구조</span>
+          선택 카드 = 액션 블루 외곽선 · 심각도 색과 경쟁 금지
+        </figcaption>
+      </figure>
+    </div>
+    <div class="note-bar">
+      시각 토큰: 다크 slate · Critical <span style="color:#BF1B00">#BF1B00</span> ·
+      Major <span style="color:#C47A3A">#99440A</span> ·
+      Minor <span style="color:#D1CF2B">#D1CF2B</span> ·
+      시그니처 = <strong style="color:#fff">경과 타이머</strong> (mono)
+    </div>
+    <div class="footer-note">
+      <span>시안 캡처 · assets/shots/*</span>
+      <span>3 / 5</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 Architecture -->
+  <section class="page">
+    <p class="eyebrow">02 · NETWORK ARCHITECTURE</p>
+    <h2>망 아키텍처 구성도</h2>
+    <p class="muted" style="font-size:8.5pt">외부망 → DMZ → 내부망(폐쇄망). DMZ 데이터 미보관 · BFF 단일 입구.</p>
+
+    <div class="arch-wrap">
+      <svg class="arch-svg" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="망 아키텍처 다이어그램">
+        <defs>
+          <linearGradient id="gExt" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#BF1B00" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="gDmz" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#99440A" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="gInt" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#58A6E8" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+          </linearGradient>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#58A6E8"/>
+          </marker>
+        </defs>
+
+        <!-- Zones -->
+        <rect x="12" y="36" width="200" height="250" rx="12" fill="url(#gExt)" stroke="#BF1B00" stroke-opacity="0.55" stroke-width="1.5"/>
+        <rect x="250" y="36" width="200" height="250" rx="12" fill="url(#gDmz)" stroke="#99440A" stroke-opacity="0.6" stroke-width="1.5"/>
+        <rect x="488" y="36" width="220" height="250" rx="12" fill="url(#gInt)" stroke="#58A6E8" stroke-opacity="0.55" stroke-width="1.5"/>
+
+        <text x="112" y="28" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">외부망</text>
+        <text x="350" y="28" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">DMZ</text>
+        <text x="598" y="28" text-anchor="middle" fill="#F8FAFC" font-size="13" font-weight="700" font-family="Pretendard, sans-serif">내부망 (폐쇄망)</text>
+
+        <!-- External boxes -->
+        <rect x="32" y="58" width="160" height="44" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="112" y="78" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700" font-family="Pretendard, sans-serif">MDM 단말</text>
+        <text x="112" y="92" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="ui-monospace, monospace">Android / iOS</text>
+
+        <rect x="32" y="114" width="160" height="44" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="112" y="134" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700" font-family="Pretendard, sans-serif">RN 셸 + WebView</text>
+        <text x="112" y="148" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="ui-monospace, monospace">생체 · 딥링크 · 푸시(V1)</text>
+
+        <rect x="32" y="170" width="160" height="36" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="112" y="192" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">tel: / sms: 네이티브</text>
+
+        <rect x="32" y="218" width="160" height="48" rx="8" fill="#01040f" stroke="rgba(191,27,0,0.35)" stroke-dasharray="4 3"/>
+        <text x="112" y="238" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="Pretendard, sans-serif">넣지 않음</text>
+        <text x="112" y="252" text-anchor="middle" fill="#64748B" font-size="8" font-family="Pretendard, sans-serif">DB · 내부 API 주소</text>
+
+        <!-- DMZ boxes -->
+        <rect x="270" y="58" width="160" height="40" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="350" y="82" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700" font-family="Pretendard, sans-serif">WAF</text>
+
+        <rect x="270" y="110" width="160" height="56" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="350" y="132" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700" font-family="Pretendard, sans-serif">리버스 프록시</text>
+        <text x="350" y="148" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="ui-monospace, monospace">TLS · Rate Limit</text>
+        <text x="350" y="160" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="ui-monospace, monospace">경로 필터 · static 캐시</text>
+
+        <rect x="270" y="180" width="160" height="36" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="350" y="202" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">OIDC 경로 (방안 A)</text>
+
+        <rect x="270" y="228" width="160" height="40" rx="8" fill="#01040f" stroke="rgba(153,68,10,0.45)" stroke-dasharray="4 3"/>
+        <text x="350" y="246" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="Pretendard, sans-serif">데이터 저장 금지</text>
+        <text x="350" y="258" text-anchor="middle" fill="#64748B" font-size="8" font-family="Pretendard, sans-serif">세션·로그 원문·BFF 로직</text>
+
+        <!-- Internal boxes -->
+        <rect x="508" y="52" width="180" height="36" rx="8" fill="#1E293B" stroke="rgba(88,166,232,0.35)"/>
+        <text x="598" y="74" text-anchor="middle" fill="#F8FAFC" font-size="10" font-weight="700" font-family="Pretendard, sans-serif">Next.js SSR + BFF</text>
+
+        <rect x="508" y="96" width="180" height="32" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="598" y="116" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">mobile-api (Spring)</text>
+
+        <rect x="508" y="136" width="180" height="32" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="598" y="156" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">Keycloak SSO/OTP</text>
+
+        <rect x="508" y="176" width="180" height="40" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="598" y="194" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">Console API · 관제</text>
+        <text x="598" y="208" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="ui-monospace, monospace">Ack · owners · Runbook</text>
+
+        <rect x="508" y="224" width="180" height="44" rx="8" fill="#1E293B" stroke="rgba(255,255,255,0.12)"/>
+        <text x="598" y="244" text-anchor="middle" fill="#F8FAFC" font-size="10" font-family="Pretendard, sans-serif">PG · Loki/ES · VM</text>
+        <text x="598" y="258" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="ui-monospace, monospace">event_history · 마스킹</text>
+
+        <!-- Flow arrows -->
+        <line x1="212" y1="136" x2="248" y2="136" stroke="#58A6E8" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="230" y="128" text-anchor="middle" fill="#58A6E8" font-size="8" font-family="ui-monospace, monospace">HTTPS</text>
+        <line x1="450" y1="136" x2="486" y2="136" stroke="#58A6E8" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="468" y="128" text-anchor="middle" fill="#58A6E8" font-size="8" font-family="ui-monospace, monospace">FW</text>
+
+        <!-- Push outbound note -->
+        <text x="112" y="290" text-anchor="middle" fill="#64748B" font-size="8" font-family="Pretendard, sans-serif">V1 푸시: 내부→FCM/APNs (이슈 ID만)</text>
+      </svg>
+    </div>
+
+    <div class="zone-notes">
+      <div class="zn ext">
+        <h4>외부망 — 단말·셸</h4>
+        <ul>
+          <li>MDM 관리 단말, RN+WebView UI</li>
+          <li>생체·딥링크·전화/SMS</li>
+          <li>내부 API·원문 데이터 비보관</li>
+        </ul>
+      </div>
+      <div class="zn dmz">
+        <h4>DMZ — 문지기</h4>
+        <ul>
+          <li>WAF + 경량 리버스 프록시</li>
+          <li>TLS, Rate Limit, 경로 화이트리스트</li>
+          <li><strong>업무 데이터 저장 금지</strong></li>
+        </ul>
+      </div>
+      <div class="zn int">
+        <h4>내부망 — 데이터·BFF</h4>
+        <ul>
+          <li>Next BFF · mobile-api · Keycloak</li>
+          <li>콘솔/관제/PG/로그/메트릭</li>
+          <li>서버사이드 마스킹 · 권한</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <span>출처: 기획 v2.2 · wiki 기술스택·아키텍처</span>
+      <span>4 / 5</span>
+    </div>
+  </section>
+
+  <!-- PAGE 5 Conclusion -->
+  <section class="page">
     <p class="eyebrow">03 · OUTCOMES</p>
     <h2>핵심 기능 및 효과 — 결론</h2>
 
     <div class="conclusion-box">
       <p>
-        Sentinos Mobile은 관제 화면의 축소판이 아니라,
-        <span class="accent">야간·이동 중 3분 초동 대응</span>을 위한 전용 도구다.
-        시안이 정한 위계(시간·활성 이슈·매뉴얼·연락)와 망 분리(외부·DMZ·내부)가 그 목적을 구조적으로 뒷받침한다.
+        Sentinos Mobile은 관제 축소판이 아니라
+        <span class="accent">야간·이동 중 3분 초동</span> 도구다.
+        시안(식별→즉시 손→깊이)과 망 분리(외부·DMZ·내부)가 그 목적을 구조로 고정한다.
       </p>
     </div>
 
-    <h3>3.1 핵심 기능</h3>
+    <h3>핵심 기능</h3>
     <table>
       <thead>
         <tr><th>기능</th><th>사용자 가치</th><th>설계 포인트</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>활성 이슈 인박스</strong></td>
-          <td>지금 손댈 일만 한 손에</td>
-          <td>Ack/Silence 제외 · 1분 폴링 · 경과 타이머</td>
+          <td><strong>활성 인박스</strong></td>
+          <td>지금 손댈 일만</td>
+          <td>Ack 제외 · 1분 폴링 · 경과 타이머</td>
         </tr>
         <tr>
-          <td><strong>워룸형 상세</strong></td>
-          <td>어디·무엇·얼마나 즉시 파악</td>
-          <td>로그/스냅샷 분기 · 담당 전체 · 액션 바</td>
+          <td><strong>상세 Main</strong></td>
+          <td>무엇·어디·얼마나 식별</td>
+          <td>사실 전용 · AI CTA → 조치 화면</td>
         </tr>
         <tr>
-          <td><strong>AI/Runbook 가이드</strong></td>
-          <td>초동 매뉴얼 + 유사 이력 재사용</td>
-          <td>콘솔 진급조치·유사이슈·AI 정합 · 근거 없는 AI 비표시</td>
+          <td><strong>조치 Sub1~4</strong></td>
+          <td>매뉴얼 초동 + 깊이</td>
+          <td>기본 매뉴얼 · AI/유사/이력 칩</td>
         </tr>
         <tr>
           <td><strong>Ack = Silence</strong></td>
-          <td>상황인지 완료 + 알림 스누즈</td>
-          <td>3필수 입력 · 웹 Sentinos 의미론 동일</td>
+          <td>상황인지 + 알림 스누즈</td>
+          <td>3필수 · 웹 의미론 동일</td>
         </tr>
         <tr>
           <td><strong>관계자 연락</strong></td>
           <td>이탈 없이 전화/SMS</td>
-          <td>owners/resolve · 요약 자동 첨부</td>
-        </tr>
-        <tr>
-          <td><strong>PC 핸드오프 (R10)</strong></td>
-          <td>깊은 분석은 콘솔로</td>
-          <td>콘솔 링크 복사 · 읽기 전용 원칙 유지</td>
+          <td>owners/resolve · 요약 첨부</td>
         </tr>
         <tr>
           <td><strong>상태 6종 · 신선도</strong></td>
-          <td>“조용함” vs “고장” 혼동 방지</td>
-          <td>스테일 배너 · 서버 시각 오프셋</td>
+          <td>조용함 ≠ 고장</td>
+          <td>스테일 배너 · 서버 시각 보정</td>
         </tr>
       </tbody>
     </table>
 
-    <h3>3.2 기대 효과 (KPI)</h3>
+    <h3>기대 효과 (KPI)</h3>
     <div class="kpi">
       <div class="box">
         <div class="num">3분</div>
-        <div class="label">초동 플로우<br/>인박스→판단→Ack/연락</div>
+        <div class="label">초동 플로우</div>
       </div>
       <div class="box">
         <div class="num">1분</div>
-        <div class="label">MTTA 목표<br/>(인지 후 · MVP)</div>
+        <div class="label">MTTA (인지 후)</div>
       </div>
       <div class="box">
         <div class="num">0%</div>
-        <div class="label">단순 확인 건<br/>PC 부팅 필요율</div>
+        <div class="label">단순확인 PC 부팅</div>
       </div>
       <div class="box">
         <div class="num">−TT</div>
-        <div class="label">Travel Time<br/>자리 이동 전 초동</div>
+        <div class="label">Travel Time 제거</div>
       </div>
     </div>
 
-    <h3>3.3 결론</h3>
+    <h3>결론</h3>
     <ol>
-      <li><strong>시안이 곧 운영 언어다.</strong> 경과 타이머·활성 인박스·가이드 3단(매뉴얼·AI·유사 이력)은 새벽 한 손 조작에 맞춰져 있다.</li>
-      <li><strong>망 분리가 보안과 속도를 동시에 만든다.</strong> 외부는 단말·셸, DMZ는 문지기, 내부는 데이터와 BFF — 역할이 겹치지 않는다.</li>
-      <li><strong>콘솔과 경합하지 않는다.</strong> 콘솔은 전체 관리, 모바일은 지금 활성 이슈의 초동. 같은 데이터, 다른 자르기.</li>
-      <li><strong>효과는 시간으로 측정한다.</strong> MTTA·3분 플로우·PC 부팅 0% — 관제 미학이 아니라 대응 시간 단축이 성공 기준이다.</li>
+      <li><strong>시안이 운영 언어다.</strong> 경과 타이머·활성 인박스·Main/조치 분리가 새벽 한 손 동선이다.</li>
+      <li><strong>망 분리가 보안과 속도를 동시에 만든다.</strong> 외부=단말, DMZ=문지기, 내부=데이터·BFF.</li>
+      <li><strong>콘솔과 경합하지 않는다.</strong> 콘솔=관리, 모바일=활성 이슈 초동. 같은 데이터, 다른 자르기.</li>
+      <li><strong>효과는 시간으로 측정한다.</strong> MTTA·3분 플로우·PC 부팅 0%가 성공 기준이다.</li>
     </ol>
 
-    <p class="muted" style="margin-top:16px;font-size:9pt">
-      공개 문서:
+    <p class="muted" style="margin-top:12px;font-size:8pt">
+      공개:
       <a href="https://bdk-choi.github.io/sentinos-mobile-docs/">홈</a> ·
       <a href="https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html">시안</a> ·
-      <a href="https://bdk-choi.github.io/sentinos-mobile-docs/planning.html">기획</a> ·
-      <a href="https://bdk-choi.github.io/sentinos-mobile-docs/design.html">디자인</a> ·
-      <a href="https://bdk-choi.github.io/sentinos-mobile-docs/sentinos-mobile-brief.pdf">본 PDF</a>
+      <a href="https://bdk-choi.github.io/sentinos-mobile-docs/brief.html">브리프 HTML</a> ·
+      <a href="https://bdk-choi.github.io/sentinos-mobile-docs/sentinos-mobile-brief.pdf">PDF</a>
     </p>
 
     <div class="footer-note">
-      <span>Sentinos Mobile · 2026-07-13 · wiki/docs 정본 기반</span>
-      <span>4 / 4</span>
+      <span>Sentinos Mobile · 2026-07-13 · Brief v1.1</span>
+      <span>5 / 5</span>
     </div>
   </section>
 
