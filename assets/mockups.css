@@ -10,8 +10,9 @@
   --critical: #bf1b00;
   --major: #99440a;
   --minor: #d1cf2b;
-  --phone-w: 320px;
-  --phone-h: 640px;
+  /* FHD+ portrait 1080×2340, width +10% vs prior 320 */
+  --phone-w: 352px;
+  --phone-h: 764px; /* 352 * 2340 / 1080 */
   font-family: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
@@ -148,14 +149,12 @@ body {
   .mock-meta { max-width: none; text-align: left; width: 100%; }
 }
 
-/* Phone frame */
+/* Phone frame — 1080×2340 (W×H) portrait, +10% width vs legacy 320 */
+.phone-frame,
 .phone-frame.tall {
-  height: 760px;
-}
-
-.phone-frame {
   width: var(--phone-w);
   height: var(--phone-h);
+  aspect-ratio: 1080 / 2340;
   background: #000;
   border-radius: 28px;
   padding: 10px;
