@@ -17,7 +17,7 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Sentinos Mobile <span class="brand-sub">Docs</span></span>
       </a>
-      <nav class="site-nav" aria-label="문서 전환"><a class="nav-link" href="index.html">홈</a><a class="nav-link is-active" href="planning.html">기획</a><a class="nav-link" href="design.html">디자인</a><a class="nav-link" href="mockups.html">시안</a></nav>
+      <nav class="site-nav" aria-label="문서 전환"><a class="nav-link" href="index.html">홈</a><a class="nav-link is-active" href="planning.html">기획</a><a class="nav-link" href="design.html">디자인</a><a class="nav-link" href="mockups.html">시안</a><a class="nav-link" href="brief.html">브리프</a></nav>
     </div>
   </header>
   <div class="page">
@@ -50,7 +50,7 @@
 <li class="toc-l3"><a href="#탭-구성">탭 구성</a></li>
 <li class="toc-l3"><a href="#이력-탭">이력 탭</a></li>
 <li class="toc-l3"><a href="#설정-탭-mvp">설정 탭 (MVP)</a></li>
-<li class="toc-l2"><a href="#8-가이드-화면-v1-gd-요약-콘솔-데이터-정합">8. 가이드 화면 (V1) — GD 요약 + 콘솔 데이터 정합</a></li>
+<li class="toc-l2"><a href="#8-상세-조치-영역-변형-c-gd-요약-콘솔-데이터-정합">8. 상세 조치 영역 (변형 C) — GD 요약 + 콘솔 데이터 정합</a></li>
 <li class="toc-l3"><a href="#81-콘솔-모바일-섹션-매핑">8.1 콘솔 ↔ 모바일 섹션 매핑</a></li>
 <li class="toc-l3"><a href="#82-gd수용-조건">8.2 GD·수용 조건</a></li>
 <li class="toc-l3"><a href="#83-시안-샘플-실-개발-db-2026-07">8.3 시안 샘플 (실 개발 DB, 2026-07)</a></li>
@@ -443,8 +443,43 @@
 <li>예약: <strong>알림 설정</strong> — V1 푸시 도입 시</li>
 </ol>
 <hr>
-<h2 id="8-가이드-화면-v1-gd-요약-콘솔-데이터-정합">8. 가이드 화면 (V1) — GD 요약 + 콘솔 데이터 정합</h2>
-<p>MVP 범위 밖(구현 로드맵 V1). <strong>G-3 확정</strong>: 상세 AI 요약 스트립 + 전용 가이드 화면 (<code>/issues/[id]/guide</code>).<br><strong>의미론 정본 = sentinos-console</strong> <code>/events</code> 행 확장 패널과 동일 재료를 모바일에 재배치한다.</p>
+<h2 id="8-상세-조치-영역-변형-c-gd-요약-콘솔-데이터-정합">8. 상세 조치 영역 (변형 C) — GD 요약 + 콘솔 데이터 정합</h2>
+<p><strong>정보 구조 슬로건 (디자인 정본)</strong>: <strong>식별 → 즉시 손 → 필요할 때 깊이</strong><br>(상세: <a href="design.html">디자인 컨셉 §1.2~1.4</a>)</p>
+<table>
+<thead>
+<tr>
+<th>블록</th>
+<th>이름</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Main</strong></td>
+<td>이벤트 발생 내용</td>
+<td>식별 — 기존 이슈 상세 핵심 (사실)</td>
+</tr>
+<tr>
+<td><strong>Sub 1</strong></td>
+<td>긴급조치 매뉴얼 (Runbook)</td>
+<td>즉시 손 — <strong>기본 랜딩</strong></td>
+</tr>
+<tr>
+<td><strong>Sub 2</strong></td>
+<td>AI 분석 &amp; 조치제안</td>
+<td>깊이 1 — EVENT AI</td>
+</tr>
+<tr>
+<td><strong>Sub 3</strong></td>
+<td>유사 이슈 조치내역</td>
+<td>깊이 2 — knowledge/similar</td>
+</tr>
+<tr>
+<td><strong>Sub 4</strong></td>
+<td>AI 발생이력 분석</td>
+<td>깊이 3 — HISTORY AI</td>
+</tr>
+</tbody></table>
+<p>MVP 이후(V1) 본격 구현. 의미론 정본 = sentinos-console <code>/events</code> 행 확장.<br><strong>페이지 왕복으로 Main/Sub를 쪼개지 않는다</strong> — 상세 한 화면에 Main + 2차 내비 + Sub 패널.</p>
 <h3 id="81-콘솔-모바일-섹션-매핑">8.1 콘솔 ↔ 모바일 섹션 매핑</h3>
 <table>
 <thead>
