@@ -3,7 +3,8 @@
 > **상태**: 시안 v1.2 승인 · 구현 토큰 고정  
 > **작성 기준일**: 2026-07-13  
 > **페어 문서**: [기획 v2.2](../product/sentinos-mobile-기획-v2.2.md) · [구현용 프롬프트](./mobile-web-design-prompt.md)  
-> **시안 (인터랙티브 목업)**: [docs/design/mockups/screens.html](./mockups/screens.html) · 문서 사이트 `mockups.html`  
+> **시안 (인터랙티브 목업)**: [mockups/screens.html](./mockups/screens.html) · **공개 URL**: https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html  
+> **문서 사이트 (공개)**: https://bdk-choi.github.io/sentinos-mobile-docs/  
 > **시안 v1.2 (외부 아티팩트)**: [claude.ai artifact](https://claude.ai/code/artifact/b92ad3fe-5bf6-4872-8b8d-90afea4737d9)
 
 본 문서는 **의도·원칙·시각 언어·상태 규칙**을 고정한다.  

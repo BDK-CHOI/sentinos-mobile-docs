@@ -16,6 +16,8 @@
 | MVP 설계 스펙 | [`docs/superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md`](../superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md) | 갭 G1~G7 · 로드맵 |
 | 디자인 프롬프트 | [`docs/design/mobile-web-design-prompt.md`](../design/mobile-web-design-prompt.md) | 화면 구현용 토큰·화면 8종 |
 | 디자인 컨셉 (본 저장소) | [`docs/design/sentinos-mobile-디자인-컨셉.md`](../design/sentinos-mobile-디자인-컨셉.md) | 의도·시각 언어·상태 규칙 |
+| **공개 문서 사이트** | https://bdk-choi.github.io/sentinos-mobile-docs/ | 기획·디자인·시안 웹 공유 |
+| 디자인 시안 목업 | https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html | 폰 프레임 화면 시안 |
 | 저장소 요약 | [`README.md`](../../README.md) | 확정 결정 한눈에 |
 | 프로젝트 허브 (wiki) | `llm-wiki/프로젝트/모니터링-모바일앱` | 진행·개정 타임라인 |
 | 결정 노트 (wiki) | 컨셉 · 스택 · 화면 · 인박스 데이터소스 | 선택지·근거 |
