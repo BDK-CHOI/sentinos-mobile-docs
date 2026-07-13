@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sentinos Mobile 기획 정본 — 목적, R1~R11, 아키텍처, 로드맵" />
+  <title>기획 문서 v2.2 · Sentinos Mobile</title>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.2.5/index.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Sentinos Mobile <span class="brand-sub">Docs</span></span>
+      </a>
+      <nav class="site-nav" aria-label="문서 전환"><a class="nav-link" href="index.html">홈</a><a class="nav-link is-active" href="planning.html">기획</a><a class="nav-link" href="design.html">디자인</a><a class="nav-link" href="mockups.html">시안</a></nav>
+    </div>
+  </header>
+  <div class="page">
+    <nav class="toc" aria-label="목차">
+  <div class="toc-title">목차</div>
+  <ol><li class="toc-l2"><a href="#0-정본출처-맵">0. 정본·출처 맵</a></li>
+<li class="toc-l2"><a href="#1-목적성공-기준">1. 목적·성공 기준</a></li>
+<li class="toc-l3"><a href="#11-한-줄-목적">1.1 한 줄 목적</a></li>
+<li class="toc-l3"><a href="#12-성공-지표">1.2 성공 지표</a></li>
+<li class="toc-l3"><a href="#13-비목표-mvp">1.3 비목표 (MVP)</a></li>
+<li class="toc-l2"><a href="#2-문제-정의">2. 문제 정의</a></li>
+<li class="toc-l2"><a href="#3-사용자페르소나">3. 사용자·페르소나</a></li>
+<li class="toc-l2"><a href="#4-제품-컨셉">4. 제품 컨셉</a></li>
+<li class="toc-l3"><a href="#41-ac-하이브리드-확정">4.1 A+C 하이브리드 (확정)</a></li>
+<li class="toc-l3"><a href="#42-콘솔과-모바일의-역할-분담">4.2 콘솔과 모바일의 역할 분담</a></li>
+<li class="toc-l3"><a href="#43-읽기-전용-원칙">4.3 읽기 전용 원칙</a></li>
+<li class="toc-l2"><a href="#5-핵심-플로우">5. 핵심 플로우</a></li>
+<li class="toc-l2"><a href="#6-화면-요구사항-r1r11">6. 화면 요구사항 R1~R11</a></li>
+<li class="toc-l3"><a href="#r1-진입갱신">R1 — 진입·갱신</a></li>
+<li class="toc-l3"><a href="#r2-이슈-인박스-카드-v21-v22">R2 — 이슈 인박스 카드 (v2.1 · v2.2)</a></li>
+<li class="toc-l3"><a href="#r3-ack-상황인지-완료처리">R3 — Ack = 상황인지 완료처리</a></li>
+<li class="toc-l3"><a href="#r4-이슈-상세-상단">R4 — 이슈 상세 상단</a></li>
+<li class="toc-l3"><a href="#r5-r7-상세-하단-sourcetype-분기">R5 / R7 — 상세 하단 sourceType 분기</a></li>
+<li class="toc-l3"><a href="#r6-로그-상세">R6 — 로그 상세</a></li>
+<li class="toc-l3"><a href="#r8-관계자-연락-레이어">R8 — 관계자 연락 레이어</a></li>
+<li class="toc-l3"><a href="#r9-권한-모델">R9 — 권한 모델</a></li>
+<li class="toc-l3"><a href="#r10-콘솔-링크-복사-pc-핸드오프">R10 — 콘솔 링크 복사 (PC 핸드오프)</a></li>
+<li class="toc-l3"><a href="#r11-데이터-신선도시간-규칙">R11 — 데이터 신선도·시간 규칙</a></li>
+<li class="toc-l2"><a href="#7-탭설정이력">7. 탭·설정·이력</a></li>
+<li class="toc-l3"><a href="#탭-구성">탭 구성</a></li>
+<li class="toc-l3"><a href="#이력-탭">이력 탭</a></li>
+<li class="toc-l3"><a href="#설정-탭-mvp">설정 탭 (MVP)</a></li>
+<li class="toc-l2"><a href="#8-가이드-화면-v1-gd-요약">8. 가이드 화면 (V1) — GD 요약</a></li>
+<li class="toc-l2"><a href="#9-아키텍처기술">9. 아키텍처·기술</a></li>
+<li class="toc-l3"><a href="#91-스택">9.1 스택</a></li>
+<li class="toc-l3"><a href="#92-망-구성">9.2 망 구성</a></li>
+<li class="toc-l3"><a href="#93-인박스-데이터-소스-2026-07-10-확정">9.3 인박스 데이터 소스 (2026-07-10 확정)</a></li>
+<li class="toc-l3"><a href="#94-스펙-갭-g1g7">9.4 스펙 갭 G1~G7</a></li>
+<li class="toc-l2"><a href="#10-로드맵">10. 로드맵</a></li>
+<li class="toc-l3"><a href="#구현-현황-참고-2026-07-10-기준">구현 현황 (참고, 2026-07-10 기준)</a></li>
+<li class="toc-l2"><a href="#11-미결외부-의존">11. 미결·외부 의존</a></li>
+<li class="toc-l2"><a href="#12-관련-저장소">12. 관련 저장소</a></li>
+<li class="toc-l2"><a href="#13-개정-이력">13. 개정 이력</a></li>
+<li class="toc-l2"><a href="#14-관련-문서">14. 관련 문서</a></li></ol>
+</nav>
+    <main class="content prose">
+<h1 id="sentinos-mobile-기획-문서-v22">Sentinos Mobile — 기획 문서 v2.2</h1>
+<blockquote>
+<p><strong>상태</strong>: 기획 완결 · 개발 진행 중<br><strong>작성 기준일</strong>: 2026-07-13<br><strong>버전 이력</strong>: v2.0(2026-07-06 기획 완결) → v2.1(2026-07-10 인박스 정책) → <strong>v2.2(2026-07-10 콘솔 UI 정합)</strong><br><strong>본 문서 역할</strong>: 로컬 저장소의 <strong>일상 작업용 기획 정본</strong>. 외부 아티팩트·GitHub 이슈·llm-wiki 결정을 한곳에 통합한다.</p>
+</blockquote>
+<hr>
+<h2 id="0-정본출처-맵">0. 정본·출처 맵</h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>위치</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>확정 기획안 v2.0 (원 아티팩트)</td>
+<td><a href="https://claude.ai/code/artifact/aab140d5-1ebf-4699-b9a6-9f68e3a24939">claude.ai artifact</a></td>
+<td>R1<del>R11 · GD-1</del>GD-5 · 목업. 외부 정본</td>
+</tr>
+<tr>
+<td>워킹 드래프트</td>
+<td><a href="https://claude.ai/code/artifact/5ccbaaaf-3d62-44e0-a5b6-8c4989399e30">artifact</a></td>
+<td>검토 과정·미채택안 보존</td>
+</tr>
+<tr>
+<td>MVP 설계 스펙</td>
+<td><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md"><code>docs/superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md</code></a></td>
+<td>갭 G1~G7 · 로드맵</td>
+</tr>
+<tr>
+<td>디자인 프롬프트</td>
+<td><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/design/mobile-web-design-prompt.md"><code>docs/design/mobile-web-design-prompt.md</code></a></td>
+<td>화면 구현용 토큰·화면 8종</td>
+</tr>
+<tr>
+<td>디자인 컨셉 (본 저장소)</td>
+<td><a href="design.html"><code>docs/design/sentinos-mobile-디자인-컨셉.md</code></a></td>
+<td>의도·시각 언어·상태 규칙</td>
+</tr>
+<tr>
+<td>저장소 요약</td>
+<td><a href="https://github.com/BDK-CHOI/sentinos-mobile#readme"><code>README.md</code></a></td>
+<td>확정 결정 한눈에</td>
+</tr>
+<tr>
+<td>프로젝트 허브 (wiki)</td>
+<td><code>llm-wiki/프로젝트/모니터링-모바일앱</code></td>
+<td>진행·개정 타임라인</td>
+</tr>
+<tr>
+<td>결정 노트 (wiki)</td>
+<td>컨셉 · 스택 · 화면 · 인박스 데이터소스</td>
+<td>선택지·근거</td>
+</tr>
+</tbody></table>
+<p><strong>버전 우선순위</strong>: 같은 조항이 충돌하면 <strong>본 문서 v2.2 &gt; MVP 스펙 md의 구절 &gt; wiki 요약 &gt; 아티팩트 v2.0</strong> 순으로 해석한다. (v2.1·v2.2 개정은 아티팩트 이후 반영분이다.)</p>
+<hr>
+<h2 id="1-목적성공-기준">1. 목적·성공 기준</h2>
+<h3 id="11-한-줄-목적">1.1 한 줄 목적</h3>
+<p>야간·이동 중 장애를 인지한 담당자가 노트북 없이<br><strong>이슈 확인 → 발생시간·서버·호스트 특정 → 로그 원문/그래프 → Ack(Silence) 또는 관계자 연락</strong>까지<br><strong>3분 안에</strong> 끝내는 것.</p>
+<p>대시보드의 축소판이 아니다. <strong>대응 시간 단축 도구</strong>다.</p>
+<h3 id="12-성공-지표">1.2 성공 지표</h3>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>목표</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MTTA (인지 후)</td>
+<td><strong>1분</strong></td>
+<td>MVP 기준. “발생 기준 1분”은 V1 푸시 목표로 이관</td>
+</tr>
+<tr>
+<td>초동 플로우 완료</td>
+<td><strong>3분 내</strong></td>
+<td>인박스 → 상세 → 로그/그래프 → Ack 또는 연락</td>
+</tr>
+<tr>
+<td>단순 확인 건 PC 부팅 필요율</td>
+<td><strong>0%</strong></td>
+<td>R10 콘솔 링크 복사율 + 콘솔 접속 대조로 프록시 측정</td>
+</tr>
+<tr>
+<td>Travel Time</td>
+<td>제거</td>
+<td>자리 이동 전 모바일 단독 초동</td>
+</tr>
+</tbody></table>
+<h3 id="13-비목표-mvp">1.3 비목표 (MVP)</h3>
+<ul>
+<li>서버 제어·명령 원격 실행 UI</li>
+<li>대시보드/시스템 헬스 전용 탭 (System Health는 인박스 헤더 배지만)</li>
+<li>푸시 알림 (V1)</li>
+<li>라이브 로그 테일·워룸 타임라인 완성 (V1)</li>
+<li>에스컬레이션·온콜·위젯/워치 (V2)</li>
+</ul>
+<hr>
+<h2 id="2-문제-정의">2. 문제 정의</h2>
+<table>
+<thead>
+<tr>
+<th>현재 문제</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>업무 외 시간·외부망에서 관제 툴(로그 등) 접근 제한</td>
+<td>담당자 출근·현장 도착 전까지 파악 지연</td>
+</tr>
+<tr>
+<td>개인정보·보안 이슈로 자택 상세 확인 곤란</td>
+<td>초동 대처의 물리적 한계</td>
+</tr>
+<tr>
+<td>PC 부팅·VPN·콘솔 진입 비용</td>
+<td>MTTA·MTTR 악화, 야간 피로 증가</td>
+</tr>
+</tbody></table>
+<p><strong>수행 주체</strong>: ICT기획부(SRE품질). <strong>목표 시기</strong>: 3분기 내 완성.<br><strong>브랜딩</strong>: Sentinos Mobile — Sentinos · Chronos · Biznos 관제의 모바일 확장.</p>
+<hr>
+<h2 id="3-사용자페르소나">3. 사용자·페르소나</h2>
+<table>
+<thead>
+<tr>
+<th>페르소나</th>
+<th>상황</th>
+<th>우선 가치</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>상황실 OP</strong> (<code>warroom-op</code>)</td>
+<td>침대·한 손·새벽 호출</td>
+<td>신속 초동, 오조작 방지, 연락·Ack 동선</td>
+</tr>
+<tr>
+<td><strong>개발/운영 담당</strong> (<code>dev-operator</code>)</td>
+<td>원인 특정·로그·이력</td>
+<td>원문·그래프·재사용 조치·분석 가능 기록</td>
+</tr>
+</tbody></table>
+<p>기획 수정·기능 추가 시 <strong>3-페르소나 사이클</strong>(기획 → warroom-op · dev-operator 평가 → 반영)을 돌린다.<br>에이전트 정의: 구현 repo <code>.claude/agents/</code> 및 본 저장소 연계.</p>
+<hr>
+<h2 id="4-제품-컨셉">4. 제품 컨셉</h2>
+<h3 id="41-ac-하이브리드-확정">4.1 A+C 하이브리드 (확정)</h3>
+<table>
+<thead>
+<tr>
+<th>안</th>
+<th>역할</th>
+<th>채택</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong> 이슈 인박스 (Alert-First)</td>
+<td><strong>홈</strong> — 활성 이슈 피드, 최단 동선</td>
+<td>✅ 홈</td>
+</tr>
+<tr>
+<td><strong>B</strong> 글랜스 대시보드</td>
+<td>평시 헬스</td>
+<td>탭 제거 → 헤더 System Health 배지로 축소</td>
+</tr>
+<tr>
+<td><strong>C</strong> 워룸 (Incident-First)</td>
+<td><strong>상세</strong> — 원인 파악 깊이</td>
+<td>✅ 이슈 상세 (MVP는 정적 로그/스냅샷, V1 워룸 완성)</td>
+</tr>
+</tbody></table>
+<p><strong>이유</strong>: 야간 인지 → 모바일 단독 초동 시나리오와 동선 일치. 각 안의 약점을 상호 상쇄.</p>
+<h3 id="42-콘솔과-모바일의-역할-분담">4.2 콘솔과 모바일의 역할 분담</h3>
+<p>같은 데이터를 <strong>다르게 자른다</strong>. 경합이 아니라 분업이다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>sentinos-console</th>
+<th>Sentinos Mobile</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>목적</td>
+<td>전체 데이터의 <strong>관리</strong></td>
+<td>모바일 <strong>초동 대응</strong></td>
+</tr>
+<tr>
+<td>이슈 범위</td>
+<td>전체</td>
+<td><strong>현재 활성 이슈만</strong></td>
+</tr>
+<tr>
+<td>Ack · Silence</td>
+<td>조회와 <strong>변경</strong> 대상</td>
+<td>지금 처리할 일이 아니므로 <strong>목록에서 제외</strong></td>
+</tr>
+</tbody></table>
+<p>모바일이 Ack·Silence된 이슈를 감추는 것은 기능 누락이 아니라 설계다.<br>한 손·새벽·3분 화면에서 이미 손을 쓴 건은 잡음이다. (v2.1)</p>
+<h3 id="43-읽기-전용-원칙">4.3 읽기 전용 원칙</h3>
+<p>서버 제어·명령 실행 UI 금지.<br><strong>쓰기 허용</strong>: Ack 저장, Runbook 체크(V1 가이드)뿐.</p>
+<hr>
+<h2 id="5-핵심-플로우">5. 핵심 플로우</h2>
+<div class="mermaid">flowchart LR
+    A[&quot;① 이슈 목록&lt;br/&gt;인박스 · 폴링 1분&lt;br/&gt;심각도·요약·시스템·경과&quot;] --&gt;|&quot;이슈 카드 탭&quot;| B[&quot;② 이슈 상세&lt;br/&gt;경과 타이머 · 호스트·오류코드&lt;br/&gt;sourceType: 로그 / 스냅샷 그래프&quot;]
+    B --&gt;|&quot;로그 항목 탭&quot;| C[&quot;③ 로그 상세&lt;br/&gt;원문 · 오류 하이라이트&lt;br/&gt;전후 ±30초 (~±2분)&quot;]
+    C --&gt;|&quot;‹ 복귀&quot;| B
+    B --&gt;|&quot;하단 시트&quot;| D[&quot;④ Ack 상황인지 완료처리&lt;br/&gt;3필수 → Silence&quot;]
+    B -.-&gt;|&quot;하단 ☎&quot;| E[&quot;관계자 연락 레이어&lt;br/&gt;tel / sms · 화면 유지&quot;]</div>
+<p><strong>주 동선 4단계</strong>: 목록 → 상세 → 로그 상세 → Ack.<br><strong>보조</strong>: 관계자 연락(화면 이탈 없음), 이력 탭·조치 재사용, R10 콘솔 링크 복사(PC 핸드오프).</p>
+<hr>
+<h2 id="6-화면-요구사항-r1r11">6. 화면 요구사항 R1~R11</h2>
+<h3 id="r1-진입갱신">R1 — 진입·갱신</h3>
+<ul>
+<li>MVP: <strong>푸시 제외</strong>. 수동 진입 + <strong>포그라운드 폴링 1분</strong>, 백그라운드 정지.</li>
+<li>갱신 시 스크롤 유지 + “새 이슈 N건” 배너(탭 시 최상단).</li>
+<li>푸시 전 인지 채널(SMS 등)·콜드 스타트 동선 명문화. 딥링크 스킴은 MVP 선확정(SMS→이슈 직행, V1 푸시 공용).</li>
+<li>이슈 상세 앱바에 새 이슈 미니 배지(탭 → 인박스).</li>
+</ul>
+<h3 id="r2-이슈-인박스-카드-v21-v22">R2 — 이슈 인박스 카드 (v2.1 · v2.2)</h3>
+<p><strong>필수 표시만</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>요소</th>
+<th>규칙</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>심각도</td>
+<td>색 + 텍스트 라벨 (<code>CRITICAL</code> / <code>MAJOR</code> / <code>MINOR</code>)</td>
+</tr>
+<tr>
+<td>오류 요약</td>
+<td>본문 1줄</td>
+</tr>
+<tr>
+<td>시스템/업무</td>
+<td><strong>부서명 병기</strong> — 예: <code>계정계 · COR(여신관리부)</code> (v2.2)</td>
+</tr>
+<tr>
+<td><strong>담당</strong></td>
+<td><strong>대표 담당 1인 이름만</strong> (“외 N” 미표기). 팀만 매핑이면 팀명. 원천 = 콘솔 <code>owners/resolve</code> 우선순위 최상위 (v2.2)</td>
+</tr>
+<tr>
+<td>발생·경과</td>
+<td>서버 시각 오프셋 보정 경과 타이머</td>
+</tr>
+</tbody></table>
+<p><strong>목록 범위 (v2.1)</strong>:</p>
+<ul>
+<li>인박스 = <strong>미해결(활성)만</strong>.</li>
+<li><strong>Ack(Silence 중) 이슈는 목록 API에서 미조회</strong>. Ack 저장 즉시 목록에서 제거. (Silence 카운트다운 뱃지·만료 로컬 선전환 규칙은 <strong>폐지</strong>)</li>
+<li>필터 칩: <strong>전체 · Critical · Major · Minor</strong> 4개 고정 (“미확인” 삭제).</li>
+<li><strong>System Health 배지</strong> = 웹 Sentinos 산정값을 그대로 표시. 모바일 자체 산정 금지. (산정 기준 정본 문서화는 미결)</li>
+</ul>
+<h3 id="r3-ack-상황인지-완료처리">R3 — Ack = 상황인지 완료처리</h3>
+<ul>
+<li>하단 액션 바 좌측에서 바텀시트 펼침 (고정 높이·정적 콘텐츠).</li>
+<li><strong>필수 3항목</strong>:<ol>
+<li><strong>조치예정일시</strong> — 현재부터 일/시/분 상대 선택, 기본 15분, 구간 자동 표시. <strong>의미 = Grafana Silence Notifications(스누즈) 기간</strong>. 2시간 초과 시 인라인 경고(+1회 확인).</li>
+<li><strong>이슈발생원인</strong> — 퀵 칩(“원인 파악 중” = 구조화 상태값 <code>미상(초동)</code>, 칩도 필수 충족) + 텍스트. 미상 기록은 이력 재사용 풀 제외.</li>
+<li><strong>조치(작업)예정내역</strong></li>
+</ol>
+</li>
+<li>저장 = <strong>Ack + 알림 해제(Silence)</strong>. 확인자·시각 자동 기록. 완료 후 읽기 전용.</li>
+<li><strong>[이 조치 재사용]</strong>: 출처 메타 자동 저장 + 조치예정일시 강제 재선택. 무수정 복제 가중치 하향.</li>
+<li><strong>동시성</strong>: 선처리 시 409 + “이미 {이름}님이 HH:MM 처리” → 시트 닫고 최신 반영.</li>
+<li>저장 후 <strong>인박스 복귀</strong>(가이드 화면 발은 GD-5 우선). 해당 이슈가 목록에서 사라진 것이 정상(v2.1).</li>
+<li><strong>상세 화면 한정</strong>: Ack 직후 그 화면에 머무는 동안 히어로 타이머가 Silence 만료 카운트다운으로 전환되는 것은 유효. (인박스에는 이 상태 없음)</li>
+</ul>
+<h3 id="r4-이슈-상세-상단">R4 — 이슈 상세 상단</h3>
+<ul>
+<li>발생일시·경과, 시스템/업무(<strong>부서명 병기</strong>), 호스트, 오류코드, 건수.</li>
+<li><strong>담당 전체 목록</strong> 줄(이름·담당/팀 유형) — 콘솔 <code>owners/resolve</code> 6단계 정본, R8과 동일 원천 (v2.2).</li>
+<li>레이아웃: <strong>단일 스크롤</strong> (상단 메타 → sourceType 데이터 → 하단 고정 액션 바).</li>
+</ul>
+<h3 id="r5-r7-상세-하단-sourcetype-분기">R5 / R7 — 상세 하단 sourceType 분기</h3>
+<table>
+<thead>
+<tr>
+<th>sourceType</th>
+<th>UI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>loki</code></td>
+<td>로그 목록 (“로그 N건 · LOKI”)</td>
+</tr>
+<tr>
+<td><code>prometheus</code> / <code>victoriametrics</code></td>
+<td><strong>고정 스냅샷 그래프</strong> 1장 — 발생 시점 중심 시간창(발생-50분~현재), 임계선·발생 마커·현재값. <strong>터치 제스처 없음</strong></td>
+</tr>
+</tbody></table>
+<ul>
+<li>sourceType <strong>복수 없음</strong>(단일 소스). 예외 시 로그(Loki) 우선.</li>
+<li>시계열 API = 스냅샷 단일 조회.</li>
+</ul>
+<h3 id="r6-로그-상세">R6 — 로그 상세</h3>
+<ul>
+<li>별도 화면. 원문 mono, 오류 라인 하이라이트, 마스킹은 <code>▮▮▮</code>(빈칸 금지), 스택트레이스 전문.</li>
+<li>전후 컨텍스트 기본 ±30초, “이전 30초 더 보기” 상한 <strong>±2분</strong>.</li>
+<li>복사 / 공유. 공유 메뉴에 <strong>콘솔 링크 복사(R10)</strong>.</li>
+</ul>
+<h3 id="r8-관계자-연락-레이어">R8 — 관계자 연락 레이어</h3>
+<ul>
+<li>하단 액션 바 우측 “☎ 관계자”. Ack 시트와 <strong>같은 슬롯·동시 펼침 없음</strong>. 터치 영역 각 44px+.</li>
+<li>시스템/업무코드 기반 관계자·전화번호. <code>tel:</code> / <code>sms:</code>(이슈 요약 자동 첨부). 화면 유지.</li>
+<li>통화 시도 자동 스탬프 (“HH:MM {이름} 통화 시도”).</li>
+<li>데이터 소스: 콘솔 <strong>owners/resolve</strong> (person이 전화번호 보유). 잔여 미결 = 전화번호 <strong>노출 범위(보안)</strong>.</li>
+</ul>
+<h3 id="r9-권한-모델">R9 — 권한 모델</h3>
+<p>응답에 <code>permissions { canViewLog, canAck, canContact }</code>.</p>
+<table>
+<thead>
+<tr>
+<th>권한 없음 시</th>
+<th>UI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>로그</td>
+<td><strong>블러 + 자물쇠 오버레이</strong> (“권한 받으면 볼 수 있음”). 실데이터 클라이언트 미전송(서버 403)</td>
+</tr>
+<tr>
+<td>Ack · 관계자</td>
+<td>하단 액션 바 🔒 비활성, 탭 시 이유 토스트</td>
+</tr>
+</tbody></table>
+<p><strong>“가려짐” 2종 혼용 금지</strong>:</p>
+<ul>
+<li>무권한 = 블러 + 자물쇠  </li>
+<li>데이터 마스킹(권한 있어도 정책상 가림) = 인라인 <code>▮▮▮</code></li>
+</ul>
+<p>권한 부여 체계: Keycloak realm role 방향. <strong>부여 기준·관리 주체</strong>는 잔여 미결.</p>
+<h3 id="r10-콘솔-링크-복사-pc-핸드오프">R10 — 콘솔 링크 복사 (PC 핸드오프)</h3>
+<ul>
+<li>이슈 ID + 로그 시간 구간 포함 sentinos-console URL.</li>
+<li><strong>공유 메뉴 내부</strong> 배치 (액션 바 금지).</li>
+</ul>
+<h3 id="r11-데이터-신선도시간-규칙">R11 — 데이터 신선도·시간 규칙</h3>
+<ol>
+<li>폴링 연속 실패 → 스테일 배너 (“HH:MM 이후 갱신 실패 — 표시 중인 목록은 과거입니다”) + 목록 시각적 뮤트. 인박스·상세·이력 공통.<br><strong>“지금은 조용합니다”와 “고장남”을 절대 같은 화면으로 만들지 않는다.</strong></li>
+<li>모든 시간 표시 = <strong>서버 시각 오프셋 보정</strong>. <code>Date.now()</code> 단독 사용 금지.</li>
+<li>딥링크 스킴 MVP 선확정.</li>
+<li>세션 만료 시 생체인증 1회 재개(SSO 풀 로그인 금지). 백그라운드 재검증·폴백은 인증 방안(#6)과 연동.</li>
+</ol>
+<hr>
+<h2 id="7-탭설정이력">7. 탭·설정·이력</h2>
+<h3 id="탭-구성">탭 구성</h3>
+<p><strong>이슈 · 이력 · 설정</strong> 3탭. (대시보드·시스템 탭 없음)</p>
+<h3 id="이력-탭">이력 탭</h3>
+<ul>
+<li>검색 + 재발 Top 그룹(오류코드 단위) + 당시 원인·조치 기록.</li>
+<li>상세 “이력에서 보기” → 프리필터 진입.</li>
+<li><strong>[이 조치 재사용]</strong> → Ack 시트 프리필. “원인 미확정”은 재사용 버튼 없이 뮤트.</li>
+<li>콘솔 조치 지식·pgvector 의미검색 연계 방향(상향). 데이터 범위(기간·페이지네이션·집계)는 미결(P6).</li>
+</ul>
+<h3 id="설정-탭-mvp">설정 탭 (MVP)</h3>
+<ol>
+<li><strong>로그인 정보</strong> — SSO 계정, 권한 뱃지(로그/Ack/연락), 마지막 로그인, 로그아웃  </li>
+<li><strong>테마</strong> — 다크(기본·첫 실행 고정) | 라이트 | 시스템  </li>
+<li><strong>앱 정보</strong> — 버전  </li>
+<li>예약: <strong>알림 설정</strong> — V1 푸시 도입 시</li>
+</ol>
+<hr>
+<h2 id="8-가이드-화면-v1-gd-요약">8. 가이드 화면 (V1) — GD 요약</h2>
+<p>MVP 범위 밖. <strong>G-3 확정</strong>: 상세 AI 요약 스트립 + 전용 가이드 화면 (<code>/issues/[id]/guide</code>).</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>요지</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GD-1~GD-5</td>
+<td>caution 읽음 확인 후 축약, Runbook 체크리스트, AI 섹션, 가이드발 Ack, 오프라인 로컬 체크</td>
+</tr>
+<tr>
+<td>AC-G1~G16</td>
+<td>수용 조건 세트 — <a href="https://github.com/BDK-CHOI/sentinos-mobile/issues/19">#19</a></td>
+</tr>
+<tr>
+<td>핵심 규칙</td>
+<td>근거 없는 AI 추정 렌더 금지 · 빈 가이드 시 스트립 숨김 · Ack 첨부는 사람 체크 기록(AI 문장 라벨 분리) · Silence 재개 시 0/n 리셋+이전 수행 스탬프 · 명령어 체크 = “콘솔에서 수행함”</td>
+</tr>
+</tbody></table>
+<p>상세 스펙은 확정 기획안 아티팩트 및 #19. 본 문서에서는 MVP 범위와 경계를 고정한다.</p>
+<hr>
+<h2 id="9-아키텍처기술">9. 아키텍처·기술</h2>
+<h3 id="91-스택">9.1 스택</h3>
+<table>
+<thead>
+<tr>
+<th>계층</th>
+<th>선택</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>셸</td>
+<td>React Native + WebView</td>
+<td>푸시·생체·딥링크·MDM. 주요 UI는 웹 배포로 갱신</td>
+</tr>
+<tr>
+<td>모바일 웹</td>
+<td><strong>Next.js (SSR + Route Handler BFF)</strong> 내부망</td>
+<td>토큰·마스킹·집계. DMZ에 데이터 미보관</td>
+</tr>
+<tr>
+<td>백엔드</td>
+<td>Spring (<code>sentinos-mobile-api</code>)</td>
+<td>인박스 등 도메인 API. 콘솔 의미론 정본과 정합</td>
+</tr>
+<tr>
+<td>인증</td>
+<td>Keycloak OTP 외부 연계</td>
+<td>방안 A(프록시 화이트리스트) vs B(대리 로그인) — 보안팀 협의 중</td>
+</tr>
+<tr>
+<td>보안</td>
+<td>사내 MDM</td>
+<td>솔루션 확정 전</td>
+</tr>
+</tbody></table>
+<h3 id="92-망-구성">9.2 망 구성</h3>
+<div class="mermaid">flowchart LR
+    APP[&quot;모바일 앱&lt;br/&gt;RN 셸 + WebView · MDM&quot;] -- &quot;HTTPS 443&quot; --&gt; WAF[&quot;DMZ&lt;br/&gt;WAF + 경량 리버스 프록시&quot;]
+    WAF --&gt; NEXT[&quot;내부망&lt;br/&gt;Next.js SSR + BFF&quot;]
+    NEXT --&gt; SSO[&quot;Keycloak&quot;]
+    NEXT --&gt; API[&quot;mobile-api / 콘솔 API&quot;]
+    NEXT --&gt; MON[&quot;Sentinos · Chronos · Biznos&quot;]
+    NEXT --&gt; LOG[&quot;Loki / ES / VM&quot;]
+    NOTI[&quot;푸시 발송 (V1)&quot;] -. &quot;이슈 ID만&quot; .-&gt; FCM[&quot;FCM / APNs&quot;]</div>
+<p>원칙:</p>
+<ol>
+<li>DMZ <strong>데이터 미보관</strong> (TLS·Rate Limit·경로 필터·정적 캐시)  </li>
+<li>내부 API <strong>직접 노출 금지</strong> (BFF)  </li>
+<li>로그 마스킹 <strong>서버사이드</strong>  </li>
+<li>푸시 페이로드 최소화</li>
+</ol>
+<h3 id="93-인박스-데이터-소스-2026-07-10-확정">9.3 인박스 데이터 소스 (2026-07-10 확정)</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>결정</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>원장</td>
+<td>PostgreSQL <strong><code>event_history</code></strong> “발생중” 행 (<code>resolve_at IS NULL</code> 등)</td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td><strong>보강 소스</strong> — <code>sourceType</code>, 룰 health 등</td>
+</tr>
+<tr>
+<td>응답 계약</td>
+<td><code>InboxResponse</code> — 웹·API 동일 JSON</td>
+</tr>
+</tbody></table>
+<p><strong>실패 의미 (운영 진실)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>실패</th>
+<th>응답</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>event_history</code></td>
+<td><strong>5xx</strong></td>
+<td>원장 장애를 “조용함”으로 위장하면 안 됨</td>
+</tr>
+<tr>
+<td>Grafana ruler</td>
+<td><strong>200 + health degraded</strong></td>
+<td>이슈는 보여 주되 관제 눈감김을 뱃지로</td>
+</tr>
+<tr>
+<td>업무 마스터 실패</td>
+<td><strong>200 + system: 기타</strong></td>
+<td>이름 못 붙였다고 장애를 숨기지 않음</td>
+</tr>
+</tbody></table>
+<p>시간: <code>event_history.start_at</code>은 KST 벽시계 → epoch 변환 시 <strong><code>Asia/Seoul</code> 명시</strong>.</p>
+<h3 id="94-스펙-갭-g1g7">9.4 스펙 갭 G1~G7</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>결정</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1</td>
+<td>폴링 포그라운드 1분, 백그라운드 정지</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>이슈 상태 모델 = 웹 Sentinos와 동일 (모바일 임의 상태 금지)</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>조치예정 초과 별도 상태 없음 — Silence 만료 시 알림 자연 재개</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>그래프 = 고정 스냅샷 (M-1)</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>sourceType 단일</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>개발 크리티컬 패스 — 보류</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>마스킹 <code>▮▮▮</code> · 스택 전문. <strong>마스킹 대상 범위</strong>는 보안 협의 잔여</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="10-로드맵">10. 로드맵</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>범위</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MVP (~6주)</strong></td>
+<td>인박스 · 상세(sourceType) · 로그 상세 · Ack 시트 · 관계자 레이어 · 이력 탭 · R9 권한 · 태블릿 스플릿 · SSO+생체</td>
+</tr>
+<tr>
+<td><strong>V1 (+6주)</strong></td>
+<td>푸시+딥링크 · 워룸(타임라인·라이브 테일) · 로그 검색·공유 · Runbook·RAG 가이드(G-3, GD) · 알림 설정</td>
+</tr>
+<tr>
+<td><strong>V2</strong></td>
+<td>에스컬레이션·온콜 · AI 유사장애 요약 · 위젯/워치</td>
+</tr>
+</tbody></table>
+<h3 id="구현-현황-참고-2026-07-10-기준">구현 현황 (참고, 2026-07-10 기준)</h3>
+<ul>
+<li><code>sentinos-mobile-web</code> — 스캐폴드 · 인박스 UI · BFF  </li>
+<li><code>sentinos-mobile-api</code> — <code>GET /v1/api/issues</code> · <code>event_history</code> 원장  </li>
+<li>상세(E4~) 이후 진행 · 실데이터 카드 시각 확인·v2.1 칩 정합 등 잔여</li>
+</ul>
+<hr>
+<h2 id="11-미결외부-의존">11. 미결·외부 의존</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상태</th>
+<th>추적</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MDM 솔루션</td>
+<td>미확정 (인증 위험 수준 결정)</td>
+<td>#5</td>
+</tr>
+<tr>
+<td>인증 방안 A/B + 세션 생체 재개</td>
+<td>보안팀 협의</td>
+<td>#6</td>
+</tr>
+<tr>
+<td>사내 표준 프록시</td>
+<td>미확인</td>
+<td>#5</td>
+</tr>
+<tr>
+<td>전화번호 노출 범위</td>
+<td>보안</td>
+<td>#2</td>
+</tr>
+<tr>
+<td>System Health 산정 기준 정본</td>
+<td>웹 Sentinos 확인 후 문서화</td>
+<td>#3 · v2.1</td>
+</tr>
+<tr>
+<td>이력 데이터 범위 (P6)</td>
+<td>기간·페이지·집계</td>
+<td>#3</td>
+</tr>
+<tr>
+<td>R9 권한 부여 기준</td>
+<td>관리 주체</td>
+<td>#2</td>
+</tr>
+<tr>
+<td>G7 마스킹 대상 범위</td>
+<td>보안</td>
+<td>G7</td>
+</tr>
+<tr>
+<td>Silence 만료 재등장 SQL</td>
+<td>제품 오너 재확인 필요 (코드 vs v2.1 문구)</td>
+<td>wiki 인박스 데이터소스</td>
+</tr>
+<tr>
+<td>가이드 GD 잔여 (명령 마스킹·근거 원문 뷰·신뢰도 컷·RAG 정책)</td>
+<td>V1</td>
+<td>#19</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="12-관련-저장소">12. 관련 저장소</h2>
+<table>
+<thead>
+<tr>
+<th>경로</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>sentinos-mobile</code> (본 repo)</td>
+<td>기획·설계 정본</td>
+</tr>
+<tr>
+<td><code>sentinos-mobile-web</code></td>
+<td>Next.js 모바일 웹</td>
+</tr>
+<tr>
+<td><code>sentinos-mobile-api</code></td>
+<td>Spring 모바일 API</td>
+</tr>
+<tr>
+<td><code>sentinos-console</code></td>
+<td>도메인 의미론(이벤트·Ack·담당·Runbook) 정본 · 스택/팔레트 선례</td>
+</tr>
+</tbody></table>
+<p>계약(<code>InboxResponse</code> 등)은 웹 타입이 곧 계약이다. 변경 시 Spring DTO와 동시 수정.</p>
+<hr>
+<h2 id="13-개정-이력">13. 개정 이력</h2>
+<table>
+<thead>
+<tr>
+<th>버전</th>
+<th>날짜</th>
+<th>요약</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v2.0</td>
+<td>2026-07-06</td>
+<td>기획 완결. R1~R11, GD, 3-페르소나 #20·#21 흡수</td>
+</tr>
+<tr>
+<td>v2.1</td>
+<td>2026-07-10</td>
+<td>인박스 = 활성만(Ack 목록 제외), 필터 4칩, Health=웹 산정값</td>
+</tr>
+<tr>
+<td>v2.2</td>
+<td>2026-07-10</td>
+<td>부서명 병기, 담당 표기(인박스 1인/상세 전체), owners/resolve 원천</td>
+</tr>
+<tr>
+<td><strong>v2.2 로컬 통합본</strong></td>
+<td><strong>2026-07-13</strong></td>
+<td>본 md — 아티팩트·스펙·wiki 통합 일상 정본</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="14-관련-문서">14. 관련 문서</h2>
+<ul>
+<li><a href="design.html">디자인 컨셉</a></li>
+<li><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/design/mobile-web-design-prompt.md">디자인 프롬프트 (구현용)</a></li>
+<li><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md">MVP 설계 스펙</a></li>
+<li><a href="https://github.com/BDK-CHOI/sentinos-mobile#readme">README</a></li>
+</ul>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <p>원본 Markdown이 정본입니다 · <code>npm run docs:build</code>로 재생성</p>
+  </footer>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "dark",
+      securityLevel: "loose",
+      fontFamily: "Pretendard, system-ui, sans-serif",
+    });
+  </script>
+</body>
+</html>

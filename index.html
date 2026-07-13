@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sentinos Mobile 기획·디자인 문서 허브" />
+  <title>Sentinos Mobile Docs</title>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Sentinos Mobile <span class="brand-sub">Docs</span></span>
+      </a>
+      <nav class="site-nav" aria-label="문서 전환">
+        <a class="nav-link is-active" href="index.html">홈</a>
+        <a class="nav-link" href="planning.html">기획</a>
+        <a class="nav-link" href="design.html">디자인</a>
+        <a class="nav-link" href="mockups.html">시안</a>
+      </nav>
+    </div>
+  </header>
+  <main class="home">
+    <section class="hero">
+      <p class="eyebrow">장애 대응 모바일 · 기획 정본 허브</p>
+      <h1>장애 인지에서 초동까지,<br /><span class="accent">손 안에서 3분</span></h1>
+      <p class="lede">
+        Sentinos · Chronos · Biznos 관제의 모바일 확장.
+        기획 v2.2와 디자인 컨셉을 브라우저에서 공유·검토할 수 있습니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="planning.html">기획 문서 열기</a>
+        <a class="btn btn-ghost" href="design.html">디자인 컨셉 열기</a>
+      </div>
+    </section>
+    <section class="cards">
+      <a class="card" href="planning.html">
+        <div class="card-kicker">Product · v2.2</div>
+        <h2>기획 문서</h2>
+        <p>목적·KPI, A+C 컨셉, R1~R11, 아키텍처, event_history 원장, 로드맵·미결.</p>
+        <span class="card-cta">읽기 →</span>
+      </a>
+      <a class="card" href="design.html">
+        <div class="card-kicker">Design · concept</div>
+        <h2>디자인 컨셉</h2>
+        <p>시간이 주인공, 토큰·타이포, 상태 6종, 화면 1~8 위계, WebView 규칙.</p>
+        <span class="card-cta">읽기 →</span>
+      </a>
+      <a class="card" href="mockups.html">
+        <div class="card-kicker">Visual · mockups</div>
+        <h2>디자인 시안</h2>
+        <p>인박스·상세·Ack·관계자·태블릿 스플릿·상태 6종 폰 프레임 목업.</p>
+        <span class="card-cta">시안 보기 →</span>
+      </a>
+    </section>
+    <section class="meta-panel">
+      <h2>공유 방법</h2>
+      <ul>
+        <li><strong>로컬</strong> — <code>npm run docs:serve</code> → <code>http://localhost:4173</code></li>
+        <li><strong>같은 네트워크</strong> — 서버 PC IP로 <code>http://&lt;IP&gt;:4173</code> 접속 (방화벽 허용 시)</li>
+        <li><strong>GitHub Pages</strong> — Settings → Pages → Deploy from branch, folder <code>/docs/site</code> (private repo는 GitHub Pro 필요)</li>
+        <li><strong>정적 호스트</strong> — <code>docs/site</code> 폴더를 사내 웹 서버·Netlify·Cloudflare Pages 등에 업로드</li>
+      </ul>
+      <p class="muted">원본: <code>docs/product/*.md</code>, <code>docs/design/*-디자인-컨셉.md</code></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>Sentinos Mobile · 작성 기준 2026-07-13</p>
+  </footer>
+</body>
+</html>

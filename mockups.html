@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sentinos Mobile — 디자인 시안 목업</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.2.5/index.min.css" />
+  <link rel="stylesheet" href="assets/mockups.css" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    .site-header { margin-bottom: 0; }
+    body > .mock-page-header { padding-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Sentinos Mobile <span class="brand-sub">Docs</span></span>
+      </a>
+      <nav class="site-nav" aria-label="문서 전환">
+        <a class="nav-link" href="index.html">홈</a>
+        <a class="nav-link" href="planning.html">기획</a>
+        <a class="nav-link" href="design.html">디자인</a>
+        <a class="nav-link is-active" href="mockups.html">시안</a>
+      </nav>
+    </div>
+  </header>
+  <header class="mock-page-header">
+    <div>
+      <p class="eyebrow">Design mockups · v2.2 규칙 반영</p>
+      <h1>Sentinos Mobile 시안</h1>
+      <p class="sub">토큰·위계·상태 규칙의 시각 고정본. 인박스는 활성 이슈만(v2.1), 담당 1인·부서 병기(v2.2).</p>
+    </div>
+    <a class="back-link" href="design.html">← 디자인 컨셉</a>
+  </header>
+
+  <nav class="mock-jump" aria-label="시안 바로가기">
+    <a href="#m-inbox">인박스</a>
+    <a href="#m-detail">상세</a>
+    <a href="#m-log">로그</a>
+    <a href="#m-ack">Ack 시트</a>
+    <a href="#m-contact">관계자</a>
+    <a href="#m-history">이력</a>
+    <a href="#m-settings">설정</a>
+    <a href="#m-tablet">태블릿</a>
+    <a href="#m-states">상태 6종</a>
+  </nav>
+
+  <!-- ========== 1. 인박스 ========== -->
+  <section class="mock-section" id="m-inbox">
+    <div class="mock-meta">
+      <h2>화면 1 · 이슈 인박스</h2>
+      <p>홈. 활성 이슈만. 경과 타이머 시그니처. 필터 4칩(전체/Critical/Major/Minor). Ack 카드 없음.</p>
+    </div>
+    <div class="phone-frame" data-label="390 × 844 · dark">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="app-header">
+          <div class="app-title-row">
+            <h3 class="app-title">이슈</h3>
+            <span class="health-badge">SYSTEM GOOD</span>
+          </div>
+          <p class="mono caption">마지막 확인 09:35:12 · 1분마다 갱신</p>
+        </div>
+        <div class="chip-row">
+          <button class="chip is-on" type="button">전체 3</button>
+          <button class="chip" type="button">Critical 0</button>
+          <button class="chip" type="button">Major 2</button>
+          <button class="chip" type="button">Minor 1</button>
+        </div>
+        <div class="issue-list">
+          <article class="issue-card sev-major">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <div class="card-row1">
+                <span class="sev-label mono">MAJOR</span>
+                <span class="elapsed mono">04:32 경과</span>
+              </div>
+              <p class="summary">ORA-00001 중복키 44건 발생</p>
+              <p class="meta mono">계정계 · COR(여신관리부) · 김철파 · 09:31:04</p>
+            </div>
+          </article>
+          <article class="issue-card sev-major">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <div class="card-row1">
+                <span class="sev-label mono">MAJOR</span>
+                <span class="elapsed mono">12:08 경과</span>
+              </div>
+              <p class="summary">전주 대비 파일시스템 30% 이상 증가</p>
+              <p class="meta mono">기타 · FMS(인프라운영부) · 박정수 · 08:52:10</p>
+            </div>
+          </article>
+          <article class="issue-card sev-minor">
+            <div class="stripe"></div>
+            <div class="card-body">
+              <div class="card-row1">
+                <span class="sev-label mono">MINOR</span>
+                <span class="elapsed mono">43:15 경과</span>
+              </div>
+              <p class="summary">채널 오류율 임계치 근접 (14.5%)</p>
+              <p class="meta mono">대외 · EDI(대외연계부) · 이영희 · 08:52:10</p>
+            </div>
+          </article>
+        </div>
+        <nav class="tab-bar">
+          <span class="tab is-on">이슈</span>
+          <span class="tab">이력</span>
+          <span class="tab">설정</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2. 상세 ========== -->
+  <section class="mock-section" id="m-detail">
+    <div class="mock-meta">
+      <h2>화면 2 · 이슈 상세</h2>
+      <p>워룸형 단일 스크롤. 히어로 34px 경과. sourceType=loki 로그 목록. 하단 Ack | ☎.</p>
+    </div>
+    <div class="phone-frame" data-label="상세 · LOKI">
+      <div class="phone-notch"></div>
+      <div class="phone-screen has-action">
+        <div class="stack-appbar">
+          <span class="back">‹</span>
+          <span class="host-badge mono">PRCORAP1</span>
+          <span class="mini-badge">+1</span>
+        </div>
+        <div class="hero sev-major">
+          <div class="stripe thick"></div>
+          <div class="hero-top">
+            <span class="sev-label mono">MAJOR · LOKI</span>
+            <span class="count mono">44건 · 증가 중</span>
+          </div>
+          <div class="hero-timer mono">04:32 경과</div>
+          <p class="hero-title">ORA-00001 중복키 44건 발생</p>
+          <p class="meta mono">발생 2026-07-06 09:31:04 · 계정계 COR(여신관리부)</p>
+          <p class="meta mono">호스트 PRCORAP1 · 오류코드 ORA-00001</p>
+          <p class="owners">담당 김철파(SRE) · 이영희(업무) · 박정수(DBA)</p>
+        </div>
+        <div class="ai-strip">
+          <span class="ai-badge mono">AI 높음</span>
+          <span class="ai-text">추정: 야간배치 중복 실행 → PK 충돌</span>
+          <span class="ai-link">가이드 ›</span>
+        </div>
+        <p class="section-cap mono">로그 3건 · LOKI</p>
+        <div class="log-rows">
+          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">unique constraint COR.PK_CUST_ACC violated</span><span>›</span></div>
+          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">ORA-00001: unique constraint …</span><span>›</span></div>
+          <div class="log-row"><span class="lvl wrn">WRN</span><span class="mono trunc">batch job COR_NIGHT restarted</span><span>›</span></div>
+        </div>
+        <div class="action-bar">
+          <button class="ack-half" type="button">
+            <span class="handle"></span>
+            Ack 상황인지 완료처리
+          </button>
+          <span class="vdiv"></span>
+          <button class="contact-half" type="button">☎ 관계자</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. 로그 ========== -->
+  <section class="mock-section" id="m-log">
+    <div class="mock-meta">
+      <h2>화면 3 · 로그 상세</h2>
+      <p>원문 mono · 오류 하이라이트 · 마스킹 ▮▮▮ · 전후 ±30초.</p>
+    </div>
+    <div class="phone-frame" data-label="로그 상세">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="stack-appbar">
+          <span class="back">‹</span>
+          <span class="app-title sm">로그 상세</span>
+          <span class="lvl-badge err">ERROR</span>
+        </div>
+        <div class="chip-row tight">
+          <span class="meta-chip mono">PRCORAP1</span>
+          <span class="meta-chip mono">09:31:04</span>
+          <span class="meta-chip mono">app</span>
+        </div>
+        <pre class="log-body mono"><span class="dim">2026-07-06 09:31:02 INFO  batch.start job=COR_NIGHT</span>
+<span class="hit">2026-07-06 09:31:04 ERROR ORA-00001 unique constraint (COR.PK_CUST_ACC) violated cust_id=▮▮▮▮</span>
+<span class="dim">2026-07-06 09:31:04 ERROR retry 1/3 …</span>
+<span class="dim">    at BatchWorker.run(BatchWorker.java:214)</span>
+<span class="dim">    at ThreadPool$Worker.run(…)</span></pre>
+        <div class="btn-row">
+          <button type="button" class="ghost-btn">전후 로그 ±30초</button>
+          <button type="button" class="ghost-btn">복사</button>
+          <button type="button" class="ghost-btn">공유</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. Ack ========== -->
+  <section class="mock-section" id="m-ack">
+    <div class="mock-meta">
+      <h2>화면 4 · Ack 바텀시트</h2>
+      <p>필수 3필드. Silence = 조치예정 구간. 원인 퀵 칩. 풀폭 액션 블루 CTA.</p>
+    </div>
+    <div class="phone-frame" data-label="Ack 시트">
+      <div class="phone-notch"></div>
+      <div class="phone-screen dimmed">
+        <div class="stack-appbar muted-bar">
+          <span class="back">‹</span>
+          <span class="host-badge mono">PRCORAP1</span>
+        </div>
+        <div class="hero mini sev-major">
+          <div class="hero-timer mono sm">04:32 경과</div>
+          <p class="hero-title sm">ORA-00001 중복키 44건 발생</p>
+        </div>
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title-row">
+            <h4>Ack · 상황인지 완료처리</h4>
+            <span class="chev">⌄</span>
+          </div>
+          <label class="field-label">*조치예정일시</label>
+          <p class="field-line">현재부터 <span class="sel">0▾</span>일 <span class="sel">0▾</span>시간 <span class="sel">15▾</span>분 후</p>
+          <p class="mono caption">2026-07-06 09:36:12 → 09:51:12</p>
+          <label class="field-label">*이슈발생원인</label>
+          <div class="chip-row tight">
+            <button class="chip is-on sm" type="button">원인 파악 중</button>
+            <button class="chip sm" type="button">야간배치 중복</button>
+            <button class="chip sm" type="button">PK 충돌</button>
+          </div>
+          <div class="textarea stub">상세 원인 입력…</div>
+          <label class="field-label">*조치(작업)예정내역</label>
+          <div class="textarea stub">중복 배치 종료 후 대사 재실행</div>
+          <button class="cta" type="button">저장 — Ack 처리 · 알림 해제</button>
+          <p class="mono caption center">확인자·시각 자동 기록 · 의미는 Silence(스누즈)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. 관계자 ========== -->
+  <section class="mock-section" id="m-contact">
+    <div class="mock-meta">
+      <h2>화면 5 · 관계자 연락</h2>
+      <p>이탈 없이 tel/sms. SMS 요약 자동 첨부. Ack와 슬롯 공유.</p>
+    </div>
+    <div class="phone-frame" data-label="관계자 레이어">
+      <div class="phone-notch"></div>
+      <div class="phone-screen dimmed">
+        <div class="hero mini sev-major">
+          <div class="hero-timer mono sm">04:32 경과</div>
+        </div>
+        <div class="sheet">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title-row">
+            <h4>관계자 연락 · 계정계 COR</h4>
+            <span class="chev">✕</span>
+          </div>
+          <div class="person">
+            <span class="avatar">김</span>
+            <div class="person-info">
+              <strong>김철파</strong>
+              <span class="role">SRE 당직</span>
+              <span class="mono phone">010-1234-5678</span>
+            </div>
+            <div class="person-actions">
+              <button class="call" type="button">전화</button>
+              <button class="sms" type="button">SMS</button>
+            </div>
+          </div>
+          <div class="person">
+            <span class="avatar">이</span>
+            <div class="person-info">
+              <strong>이영희</strong>
+              <span class="role">계정계 COR 담당</span>
+              <span class="mono phone">010-2345-6789</span>
+            </div>
+            <div class="person-actions">
+              <button class="call" type="button">전화</button>
+              <button class="sms" type="button">SMS</button>
+            </div>
+          </div>
+          <div class="person">
+            <span class="avatar">박</span>
+            <div class="person-info">
+              <strong>박정수</strong>
+              <span class="role">DBA 당직</span>
+              <span class="mono phone">010-3456-7890</span>
+            </div>
+            <div class="person-actions">
+              <button class="call" type="button">전화</button>
+              <button class="sms" type="button">SMS</button>
+            </div>
+          </div>
+          <p class="mono caption center">SMS에는 이슈 요약이 자동 첨부됩니다</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. 이력 ========== -->
+  <section class="mock-section" id="m-history">
+    <div class="mock-meta">
+      <h2>화면 7 · 이력 탭</h2>
+      <p>재발 Top 그룹 · 조치 재사용 코퍼스. 원인 미확정은 뮤트.</p>
+    </div>
+    <div class="phone-frame" data-label="이력">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="app-header">
+          <h3 class="app-title">이력</h3>
+          <div class="search mono">오류코드 · 호스트 · 키워드 검색</div>
+        </div>
+        <div class="chip-row">
+          <button class="chip is-on" type="button">재발 Top</button>
+          <button class="chip" type="button">최근 해결</button>
+          <button class="chip" type="button">내 Ack</button>
+        </div>
+        <article class="issue-card sev-major">
+          <div class="stripe"></div>
+          <div class="card-body">
+            <div class="card-row1">
+              <span class="summary tight">ORA-00001 중복키</span>
+              <span class="elapsed mono">12회</span>
+            </div>
+            <p class="meta mono">계정계 COR · 최근 06-26 · 평균 42분</p>
+          </div>
+        </article>
+        <article class="issue-card sev-minor">
+          <div class="stripe"></div>
+          <div class="card-body">
+            <div class="card-row1">
+              <span class="summary tight">채널 오류율 임계</span>
+              <span class="elapsed mono">5회</span>
+            </div>
+            <p class="meta mono">대외 EDI · 최근 07-01 · 평균 18분</p>
+          </div>
+        </article>
+        <article class="issue-card muted-card">
+          <div class="stripe soft"></div>
+          <div class="card-body">
+            <div class="card-row1">
+              <span class="summary tight muted-text">원인 미확정 건</span>
+              <span class="elapsed mono muted-text">3회</span>
+            </div>
+            <p class="meta mono">재사용 불가 · 원인 미상(초동)</p>
+          </div>
+        </article>
+        <nav class="tab-bar">
+          <span class="tab">이슈</span>
+          <span class="tab is-on">이력</span>
+          <span class="tab">설정</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. 설정 ========== -->
+  <section class="mock-section" id="m-settings">
+    <div class="mock-meta">
+      <h2>화면 8 · 설정</h2>
+      <p>로그인·권한 · 테마(다크 기본) · 버전 · V1 알림 자리.</p>
+    </div>
+    <div class="phone-frame" data-label="설정">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="app-header">
+          <h3 class="app-title">설정</h3>
+        </div>
+        <div class="settings-card">
+          <div class="person">
+            <span class="avatar big">S</span>
+            <div class="person-info">
+              <strong>SRE 1팀 · 신한</strong>
+              <span class="mono phone">shinhan.sre1 (SSO) · 09:12</span>
+            </div>
+          </div>
+          <div class="perm-row">
+            <span class="perm ok">로그 열람 ✓</span>
+            <span class="perm ok">Ack ✓</span>
+            <span class="perm ok">관계자 ✓</span>
+          </div>
+          <button class="ghost-btn block" type="button">로그아웃</button>
+        </div>
+        <div class="settings-card">
+          <p class="field-label">테마</p>
+          <div class="seg">
+            <span class="seg-item is-on">다크</span>
+            <span class="seg-item">라이트</span>
+            <span class="seg-item">시스템</span>
+          </div>
+        </div>
+        <div class="settings-card">
+          <p class="field-label">앱 정보</p>
+          <p class="mono caption">Sentinos Mobile · 0.1.0-mvp</p>
+        </div>
+        <div class="settings-card dashed">
+          <p class="muted-text">알림 설정 — V1(푸시 도입 시) 추가 예정</p>
+        </div>
+        <nav class="tab-bar">
+          <span class="tab">이슈</span>
+          <span class="tab">이력</span>
+          <span class="tab is-on">설정</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. 태블릿 ========== -->
+  <section class="mock-section wide" id="m-tablet">
+    <div class="mock-meta">
+      <h2>태블릿 · 마스터–디테일 (768px+)</h2>
+      <p>좌 인박스 320px 고정 · 우 스택 상세. 탭 바는 좌측 하단. 선택 카드 = 액션 블루 외곽선.</p>
+    </div>
+    <div class="tablet-frame" data-label="1024 × 680 · split">
+      <aside class="master">
+        <div class="app-header compact">
+          <div class="app-title-row">
+            <h3 class="app-title">이슈</h3>
+            <span class="health-badge">GOOD</span>
+          </div>
+          <p class="mono caption">마지막 확인 09:35:12</p>
+        </div>
+        <div class="chip-row">
+          <button class="chip is-on sm" type="button">전체 3</button>
+          <button class="chip sm" type="button">Major 2</button>
+          <button class="chip sm" type="button">Minor 1</button>
+        </div>
+        <article class="issue-card sev-major is-selected">
+          <div class="stripe"></div>
+          <div class="card-body">
+            <div class="card-row1">
+              <span class="sev-label mono">MAJOR</span>
+              <span class="elapsed mono">04:32</span>
+            </div>
+            <p class="summary">ORA-00001 중복키 44건</p>
+            <p class="meta mono">COR · 김철파</p>
+          </div>
+        </article>
+        <article class="issue-card sev-major">
+          <div class="stripe"></div>
+          <div class="card-body">
+            <div class="card-row1">
+              <span class="sev-label mono">MAJOR</span>
+              <span class="elapsed mono">12:08</span>
+            </div>
+            <p class="summary">파일시스템 30% 증가</p>
+          </div>
+        </article>
+        <nav class="tab-bar master-tabs">
+          <span class="tab is-on">이슈</span>
+          <span class="tab">이력</span>
+          <span class="tab">설정</span>
+        </nav>
+      </aside>
+      <section class="detail-pane">
+        <div class="stack-appbar">
+          <span class="host-badge mono">PRCORAP1</span>
+          <span class="crumb mono">이슈 › 상세</span>
+        </div>
+        <div class="hero sev-major">
+          <div class="stripe thick"></div>
+          <div class="hero-top">
+            <span class="sev-label mono">MAJOR · LOKI</span>
+            <span class="count mono">44건</span>
+          </div>
+          <div class="hero-timer mono">04:32 경과</div>
+          <p class="hero-title">ORA-00001 중복키 44건 발생</p>
+          <p class="meta mono">계정계 COR(여신관리부) · PRCORAP1 · ORA-00001</p>
+        </div>
+        <p class="section-cap mono">로그 3건 · LOKI</p>
+        <div class="log-rows">
+          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">unique constraint COR.PK_CUST_ACC violated</span><span>›</span></div>
+          <div class="log-row"><span class="lvl err">ERR</span><span class="mono trunc">ORA-00001 …</span><span>›</span></div>
+        </div>
+        <div class="action-bar pane-action">
+          <button class="ack-half" type="button">Ack 상황인지 완료처리</button>
+          <span class="vdiv"></span>
+          <button class="contact-half" type="button">☎ 관계자</button>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ========== 9. 상태 ========== -->
+  <section class="mock-section states" id="m-states">
+    <div class="mock-meta full">
+      <h2>상태 6종 · 시각 언어</h2>
+      <p>모든 화면 필수. “조용함”과 “고장남” 분리.</p>
+    </div>
+    <div class="state-grid">
+      <div class="state-card">
+        <h3>빈</h3>
+        <div class="state-preview">
+          <p class="empty-copy">지금은 조용합니다</p>
+          <p class="mono caption">마지막 확인 09:35</p>
+        </div>
+      </div>
+      <div class="state-card">
+        <h3>로딩</h3>
+        <div class="state-preview">
+          <div class="skel"></div>
+          <div class="skel short"></div>
+          <div class="skel"></div>
+        </div>
+      </div>
+      <div class="state-card">
+        <h3>오류</h3>
+        <div class="state-preview">
+          <p>로그를 불러오지 못했습니다</p>
+          <button class="ghost-btn" type="button">다시 시도</button>
+        </div>
+      </div>
+      <div class="state-card">
+        <h3>권한 없음</h3>
+        <div class="state-preview blur-demo">
+          <p class="blur-text">log payload secret…</p>
+          <div class="lock-overlay">🔒 권한 필요</div>
+        </div>
+      </div>
+      <div class="state-card">
+        <h3>오프라인</h3>
+        <div class="state-preview">
+          <p>네트워크에 연결되어 있지 않습니다</p>
+          <button class="ghost-btn" type="button">다시 시도</button>
+        </div>
+      </div>
+      <div class="state-card">
+        <h3>스테일</h3>
+        <div class="state-preview">
+          <div class="stale-banner">09:20 이후 갱신 실패 — 표시 중 목록은 과거입니다</div>
+          <div class="muted-list">이슈 카드 (뮤트)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mock-footer">
+    <p>토큰 고정 · Critical <i style="color:#BF1B00">#BF1B00</i> · Major <i style="color:#99440A">#99440A</i> · Minor <i style="color:#D1CF2B">#D1CF2B</i> · Action <i style="color:#58A6E8">#58A6E8</i></p>
+    <p>원본 규칙: 디자인 컨셉 문서 · 구현 프롬프트</p>
+  </footer>
+</body>
+</html>

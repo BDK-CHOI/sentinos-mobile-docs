@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sentinos Mobile 디자인 컨셉 — 원칙, 토큰, 화면 위계, 상태 규칙" />
+  <title>디자인 컨셉 · Sentinos Mobile</title>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.2.5/index.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Sentinos Mobile <span class="brand-sub">Docs</span></span>
+      </a>
+      <nav class="site-nav" aria-label="문서 전환"><a class="nav-link" href="index.html">홈</a><a class="nav-link" href="planning.html">기획</a><a class="nav-link is-active" href="design.html">디자인</a><a class="nav-link" href="mockups.html">시안</a></nav>
+    </div>
+  </header>
+  <div class="page">
+    <nav class="toc" aria-label="목차">
+  <div class="toc-title">목차</div>
+  <ol><li class="toc-l2"><a href="#0-디자인-시안-시각-목업">0. 디자인 시안 (시각 목업)</a></li>
+<li class="toc-l2"><a href="#1-한-줄-컨셉">1. 한 줄 컨셉</a></li>
+<li class="toc-l2"><a href="#2-디자인-원칙">2. 디자인 원칙</a></li>
+<li class="toc-l2"><a href="#3-시각-언어">3. 시각 언어</a></li>
+<li class="toc-l3"><a href="#31-컬러-토큰-임의-변경-절대-금지">3.1 컬러 토큰 (임의 변경 절대 금지)</a></li>
+<li class="toc-l3"><a href="#32-색-사용-규칙">3.2 색 사용 규칙</a></li>
+<li class="toc-l3"><a href="#33-타이포그래피">3.3 타이포그래피</a></li>
+<li class="toc-l3"><a href="#34-시그니처-경과-타이머">3.4 시그니처 — 경과 타이머</a></li>
+<li class="toc-l2"><a href="#4-레이아웃반응형">4. 레이아웃·반응형</a></li>
+<li class="toc-l3"><a href="#41-넓이로-가른다-기기ua-아님">4.1 넓이로 가른다 (기기/UA 아님)</a></li>
+<li class="toc-l3"><a href="#42-가로-치수-규칙">4.2 가로 치수 규칙</a></li>
+<li class="toc-l3"><a href="#43-내비게이션-모드-폴더-답">4.3 내비게이션 모드 (폴더 = 답)</a></li>
+<li class="toc-l3"><a href="#44-webview-모바일-크롬">4.4 WebView · 모바일 크롬</a></li>
+<li class="toc-l2"><a href="#5-상태-6종-모든-화면-필수">5. 상태 6종 — 모든 화면 필수</a></li>
+<li class="toc-l2"><a href="#6-정보-위계-화면별-컨셉">6. 정보 위계 — 화면별 컨셉</a></li>
+<li class="toc-l3"><a href="#화면-1-이슈-인박스-issues">화면 1 — 이슈 인박스 (/issues)</a></li>
+<li class="toc-l3"><a href="#화면-2-이슈-상세-issuesid">화면 2 — 이슈 상세 (/issues/[id])</a></li>
+<li class="toc-l3"><a href="#화면-3-로그-상세">화면 3 — 로그 상세</a></li>
+<li class="toc-l3"><a href="#화면-4-ack-바텀시트">화면 4 — Ack 바텀시트</a></li>
+<li class="toc-l3"><a href="#화면-5-관계자-연락-레이어">화면 5 — 관계자 연락 레이어</a></li>
+<li class="toc-l3"><a href="#화면-6-가이드-v1">화면 6 — 가이드 (V1)</a></li>
+<li class="toc-l3"><a href="#화면-7-이력">화면 7 — 이력</a></li>
+<li class="toc-l3"><a href="#화면-8-설정">화면 8 — 설정</a></li>
+<li class="toc-l2"><a href="#7-인터랙션카피">7. 인터랙션·카피</a></li>
+<li class="toc-l3"><a href="#71-인터랙션">7.1 인터랙션</a></li>
+<li class="toc-l3"><a href="#72-카피-톤">7.2 카피 톤</a></li>
+<li class="toc-l2"><a href="#8-컴포넌트-재사용-경계">8. 컴포넌트 재사용 경계</a></li>
+<li class="toc-l2"><a href="#9-콘솔플랫폼-정합">9. 콘솔·플랫폼 정합</a></li>
+<li class="toc-l2"><a href="#10-검증-방법">10. 검증 방법</a></li>
+<li class="toc-l2"><a href="#11-관련-문서">11. 관련 문서</a></li>
+<li class="toc-l2"><a href="#12-개정-이력">12. 개정 이력</a></li></ol>
+</nav>
+    <main class="content prose">
+<h1 id="sentinos-mobile-디자인-컨셉">Sentinos Mobile — 디자인 컨셉</h1>
+<blockquote>
+<p><strong>상태</strong>: 시안 v1.2 승인 · 구현 토큰 고정<br><strong>작성 기준일</strong>: 2026-07-13<br><strong>페어 문서</strong>: <a href="planning.html">기획 v2.2</a> · <a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/design/mobile-web-design-prompt.md">구현용 프롬프트</a><br><strong>시안 (인터랙티브 목업)</strong>: <a href="mockups.html">docs/design/mockups/screens.html</a> · 문서 사이트 <code>mockups.html</code><br><strong>시안 v1.2 (외부 아티팩트)</strong>: <a href="https://claude.ai/code/artifact/b92ad3fe-5bf6-4872-8b8d-90afea4737d9">claude.ai artifact</a></p>
+</blockquote>
+<p>본 문서는 <strong>의도·원칙·시각 언어·상태 규칙</strong>을 고정한다.<br>픽셀 단위 복제가 아니라 <strong>규칙 단위</strong>로 화면을 판정한다. 구현 시 붙여넣는 상세 스펙은 <code>mobile-web-design-prompt.md</code>를 사용한다.</p>
+<hr>
+<h2 id="0-디자인-시안-시각-목업">0. 디자인 시안 (시각 목업)</h2>
+<p>토큰·위계·상태 규칙을 <strong>그려 둔 고정본</strong>이다. 구현 검수 시 이 시안과 <strong>규칙 단위</strong>로 대조한다.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>화면</th>
+<th>시안 포인트 (v2.2)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>이슈 인박스</strong></td>
+<td>활성만 · 필터 4칩 · 경과 14px/700 mono · 부서 병기 · 담당 1인 · Ack 카드 없음</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>이슈 상세</strong></td>
+<td>히어로 34px 경과 · sourceType 로그 · 하단 Ack | ☎ · 담당 전체</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>로그 상세</strong></td>
+<td>mono 원문 · Critical 하이라이트 · <code>▮▮▮</code> 마스킹 · 전후 ±30초</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Ack 바텀시트</strong></td>
+<td>필수 3필드 · 원인 퀵 칩 · Silence 구간 mono · 풀폭 액션 블루 CTA</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>관계자 연락</strong></td>
+<td>전화(초록)/SMS(파랑) · SMS 요약 자동 첨부 · Ack와 슬롯 공유</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>이력</strong></td>
+<td>재발 횟수 mono · 원인 미확정 뮤트</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>설정</strong></td>
+<td>권한 뱃지 · 테마 다크 기본 · V1 알림 점선 예약</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>태블릿 스플릿</strong></td>
+<td>좌 320px · 선택 카드 액션 블루 링 · 우 스택 + 액션 바</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>상태 6종</strong></td>
+<td>빈 / 로딩 / 오류 / 권한(블러+자물쇠) / 오프라인 / 스테일</td>
+</tr>
+</tbody></table>
+<p><strong>목업 파일</strong>: <a href="mockups.html"><code>mockups/screens.html</code></a> (폰 프레임 HTML · 토큰 CSS)<br><strong>웹에서 보기</strong>: 문서 사이트 상단 <strong>시안</strong> 탭, 또는 배포 URL의 <code>/mockups.html</code></p>
+<blockquote>
+<p>인박스 Silence 뱃지·ACK 카드 표기는 <strong>v2.1에서 폐기</strong>했다. 구 아티팩트 v1.2와 충돌하면 <strong>본 시안·본 문서가 우선</strong>이다.</p>
+</blockquote>
+<hr>
+<h2 id="1-한-줄-컨셉">1. 한 줄 컨셉</h2>
+<blockquote>
+<p><strong>시간이 주인공인 장애 대응 도구</strong><br>대시보드를 줄인 것이 아니라, <strong>경과·신선도·Silence</strong>를 시그니처로 둔다.</p>
+</blockquote>
+<p>사용자는 침대에서 한 손으로 조작하는 상황실 OP와, 새벽에 호출당한 개발/운영 담당자다.<br>3분 안에 “지금 뭐가 터졌고, 어디고, 로그/그래프는, Ack 또는 누구에게 연락할지”만 남긴다.</p>
+<hr>
+<h2 id="2-디자인-원칙">2. 디자인 원칙</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>원칙</th>
+<th>실천</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>대응 도구, 관제 축소판 아님</strong></td>
+<td>차트 과다·헬스 그리드 홈 금지. 인박스 = 활성 이슈만</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>시간이 주인공</strong></td>
+<td>경과 타이머를 카드·히어로에 최우선 위계로 배치</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>한 손·새벽·오조작 방지</strong></td>
+<td>터치 44px+, 하단 Ack/☎ 영역 분리, safe-area, 44px 미만 금지</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>이중 부호화</strong></td>
+<td>심각도는 항상 <strong>색 + 텍스트 라벨</strong>. 색맹·저대비 대비</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>조용함 ≠ 고장남</strong></td>
+<td>빈 인박스 vs 5xx/스테일/오프라인을 시각·카피로 분리 (R11)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>가려짐 2종 혼용 금지</strong></td>
+<td>무권한=블러+자물쇠 / 마스킹=<code>▮▮▮</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>데이터는 모노스페이스</strong></td>
+<td>시간·경과·호스트·오류코드·로그·수치 = JetBrains Mono</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>읽기 전용 기본</strong></td>
+<td>명령 실행 UI 없음. 쓰기 = Ack · Runbook 체크(V1)뿐</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>콘솔과 팔레트 정합</strong></td>
+<td>slate 스케일·도메인 의미는 sentinos-console 선례</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>모션 절제</strong></td>
+<td>시트 전환 + 타이머 틱만. <code>prefers-reduced-motion</code> 존중</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-시각-언어">3. 시각 언어</h2>
+<h3 id="31-컬러-토큰-임의-변경-절대-금지">3.1 컬러 토큰 (임의 변경 절대 금지)</h3>
+<p><strong>다크가 기본.</strong> <code>:root</code> = 다크, <code>.light</code> = 오버라이드. 첫 실행은 무조건 다크.</p>
+<table>
+<thead>
+<tr>
+<th>역할</th>
+<th>다크 (<code>:root</code>)</th>
+<th>라이트 (<code>.light</code>)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bg</td>
+<td><code>#020617</code></td>
+<td><code>#F3F5F7</code></td>
+</tr>
+<tr>
+<td>surface</td>
+<td><code>#0F172A</code></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td>surface-2</td>
+<td><code>#1E293B</code></td>
+<td><code>#E9EDF1</code></td>
+</tr>
+<tr>
+<td>text</td>
+<td><code>#F8FAFC</code></td>
+<td><code>#17202A</code></td>
+</tr>
+<tr>
+<td>muted</td>
+<td><code>#94A3B8</code></td>
+<td><code>#5C6874</code></td>
+</tr>
+<tr>
+<td>border</td>
+<td><code>rgba(255,255,255,.10)</code></td>
+<td><code>#D9DFE6</code></td>
+</tr>
+</tbody></table>
+<p><strong>심각도 — 테마 블록 밖 고정</strong> (의미색, 오버라이드 구조적으로 불가해야 함):</p>
+<table>
+<thead>
+<tr>
+<th>등급</th>
+<th>색</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Critical</td>
+<td><code>#BF1B00</code></td>
+</tr>
+<tr>
+<td>Major</td>
+<td><code>#99440A</code></td>
+</tr>
+<tr>
+<td>Minor</td>
+<td><code>#D1CF2B</code></td>
+</tr>
+<tr>
+<td>정상 / 해소 / 연락 액션</td>
+<td><code>#3DD68C</code> (라이트 <code>#157F4C</code>)</td>
+</tr>
+</tbody></table>
+<p><strong>액션 블루</strong> — 버튼·링크·선택 상태에만. 정보 표시에 사용 금지.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>다크</td>
+<td><code>#58A6E8</code></td>
+</tr>
+<tr>
+<td>라이트</td>
+<td><code>#1E6FBF</code></td>
+</tr>
+</tbody></table>
+<h3 id="32-색-사용-규칙">3.2 색 사용 규칙</h3>
+<ul>
+<li>심각도: 카드 <strong>좌측 스트라이프 3.5px</strong> · 뱃지 배경 위주.<br><strong>다크 배경 위 소형 텍스트에 심각도 색 단독 사용 금지</strong> (대비 부족).</li>
+<li>선택 칩·포커스 카드 외곽선: <strong>액션 블루</strong> (심각도 색과 경쟁 금지).</li>
+<li>System Health “GOOD”: 초록 아웃라인 필 등 <strong>정상색</strong> 계열.</li>
+</ul>
+<h3 id="33-타이포그래피">3.3 타이포그래피</h3>
+<table>
+<thead>
+<tr>
+<th>용도</th>
+<th>폰트</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UI / 본문</td>
+<td><strong>Pretendard</strong></td>
+<td>로컬 자가호스팅, 폴백 시스템 산세리프</td>
+</tr>
+<tr>
+<td>데이터</td>
+<td><strong>JetBrains Mono</strong> + <code>tabular-nums</code></td>
+<td>시간·경과·오류코드·호스트·로그·수치 <strong>전부</strong></td>
+</tr>
+</tbody></table>
+<p>모노스페이스는 “관제의 재료”를 구분하는 시각 언어다.<br>본문 산세리프와 섞어 쓰면 안 된다 — <strong>재료는 mono, 설명은 Pretendard</strong>.</p>
+<h3 id="34-시그니처-경과-타이머">3.4 시그니처 — 경과 타이머</h3>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>스펙</th>
+<th>동작</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>인박스 카드 우상단</td>
+<td>14px / 700 mono</td>
+<td>“MM:SS 경과” (활성 이슈만 — Silence 뱃지 없음, v2.1)</td>
+</tr>
+<tr>
+<td>이슈 상세 히어로</td>
+<td>34px / 800 mono</td>
+<td>실시간 틱</td>
+</tr>
+<tr>
+<td>상세 · Ack 직후 (같은 화면 체류)</td>
+<td>동일 히어로</td>
+<td><strong>Silence 만료까지 카운트다운</strong>으로 전환</td>
+</tr>
+<tr>
+<td>가이드 앱바 (V1)</td>
+<td>경과 또는 Silence 카운트다운</td>
+<td>GD 스펙</td>
+</tr>
+</tbody></table>
+<p>모든 시간 표시는 <strong>서버 시각 오프셋 보정</strong> 전제 (R11②).</p>
+<hr>
+<h2 id="4-레이아웃반응형">4. 레이아웃·반응형</h2>
+<h3 id="41-넓이로-가른다-기기ua-아님">4.1 넓이로 가른다 (기기/UA 아님)</h3>
+<table>
+<thead>
+<tr>
+<th>뷰포트</th>
+<th>모드</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>~767px</td>
+<td><strong>모바일 단일 스택</strong> — 목록 → 상세 → 로그/가이드가 페이지 전환</td>
+</tr>
+<tr>
+<td>768px+ (<code>md</code>)</td>
+<td><strong>태블릿 마스터·디테일</strong> — 좌 인박스 <strong>320px 고정</strong> + 우 디테일 패널</td>
+</tr>
+</tbody></table>
+<ul>
+<li>회전·리사이즈 시 두 모드 <strong>자연 전환</strong> (같은 트리, CSS 분기).</li>
+<li>태블릿 우측 = <strong>스택 내비게이션</strong> (상세 → 로그 → 가이드 push/pop, 브레드크럼/뒤로).</li>
+<li>태블릿 하단 탭 바 = <strong>좌측 마스터 패널 하단</strong>. 우측은 자체 액션 바.</li>
+</ul>
+<h3 id="42-가로-치수-규칙">4.2 가로 치수 규칙</h3>
+<ul>
+<li>기본: <code>%</code> · <code>fr</code> · <code>flex</code> · <code>minmax()</code> · <code>clamp()</code>.</li>
+<li><strong>고정 px은 규격인 곳만</strong> — 예: 인박스 패널 <code>320px</code>, 터치 타깃 <code>44px</code>. 사용 시 이유 한 줄.</li>
+<li>세로는 고정값 허용.</li>
+</ul>
+<h3 id="43-내비게이션-모드-폴더-답">4.3 내비게이션 모드 (폴더 = 답)</h3>
+<table>
+<thead>
+<tr>
+<th>모드</th>
+<th>UI 하단</th>
+<th>해당 화면</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>탭 내비게이션</strong></td>
+<td>탭 바 (이슈 · 이력 · 설정)</td>
+<td>탭 루트</td>
+</tr>
+<tr>
+<td><strong>스택 내비게이션</strong></td>
+<td>액션 바 (<code>Ack</code> | <code>☎ 관계자</code>)</td>
+<td>상세 · 가이드 · 로그 상세</td>
+</tr>
+</tbody></table>
+<p>탭 바와 액션 바는 <strong>같은 자리를 두고 배타 경쟁</strong>.<br><code>usePathname()</code> 분기로 숨기지 말고, 라우트 그룹(tabs / stack)으로 표현한다.</p>
+<h3 id="44-webview-모바일-크롬">4.4 WebView · 모바일 크롬</h3>
+<ul>
+<li>safe-area: 하단 탭/액션/시트에 <code>env(safe-area-inset-bottom)</code>.</li>
+<li>높이: <code>100dvh</code> ( <code>100vh</code> 금지 ).</li>
+<li>문서 오버스크롤 바운스 억제. 시트 내부 스크롤 격리.</li>
+<li><code>-webkit-tap-highlight-color: transparent</code>.</li>
+<li>입력 <code>font-size &gt;= 16px</code> (iOS 줌 방지).</li>
+<li>viewport <code>width=device-width</code> (300ms 탭 지연 제거).</li>
+<li>관계자: 네이티브 <code>tel:</code> / <code>sms:</code>.</li>
+</ul>
+<hr>
+<h2 id="5-상태-6종-모든-화면-필수">5. 상태 6종 — 모든 화면 필수</h2>
+<p>미구현 상태 화면은 <strong>미완성</strong>이다.</p>
+<table>
+<thead>
+<tr>
+<th>상태</th>
+<th>시각·카피 방향</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>빈</strong></td>
+<td>인박스: “지금은 조용합니다 · 마지막 확인 HH:MM”</td>
+</tr>
+<tr>
+<td><strong>로딩</strong></td>
+<td>스켈레톤 (레이아웃 점프 최소화)</td>
+</tr>
+<tr>
+<td><strong>오류</strong></td>
+<td>원인 + 다음 행동 — “로그를 불러오지 못했습니다 · 다시 시도”</td>
+</tr>
+<tr>
+<td><strong>권한 없음</strong></td>
+<td>블러 + 자물쇠 오버레이 / 액션 🔒</td>
+</tr>
+<tr>
+<td><strong>오프라인</strong></td>
+<td>네트워크 단절 명시 + 재시도</td>
+</tr>
+<tr>
+<td><strong>스테일</strong></td>
+<td>상단 배너 “HH:MM 이후 갱신 실패 — 표시 중인 목록은 과거입니다” + 목록 뮤트</td>
+</tr>
+</tbody></table>
+<p><strong>빈(200 조용함)</strong> 과 <strong>5xx/스테일(고장)</strong> 을 같은 빈 상태로 합치지 않는다.</p>
+<hr>
+<h2 id="6-정보-위계-화면별-컨셉">6. 정보 위계 — 화면별 컨셉</h2>
+<h3 id="화면-1-이슈-인박스-issues">화면 1 — 이슈 인박스 (<code>/issues</code>)</h3>
+<p><strong>목표</strong>: 0.5초 안에 “몇 건 · 가장 급한 것 · 얼마나 지났는지”.</p>
+<ul>
+<li>헤더: “이슈” + <strong>System Health</strong> 뱃지(웹 산정값) + mono 캡션 “마지막 확인 · 1분마다 갱신”.</li>
+<li>필터: 전체 / Critical / Major / Minor (액션 블루 선택).</li>
+<li>카드:
+1행 — 심각도 라벨(mono) + <strong>경과 타이머</strong><br>2행 — 오류 요약 (강조)<br>3행 — mono 메타 (시스템·업무·부서 · 담당 1인 · 발생 시각)</li>
+<li>좌측 심각도 스트라이프.</li>
+<li><strong>Ack된 카드는 목록에 없음</strong> (v2.1). Silence 뱃지 디자인은 인박스에 적용하지 않음.</li>
+<li>새 이슈 배너 · 스크롤 점프 금지.</li>
+</ul>
+<h3 id="화면-2-이슈-상세-issuesid">화면 2 — 이슈 상세 (<code>/issues/[id]</code>)</h3>
+<p><strong>목표</strong>: 워룸형 한 장 스크롤 — “무엇·어디·얼마나·다음에 볼 재료”.</p>
+<p>위계 위→아래:</p>
+<ol>
+<li>앱바 (‹ · 호스트 뱃지 · 새 이슈 미니 배지)  </li>
+<li><strong>히어로</strong> — 심각도·sourceType · 건수 · <strong>대형 경과</strong> · 제목 · mono 메타 2줄 · 담당 목록  </li>
+<li>AI 요약 스트립 (V1, 근거 있을 때만)  </li>
+<li>sourceType 본문 — 로그 리스트 <strong>또는</strong> 고정 스냅샷 그래프  </li>
+<li><strong>하단 액션 바</strong> — Ack | ☎</li>
+</ol>
+<p>히어로는 surface, 스트라이프 4px. 그래프는 SVG 스냅샷 1장, 조작 UI 없음.</p>
+<h3 id="화면-3-로그-상세">화면 3 — 로그 상세</h3>
+<p><strong>목표</strong>: 원문 가독 + 오류 하이라이트 + 시간 문맥.</p>
+<ul>
+<li>mono 8~12px, 줄바꿈 유지, Critical 틴트 하이라이트.</li>
+<li>마스킹 <code>▮▮▮</code>, 스택 잘림 없음.</li>
+<li>전후 로그 · 복사 · 공유(콘솔 링크).</li>
+</ul>
+<h3 id="화면-4-ack-바텀시트">화면 4 — Ack 바텀시트</h3>
+<p><strong>목표</strong>: 필수 3필드 빠르게 · Silence 의미 명확.</p>
+<ul>
+<li>dim + 고정 높이 시트. 키보드 올라와도 저장 버튼 가림 금지.</li>
+<li>조치예정 구간 mono 캡션. 2h 경고. 원인 퀵 칩. 재사용 출처 뱃지.</li>
+<li>풀폭 액션 블루 CTA: “저장 — Ack 처리 · 알림 해제”.</li>
+<li>토스트: “상황인지 완료 처리됨 · 알림 해제”.</li>
+</ul>
+<h3 id="화면-5-관계자-연락-레이어">화면 5 — 관계자 연락 레이어</h3>
+<p><strong>목표</strong>: 이탈 없이 전화/SMS.</p>
+<ul>
+<li>Ack와 슬롯 공유. 행: 이니셜 · 이름/역할 · 전화 mono · <a href="%EC%B4%88%EB%A1%9D">전화</a> / <a href="%ED%8C%8C%EB%9E%91">SMS</a>.</li>
+<li>캡션: SMS 요약 자동 첨부.</li>
+</ul>
+<h3 id="화면-6-가이드-v1">화면 6 — 가이드 (V1)</h3>
+<p><strong>목표</strong>: Runbook 수행 + AI는 근거 있을 때만 · 저작 주체 톤 분리.</p>
+<ul>
+<li>caution 카드 → 확인 후 축약.</li>
+<li>Runbook 단계 카드(확인/명령/연락). 체크 1탭 / 해제 확인.</li>
+<li>AI 섹션은 surface-2로 톤 분리. 근거 미연결 항목 비렌더.</li>
+<li>동일 액션 바 (수행 기록 첨부 캡션 · ☎ 미완료 뱃지).</li>
+</ul>
+<h3 id="화면-7-이력">화면 7 — 이력</h3>
+<p><strong>목표</strong>: 재발 패턴 + 조치 재사용 코퍼스.</p>
+<ul>
+<li>검색 · 필터 칩. 그룹 카드에 재발 횟수 mono/700.</li>
+<li>원인 미확정 = 뮤트 · 재사용 버튼 없음.</li>
+</ul>
+<h3 id="화면-8-설정">화면 8 — 설정</h3>
+<p><strong>목표</strong>: 신원·권한 확인 · 테마 · 버전. 잡동사니 금지.</p>
+<ul>
+<li>카드 3 + 점선 예약(알림 V1).</li>
+<li>테마 세그먼트: 다크(기본) | 라이트 | 시스템.</li>
+</ul>
+<hr>
+<h2 id="7-인터랙션카피">7. 인터랙션·카피</h2>
+<h3 id="71-인터랙션">7.1 인터랙션</h3>
+<table>
+<thead>
+<tr>
+<th>규칙</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>터치 타깃</td>
+<td>≥ 44px. Ack 영역과 ☎ 영역 분리</td>
+</tr>
+<tr>
+<td>시트</td>
+<td>Ack / 관계자 동시 펼침 없음</td>
+</tr>
+<tr>
+<td>그래프</td>
+<td>팬/줌/탭 없음</td>
+</tr>
+<tr>
+<td>명령어</td>
+<td>실행 버튼 없음 · <strong>[복사]</strong> 만</td>
+</tr>
+<tr>
+<td>모션</td>
+<td>시트 + 타이머 틱 · reduced-motion</td>
+</tr>
+</tbody></table>
+<h3 id="72-카피-톤">7.2 카피 톤</h3>
+<ul>
+<li><strong>원인 + 다음 행동</strong> (“불러오지 못했습니다 · 다시 시도”).</li>
+<li>성공은 결과 상태 언어 (“상황인지 완료 처리됨 · 알림 해제”).</li>
+<li>빈 화면은 안심 + 신선도 (“지금은 조용합니다 · 마지막 확인 HH:MM”).</li>
+<li>스테일은 과거 데이터임을 <strong>명시</strong>.</li>
+</ul>
+<hr>
+<h2 id="8-컴포넌트-재사용-경계">8. 컴포넌트 재사용 경계</h2>
+<p>구현 시 공통으로 분리할 단위 (프롬프트와 동일):</p>
+<ul>
+<li>심각도 스트라이프 카드  </li>
+<li>경과 타이머 (크기 variant)  </li>
+<li>하단 탭 바 / 하단 액션 바  </li>
+<li>바텀시트 셸 (Ack · 관계자)  </li>
+<li>스테일 배너 · 토스트 · 필터 칩  </li>
+<li>권한 블러 오버레이 · 마스킹 텍스트</li>
+</ul>
+<p>shadcn/ui 변수 체계와 호환. 토큰은 CSS 변수(<code>@theme</code> / <code>:root</code>)로만 주입 — 컴포넌트에 매직 컬러 하드코딩 금지.</p>
+<hr>
+<h2 id="9-콘솔플랫폼-정합">9. 콘솔·플랫폼 정합</h2>
+<table>
+<thead>
+<tr>
+<th>영역</th>
+<th>정합 방식</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>팔레트</td>
+<td>sentinos-console shadcn slate 스케일과 동일 계열</td>
+</tr>
+<tr>
+<td>심각도</td>
+<td>모바일 고정 규약 (콘솔과 텍스트 라벨 병기 철학 공유)</td>
+</tr>
+<tr>
+<td>업무·담당 표기</td>
+<td>v2.2 — 부서명 병기, 인박스 1인 / 상세 전체, <code>owners/resolve</code></td>
+</tr>
+<tr>
+<td>Ack 의미</td>
+<td>웹 Sentinos 상황인지 완료처리 = Silence 스누즈</td>
+</tr>
+<tr>
+<td>이슈 상태</td>
+<td>웹 Sentinos 모델 동일 (모바일 임의 상태 신설 금지)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="10-검증-방법">10. 검증 방법</h2>
+<ol>
+<li><strong>규칙 단위</strong>로 시안·구현 대조 (토큰·위계·상태 6종·가려짐 2종).  </li>
+<li><code>?demo=</code> 픽스처로 상태 6종 재현.  </li>
+<li>768px 경계에서 스택 ↔ 스플릿 전환.  </li>
+<li><code>warroom-op</code> · <code>dev-operator</code> 페르소나 리뷰 후 반영.  </li>
+<li>토큰 값 임의 변경 PR은 거부.</li>
+</ol>
+<hr>
+<h2 id="11-관련-문서">11. 관련 문서</h2>
+<ul>
+<li><a href="planning.html">기획 v2.2</a></li>
+<li><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/design/mobile-web-design-prompt.md">구현용 디자인 프롬프트</a></li>
+<li><a href="https://github.com/BDK-CHOI/sentinos-mobile/blob/main/docs/superpowers/specs/2026-07-06-sentinos-mobile-mvp-design.md">MVP 설계 스펙</a></li>
+<li>시안 v1.2: <a href="https://claude.ai/code/artifact/b92ad3fe-5bf6-4872-8b8d-90afea4737d9">https://claude.ai/code/artifact/b92ad3fe-5bf6-4872-8b8d-90afea4737d9</a></li>
+</ul>
+<hr>
+<h2 id="12-개정-이력">12. 개정 이력</h2>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-07-06</td>
+<td>시안 v1 승인 · slate 토큰 · 고정 심각도 · 태블릿 스플릿 MVP</td>
+</tr>
+<tr>
+<td>2026-07-08</td>
+<td>디자인 프롬프트 정본 (<code>mobile-web-design-prompt.md</code>)</td>
+</tr>
+<tr>
+<td>2026-07-10</td>
+<td>v2.1 인박스(활성만) · v2.2 담당/부서 표기 — 인박스 Silence 뱃지 시각 언어 폐기</td>
+</tr>
+<tr>
+<td><strong>2026-07-13</strong></td>
+<td>본 디자인 컨셉 문서 통합 발행</td>
+</tr>
+</tbody></table>
+
+    </main>
+  </div>
+  <footer class="site-footer">
+    <p>원본 Markdown이 정본입니다 · <code>npm run docs:build</code>로 재생성</p>
+  </footer>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "dark",
+      securityLevel: "loose",
+      fontFamily: "Pretendard, system-ui, sans-serif",
+    });
+  </script>
+</body>
+</html>
