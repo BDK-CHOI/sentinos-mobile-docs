@@ -151,40 +151,44 @@
       flex-direction: column;
       min-width: 0;
     }
-    /* Phone mockups: 1080×2340 aspect, ~10% wider visual than previous */
+    /*
+     * Phone mockups — mockups.css 와 동일 비율
+     * HTML 시안: 352×764 (1080×2340 portrait, 폭 +10% vs 320)
+     * PDF: 같은 aspect-ratio, object-fit: contain (크롭/왜곡 금지)
+     */
     .shot-card.phone .shot-frame {
-      /* 3열 기준 셀 대비 표시 폭 확대 (기존 대비 약 +10%) */
-      width: min(100%, 62mm);
+      /* 3열 셀 안에서 동일 폭·비율 박스 */
+      width: 100%;
+      max-width: 58mm;
       aspect-ratio: 1080 / 2340;
       height: auto;
       margin: 0 auto;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      background: #000;
-      border-radius: 10px;
+      display: block;
+      background: #020617;
+      border-radius: 12px;
       overflow: hidden;
       flex: 0 0 auto;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
     .shot-card.phone img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: contain;
+      object-position: center center;
       display: block;
+      /* 캡처 PNG = phone-frame 전체. 비율 유지하며 프레임에 맞춤 */
     }
-    /* Tablet / wide */
+    /* Tablet — mockups tablet-frame ~ 920×520 → 약 16:9 */
     .shot-card.wide .shot-frame {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 920 / 520;
       height: auto;
-      min-height: 92mm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      border-radius: 10px;
+      max-height: 95mm;
+      display: block;
+      background: #020617;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
     .shot-card.wide img {
       width: 100%;
@@ -305,7 +309,7 @@
 
   <!-- PAGE 1 Cover -->
   <section class="page">
-    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.3 · 2026-07-13</p>
+    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.4 · 2026-07-13</p>
     <div class="cover-center">
       <h1>장애 인지에서 초동까지,<br /><span class="accent">손 안에서 3분</span></h1>
       <p class="slogan">식별 → 즉시 손 → 필요할 때 깊이</p>
@@ -329,7 +333,7 @@
       <li>핵심 기능 및 효과 — 결론</li>
     </ol>
     <div class="footer-note">
-      <span>Sentinos Mobile Brief v1.3</span>
+      <span>Sentinos Mobile Brief v1.4</span>
       <span>1 / 6</span>
     </div>
   </section>
@@ -339,7 +343,7 @@
     <p class="eyebrow">01 · DESIGN MOCKUPS</p>
     <h2>디자인 시안 — 인박스 · 상세 · 조치</h2>
     <p class="muted" style="font-size:8.5pt;margin-bottom:4px">
-      mockups.html 실 캡처 · 폰 1080×2340 · 폭 +10% · 변형 C
+      mockups.html 과 동일 비율 1080×2340 (시안 352×764) · object-fit contain
     </p>
     <div class="shot-row">
       <figure class="shot-card phone">
@@ -439,7 +443,7 @@
       </figcaption>
     </figure>
     <div class="footer-note">
-      <span>폰 1080×2340 · 폭 62mm(+10%) · 동일 비율</span>
+      <span>시안 HTML 동일 비율 1080×2340</span>
       <span>4 / 6</span>
     </div>
   </section>
@@ -662,7 +666,7 @@
     </p>
 
     <div class="footer-note">
-      <span>Sentinos Mobile · 2026-07-13 · Brief v1.3</span>
+      <span>Sentinos Mobile · 2026-07-13 · Brief v1.4</span>
       <span>6 / 6</span>
     </div>
   </section>
