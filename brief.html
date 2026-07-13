@@ -152,23 +152,30 @@
       min-width: 0;
     }
     /*
-     * Phone mockups — mockups.css 와 동일 비율
-     * HTML 시안: 352×764 (1080×2340 portrait, 폭 +10% vs 320)
-     * PDF: 같은 aspect-ratio, object-fit: contain (크롭/왜곡 금지)
+     * Phone mockups — mockups.css 동일 비율 1080×2340
+     * 한 페이지 6화면(2행×3열) · 프레임 크기 통일
      */
+    .shot-row.six {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 8px;
+      margin: 2px 0 4px;
+    }
+    .shot-card.phone {
+      padding: 5px 5px 6px;
+      border-radius: 10px;
+    }
     .shot-card.phone .shot-frame {
-      /* 3열 셀 안에서 동일 폭·비율 박스 */
       width: 100%;
-      max-width: 58mm;
+      max-width: 52mm;
       aspect-ratio: 1080 / 2340;
       height: auto;
       margin: 0 auto;
       display: block;
       background: #020617;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
       flex: 0 0 auto;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
     }
     .shot-card.phone img {
       width: 100%;
@@ -176,7 +183,15 @@
       object-fit: contain;
       object-position: center center;
       display: block;
-      /* 캡처 PNG = phone-frame 전체. 비율 유지하며 프레임에 맞춤 */
+    }
+    .shot-card.phone figcaption {
+      margin-top: 4px;
+      font-size: 6.5pt;
+      line-height: 1.25;
+    }
+    .shot-card.phone .cap-title {
+      font-size: 7.5pt;
+      margin-bottom: 1px;
     }
     /* Tablet — mockups tablet-frame ~ 920×520 → 약 16:9 */
     .shot-card.wide .shot-frame {
@@ -309,7 +324,7 @@
 
   <!-- PAGE 1 Cover -->
   <section class="page">
-    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.4 · 2026-07-13</p>
+    <p class="eyebrow">SENTINOS MOBILE · BRIEF v1.5 · 2026-07-13</p>
     <div class="cover-center">
       <h1>장애 인지에서 초동까지,<br /><span class="accent">손 안에서 3분</span></h1>
       <p class="slogan">식별 → 즉시 손 → 필요할 때 깊이</p>
@@ -326,129 +341,78 @@
     </div>
     <h3 style="margin-top:22px">목차</h3>
     <ol class="toc">
-      <li>디자인 시안 — 인박스 · 상세 · 조치</li>
-      <li>디자인 시안 — 로그 · Ack · 관계자</li>
-      <li>디자인 시안 — AI 탭 · 태블릿</li>
+      <li>디자인 시안 — 인박스·상세·조치·로그·Ack·관계자 (1페이지)</li>
       <li>망 아키텍처 구성도 — 외부 / DMZ / 내부망</li>
       <li>핵심 기능 및 효과 — 결론</li>
     </ol>
     <div class="footer-note">
-      <span>Sentinos Mobile Brief v1.4</span>
-      <span>1 / 6</span>
+      <span>Sentinos Mobile Brief v1.5</span>
+      <span>1 / 4</span>
     </div>
   </section>
 
-  <!-- PAGE 2 Design shots 1 -->
+  <!-- PAGE 2 — all 6 primary screens -->
   <section class="page">
     <p class="eyebrow">01 · DESIGN MOCKUPS</p>
-    <h2>디자인 시안 — 인박스 · 상세 · 조치</h2>
-    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">
-      mockups.html 과 동일 비율 1080×2340 (시안 352×764) · object-fit contain
+    <h2>디자인 시안 — 핵심 화면 6종</h2>
+    <p class="muted" style="font-size:8pt;margin-bottom:3px">
+      인박스 · 상세 · 조치 · 로그 · Ack · 관계자 · 비율 1080×2340 (시안 HTML과 동일)
     </p>
-    <div class="shot-row">
+    <div class="shot-row six">
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/01-inbox.png" alt="화면1 이슈 인박스" /></div>
         <figcaption>
-          <span class="cap-title">화면 1 · 이슈 인박스</span>
-          활성만 · 경과 타이머 · 필터 4칩
+          <span class="cap-title">1 · 인박스</span>
+          활성만 · 경과 타이머
         </figcaption>
       </figure>
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/02-detail.png" alt="화면2 이슈 상세" /></div>
         <figcaption>
-          <span class="cap-title">화면 2 · 이슈 상세 (Main)</span>
-          식별 · AI CTA · 로그 미리보기
+          <span class="cap-title">2 · 상세 (Main)</span>
+          식별 · AI CTA
         </figcaption>
       </figure>
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/03-action.png" alt="화면3 조치" /></div>
         <figcaption>
-          <span class="cap-title">화면 3 · 조치 Sub1~4</span>
-          기본 매뉴얼 · 칩 전환
+          <span class="cap-title">3 · 조치 Sub1~4</span>
+          매뉴얼 기본 랜딩
         </figcaption>
       </figure>
-    </div>
-    <div class="note-bar">
-      <strong style="color:#fff">식별 → 즉시 손 → 필요할 때 깊이</strong> —
-      Main과 조치를 화면 분리. CTA → 조치, 기본 칩 = Sub1 매뉴얼.
-    </div>
-    <div class="footer-note">
-      <span>https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html</span>
-      <span>2 / 6</span>
-    </div>
-  </section>
-
-  <!-- PAGE 3 phones 2 -->
-  <section class="page">
-    <p class="eyebrow">01 · DESIGN MOCKUPS (계속)</p>
-    <h2>디자인 시안 — 로그 · Ack · 관계자</h2>
-    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">동일 프레임 크기 · 3열 정렬</p>
-    <div class="shot-row">
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/04-log.png" alt="로그 상세" /></div>
         <figcaption>
-          <span class="cap-title">화면 4 · 로그 상세</span>
-          원문 mono · 마스킹 ▮▮▮
+          <span class="cap-title">4 · 로그</span>
+          원문 · 마스킹
         </figcaption>
       </figure>
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/05-ack.png" alt="Ack 시트" /></div>
         <figcaption>
-          <span class="cap-title">화면 5 · Ack</span>
-          Silence · 3필수 입력
+          <span class="cap-title">5 · Ack</span>
+          Silence · 3필수
         </figcaption>
       </figure>
       <figure class="shot-card phone">
         <div class="shot-frame"><img src="assets/shots/06-contact.png" alt="관계자" /></div>
         <figcaption>
-          <span class="cap-title">화면 6 · 관계자</span>
-          tel: / sms: · 요약 첨부
+          <span class="cap-title">6 · 관계자</span>
+          tel / sms
         </figcaption>
       </figure>
     </div>
-    <div class="note-bar">
-      시각 토큰: Critical <span style="color:#BF1B00">#BF1B00</span> ·
-      Major <span style="color:#C47A3A">#99440A</span> ·
-      Minor <span style="color:#D1CF2B">#D1CF2B</span> ·
-      시그니처 = <strong style="color:#fff">경과 타이머</strong>
+    <div class="note-bar" style="font-size:7.5pt;padding:5px 8px">
+      <strong style="color:#fff">식별 → 즉시 손 → 필요할 때 깊이</strong> —
+      상세(Main) CTA → 조치(Sub). 기본 칩 = 매뉴얼. 비율·프레임 6장 동일.
     </div>
     <div class="footer-note">
-      <span>시안 캡처 · assets/shots/*</span>
-      <span>3 / 6</span>
+      <span>https://bdk-choi.github.io/sentinos-mobile-docs/mockups.html</span>
+      <span>2 / 4</span>
     </div>
   </section>
 
-  <!-- PAGE 4 AI + tablet -->
-  <section class="page">
-    <p class="eyebrow">01 · DESIGN MOCKUPS (계속)</p>
-    <h2>디자인 시안 — AI 탭 · 태블릿</h2>
-    <p class="muted" style="font-size:8.5pt;margin-bottom:4px">폰 프레임 동일 높이 · 태블릿 전폭</p>
-    <div class="shot-row">
-      <div></div>
-      <figure class="shot-card phone">
-        <div class="shot-frame"><img src="assets/shots/03-action-ai.png" alt="조치 AI 탭" /></div>
-        <figcaption>
-          <span class="cap-title">화면 3 · Sub2 AI 분석 &amp; 조치제안</span>
-          EVENT · qwen2.5 · 근거 필수 · surface-2
-        </figcaption>
-      </figure>
-      <div></div>
-    </div>
-    <h3>태블릿 마스터–디테일 (768px+)</h3>
-    <figure class="shot-card wide">
-      <div class="shot-frame"><img src="assets/shots/07-tablet.png" alt="태블릿 스플릿" /></div>
-      <figcaption>
-        <span class="cap-title">태블릿 스플릿 · 좌 인박스 320px + 우 상세/조치</span>
-        선택 카드 = 액션 블루 외곽선 · 심각도 색과 경쟁 금지
-      </figcaption>
-    </figure>
-    <div class="footer-note">
-      <span>시안 HTML 동일 비율 1080×2340</span>
-      <span>4 / 6</span>
-    </div>
-  </section>
-
-  <!-- PAGE 4 Architecture -->
+  <!-- PAGE 3 Architecture -->
   <section class="page">
     <p class="eyebrow">02 · NETWORK ARCHITECTURE</p>
     <h2>망 아키텍처 구성도</h2>
@@ -573,11 +537,11 @@
 
     <div class="footer-note">
       <span>출처: 기획 v2.2 · wiki 기술스택·아키텍처</span>
-      <span>5 / 6</span>
+      <span>3 / 4</span>
     </div>
   </section>
 
-  <!-- PAGE 6 Conclusion -->
+  <!-- PAGE 4 Conclusion -->
   <section class="page">
     <p class="eyebrow">03 · OUTCOMES</p>
     <h2>핵심 기능 및 효과 — 결론</h2>
@@ -666,8 +630,8 @@
     </p>
 
     <div class="footer-note">
-      <span>Sentinos Mobile · 2026-07-13 · Brief v1.4</span>
-      <span>6 / 6</span>
+      <span>Sentinos Mobile · 2026-07-13 · Brief v1.5</span>
+      <span>4 / 4</span>
     </div>
   </section>
 
